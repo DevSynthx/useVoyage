@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import project_z
+@testable import Voyage
 
 final class project_zTests: XCTestCase {
 

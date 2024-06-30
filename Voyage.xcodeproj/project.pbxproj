@@ -41,7 +41,7 @@
 		0CA288AA2C2D91D800077C6E /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA288A92C2D91D800077C6E /* CustomSlider.swift */; };
 		0CB09F3E2C27A67700C5BF3A /* InterestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB09F3D2C27A67700C5BF3A /* InterestView.swift */; };
 		0CC33DC32C0FE3B000F60F3A /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC33DC22C0FE3B000F60F3A /* AuthView.swift */; };
-		0CCA15DC2B7A455B00758383 /* project_zApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA15DB2B7A455B00758383 /* project_zApp.swift */; };
+		0CCA15DC2B7A455B00758383 /* Voyage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA15DB2B7A455B00758383 /* Voyage.swift */; };
 		0CCA15DE2B7A455B00758383 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA15DD2B7A455B00758383 /* ContentView.swift */; };
 		0CCA15E02B7A455D00758383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCA15DF2B7A455D00758383 /* Assets.xcassets */; };
 		0CCA15E32B7A455D00758383 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCA15E22B7A455D00758383 /* Preview Assets.xcassets */; };
@@ -116,16 +116,16 @@
 		0CA288A92C2D91D800077C6E /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		0CB09F3D2C27A67700C5BF3A /* InterestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestView.swift; sourceTree = "<group>"; };
 		0CC33DC22C0FE3B000F60F3A /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
-		0CCA15D82B7A455B00758383 /* project-z.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project-z.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0CCA15DB2B7A455B00758383 /* project_zApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = project_zApp.swift; sourceTree = "<group>"; };
+		0CCA15D82B7A455B00758383 /* Voyage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voyage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CCA15DB2B7A455B00758383 /* Voyage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voyage.swift; sourceTree = "<group>"; };
 		0CCA15DD2B7A455B00758383 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0CCA15DF2B7A455D00758383 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CCA15E22B7A455D00758383 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0CCA15E42B7A455D00758383 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0CCA15E72B7A455D00758383 /* project_z.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = project_z.xcdatamodel; sourceTree = "<group>"; };
-		0CCA15ED2B7A455D00758383 /* project-zTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "project-zTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CCA15ED2B7A455D00758383 /* VoyageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoyageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CCA15F12B7A455D00758383 /* project_zTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = project_zTests.swift; sourceTree = "<group>"; };
-		0CCA15F72B7A455D00758383 /* project-zUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "project-zUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CCA15F72B7A455D00758383 /* VoyageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoyageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CCA15FB2B7A455D00758383 /* project_zUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = project_zUITests.swift; sourceTree = "<group>"; };
 		0CCA15FD2B7A455D00758383 /* project_zUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = project_zUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0CCA160B2B7A514300758383 /* HTTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPService.swift; sourceTree = "<group>"; };
@@ -296,9 +296,9 @@
 		0CCA15D92B7A455B00758383 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0CCA15D82B7A455B00758383 /* project-z.app */,
-				0CCA15ED2B7A455D00758383 /* project-zTests.xctest */,
-				0CCA15F72B7A455D00758383 /* project-zUITests.xctest */,
+				0CCA15D82B7A455B00758383 /* Voyage.app */,
+				0CCA15ED2B7A455D00758383 /* VoyageTests.xctest */,
+				0CCA15F72B7A455D00758383 /* VoyageUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -309,7 +309,7 @@
 				0C7FDB902C30D77E008A26BA /* Info.plist */,
 				0CCA16132B7A7A1900758383 /* App */,
 				0CCA160A2B7A50E600758383 /* Core */,
-				0CCA15DB2B7A455B00758383 /* project_zApp.swift */,
+				0CCA15DB2B7A455B00758383 /* Voyage.swift */,
 				0CCA15DD2B7A455B00758383 /* ContentView.swift */,
 				0CCA15DF2B7A455D00758383 /* Assets.xcassets */,
 				0CCA15E42B7A455D00758383 /* Persistence.swift */,
@@ -424,9 +424,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0CCA15D72B7A455B00758383 /* project-z */ = {
+		0CCA15D72B7A455B00758383 /* Voyage */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0CCA16012B7A455D00758383 /* Build configuration list for PBXNativeTarget "project-z" */;
+			buildConfigurationList = 0CCA16012B7A455D00758383 /* Build configuration list for PBXNativeTarget "Voyage" */;
 			buildPhases = (
 				0CCA15D42B7A455B00758383 /* Sources */,
 				0CCA15D52B7A455B00758383 /* Frameworks */,
@@ -436,16 +436,16 @@
 			);
 			dependencies = (
 			);
-			name = "project-z";
+			name = Voyage;
 			packageProductDependencies = (
 			);
 			productName = "project-z";
-			productReference = 0CCA15D82B7A455B00758383 /* project-z.app */;
+			productReference = 0CCA15D82B7A455B00758383 /* Voyage.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0CCA15EC2B7A455D00758383 /* project-zTests */ = {
+		0CCA15EC2B7A455D00758383 /* VoyageTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0CCA16042B7A455D00758383 /* Build configuration list for PBXNativeTarget "project-zTests" */;
+			buildConfigurationList = 0CCA16042B7A455D00758383 /* Build configuration list for PBXNativeTarget "VoyageTests" */;
 			buildPhases = (
 				0CCA15E92B7A455D00758383 /* Sources */,
 				0CCA15EA2B7A455D00758383 /* Frameworks */,
@@ -456,14 +456,14 @@
 			dependencies = (
 				0CCA15EF2B7A455D00758383 /* PBXTargetDependency */,
 			);
-			name = "project-zTests";
+			name = VoyageTests;
 			productName = "project-zTests";
-			productReference = 0CCA15ED2B7A455D00758383 /* project-zTests.xctest */;
+			productReference = 0CCA15ED2B7A455D00758383 /* VoyageTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		0CCA15F62B7A455D00758383 /* project-zUITests */ = {
+		0CCA15F62B7A455D00758383 /* VoyageUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0CCA16072B7A455D00758383 /* Build configuration list for PBXNativeTarget "project-zUITests" */;
+			buildConfigurationList = 0CCA16072B7A455D00758383 /* Build configuration list for PBXNativeTarget "VoyageUITests" */;
 			buildPhases = (
 				0CCA15F32B7A455D00758383 /* Sources */,
 				0CCA15F42B7A455D00758383 /* Frameworks */,
@@ -474,9 +474,9 @@
 			dependencies = (
 				0CCA15F92B7A455D00758383 /* PBXTargetDependency */,
 			);
-			name = "project-zUITests";
+			name = VoyageUITests;
 			productName = "project-zUITests";
-			productReference = 0CCA15F72B7A455D00758383 /* project-zUITests.xctest */;
+			productReference = 0CCA15F72B7A455D00758383 /* VoyageUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -502,7 +502,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0CCA15D32B7A455B00758383 /* Build configuration list for PBXProject "project-z" */;
+			buildConfigurationList = 0CCA15D32B7A455B00758383 /* Build configuration list for PBXProject "Voyage" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -517,9 +517,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0CCA15D72B7A455B00758383 /* project-z */,
-				0CCA15EC2B7A455D00758383 /* project-zTests */,
-				0CCA15F62B7A455D00758383 /* project-zUITests */,
+				0CCA15D72B7A455B00758383 /* Voyage */,
+				0CCA15EC2B7A455D00758383 /* VoyageTests */,
+				0CCA15F62B7A455D00758383 /* VoyageUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -594,7 +594,7 @@
 				0C66BA2D2C186B3E005FB848 /* SubTextView.swift in Sources */,
 				0C32C5D32C24F29F000784A8 /* EnterNameView.swift in Sources */,
 				0CE352E42BAB52C800C9827C /* WelcomeScreen.swift in Sources */,
-				0CCA15DC2B7A455B00758383 /* project_zApp.swift in Sources */,
+				0CCA15DC2B7A455B00758383 /* Voyage.swift in Sources */,
 				0CDC4B552C27748D0057FB69 /* RouteService.swift in Sources */,
 				0C859AB72B7B8A5600597CBA /* TestModel.swift in Sources */,
 				0C3745062C12876800B86938 /* Extensions.swift in Sources */,
@@ -628,12 +628,12 @@
 /* Begin PBXTargetDependency section */
 		0CCA15EF2B7A455D00758383 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0CCA15D72B7A455B00758383 /* project-z */;
+			target = 0CCA15D72B7A455B00758383 /* Voyage */;
 			targetProxy = 0CCA15EE2B7A455D00758383 /* PBXContainerItemProxy */;
 		};
 		0CCA15F92B7A455D00758383 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0CCA15D72B7A455B00758383 /* project-z */;
+			target = 0CCA15D72B7A455B00758383 /* Voyage */;
 			targetProxy = 0CCA15F82B7A455D00758383 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -765,11 +765,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"project-z/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Voyage/Preview Content\"";
 				DEVELOPMENT_TEAM = ABK2TMF98V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "project-z/Info.plist";
+				INFOPLIST_FILE = Voyage/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -795,11 +795,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"project-z/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Voyage/Preview Content\"";
 				DEVELOPMENT_TEAM = ABK2TMF98V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "project-z/Info.plist";
+				INFOPLIST_FILE = Voyage/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -834,7 +834,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/project-z.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/project-z";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Voyage.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Voyage";
 			};
 			name = Debug;
 		};
@@ -854,7 +854,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/project-z.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/project-z";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Voyage.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Voyage";
 			};
 			name = Release;
 		};
@@ -897,7 +897,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0CCA15D32B7A455B00758383 /* Build configuration list for PBXProject "project-z" */ = {
+		0CCA15D32B7A455B00758383 /* Build configuration list for PBXProject "Voyage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0CCA15FF2B7A455D00758383 /* Debug */,
@@ -906,7 +906,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0CCA16012B7A455D00758383 /* Build configuration list for PBXNativeTarget "project-z" */ = {
+		0CCA16012B7A455D00758383 /* Build configuration list for PBXNativeTarget "Voyage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0CCA16022B7A455D00758383 /* Debug */,
@@ -915,7 +915,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0CCA16042B7A455D00758383 /* Build configuration list for PBXNativeTarget "project-zTests" */ = {
+		0CCA16042B7A455D00758383 /* Build configuration list for PBXNativeTarget "VoyageTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0CCA16052B7A455D00758383 /* Debug */,
@@ -924,7 +924,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0CCA16072B7A455D00758383 /* Build configuration list for PBXNativeTarget "project-zUITests" */ = {
+		0CCA16072B7A455D00758383 /* Build configuration list for PBXNativeTarget "VoyageUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0CCA16082B7A455D00758383 /* Debug */,
