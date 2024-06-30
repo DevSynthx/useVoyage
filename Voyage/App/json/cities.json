@@ -1,0 +1,70 @@
+ [
+    {
+      "name": "Bangkok",
+      "country": "Thailand"
+    },
+    {
+      "name": "Paris",
+      "country": "France"
+    },
+    {
+      "name": "London",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Dubai",
+      "country": "United Arab Emirates"
+    },
+    {
+      "name": "Singapore",
+      "country": "Singapore"
+    },
+    {
+      "name": "New York City",
+      "country": "United States"
+    },
+    {
+      "name": "Kuala Lumpur",
+      "country": "Malaysia"
+    },
+    {
+      "name": "Tokyo",
+      "country": "Japan"
+    },
+    {
+      "name": "Istanbul",
+      "country": "Turkey"
+    },
+    {
+      "name": "Seoul",
+      "country": "South Korea"
+    },
+    {
+      "name": "Cape Town",
+      "country": "South Africa"
+    },
+    {
+      "name": "Marrakesh",
+      "country": "Morocco"
+    },
+    {
+      "name": "Johannesburg",
+      "country": "South Africa"
+    },
+    {
+      "name": "Cairo",
+      "country": "Egypt"
+    },
+    {
+      "name": "Nairobi",
+      "country": "Kenya"
+    },
+    {
+      "name": "Victoria",
+      "country": "Seychelles"
+    },
+    {
+      "name": "Port Louis",
+      "country": "Mauritius"
+    }
+  ]
