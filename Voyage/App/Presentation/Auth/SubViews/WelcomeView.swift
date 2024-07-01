@@ -12,7 +12,7 @@ struct WelcomeView: View {
         VStack(alignment: .leading, spacing: 10){
             HStack (alignment: .top){
                 Text("Welcome\nto Zavel")
-                    .font(.system(size: 30, weight: .bold))
+                    .font(.custom(.bold, size: 30))
                     .foregroundStyle(.white)
                     .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                     .alignmentGuide(.top, computeValue: { dimension in
@@ -26,7 +26,7 @@ struct WelcomeView: View {
             }
           
             Text("Experience the world like never before,\nwith tailored recommendations made for\nthe best you")
-                .font(.system(size: 12))
+                .font(.custom(.regular, size: 12))
                 .foregroundStyle(.white)
 
         }

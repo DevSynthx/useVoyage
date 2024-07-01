@@ -19,19 +19,20 @@ struct BudgetView: View {
             GeometryReader { geo in
                 let size = geo.size
                 VStack(alignment: .leading){
-                    //Gap(h:size.height / 30 )
+                    Gap(h: 25)
                     Text("What is your\ndaily budget?")
-                        .font(.system(size: 30, weight: .bold))
+                        .font(.custom(.bold, size: 30))
+                        .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                         .foregroundStyle(.black)
                         .padding(.leading, 20)
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                     
                     Gap(h: 15)
                     Text("Choose your daily budget range")
-                        .font(.system(size: 14, weight: .light))
+                        .font(.custom(.light, size: 15))
                         .foregroundStyle(.gray)
                         .padding(.leading, 20)
-                    
+                    Gap(h: 35)
                     ScrollView(.horizontal, showsIndicators: false)  {
                         ScrollViewReader { proxy in
                             HStack(spacing: 20){
@@ -40,10 +41,12 @@ struct BudgetView: View {
                                         Image(v.element.image)
                                         Gap(h: 20)
                                         Text(v.element.image.capitalized)
-                                            .font(.system(size: 25, weight: .semibold))
+                                            .font(.custom(.semiBold, size: 25))
+                                            .foregroundStyle(.black)
                                         Gap(h: 15)
                                         Text(v.element.name)
-                                            .font(.system(size: 15))
+                                            .font(.custom(.regular, size: 15))
+                                            .foregroundStyle(.black)
                                     }
                                     .frame(height: size.height / 3.5)
                                     .frame(width: size.width)
@@ -87,16 +90,18 @@ struct BudgetView: View {
                             }
                             .padding(.bottom, 40)
 
-                    Gap(h: size.height / 6)
+                    Gap(h: size.height / 9)
                     Text("DRAG TO SELECT")
-                        .font(.system(size: 15))
+                        .font(.custom(.regular, size: 15))
+                        .foregroundStyle(.black)
                         .kerning(5.0)
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
                     Gap(h: size.height / 12)
                     
                     HStack{
                         Text("\(vm.budgetTypes[scrollToIndex].image.capitalized) selected")
-                            .font(.system(size: 20, weight: .medium))
+                            .font(.custom(.semiBold, size: 18))
+                            .foregroundStyle(.black)
                         Spacer()
                         Image(systemName: "arrow.right")
                             .font(.system(size: 20))
@@ -104,6 +109,7 @@ struct BudgetView: View {
                             .padding(13)
                             .background {
                                 RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(.black)
                             }
                             .onTapGesture{
                                 //router.push(to: .CityVisited)
@@ -124,10 +130,12 @@ struct BudgetView: View {
                                             
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                .navigationBarBackButtonHidden(true)
                 
             }
             
         }
+        .background(.white)
      
        
        

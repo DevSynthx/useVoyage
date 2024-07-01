@@ -22,19 +22,20 @@ struct CityVisited: View {
         GeometryReader { geo in
             let size = geo.size
             ZStack (alignment: .top){
-                
+                Color.white
                 if !showSearch {
                     VStack(spacing: 0){
                       
                         Group{
                             Gap(h:size.height / 20 )
                             Text("What cities have\nyou visited?")
-                                .font(.system(size: 30, weight: .bold))
+                                .font(.custom(.bold, size: 30))
                                 .foregroundStyle(.black)
                                 .padding(.leading, 20)
                                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                             Gap(h: 30)
-                            TextField("Search city", text: self.$text)
+                            TextField("", text: self.$text, prompt: Text("  Search city").foregroundStyle(.gray))
+                                .foregroundStyle(.black)
                                 .frame(height: 40)
                                 .focused($isFocused)
                                 .textFieldStyle(PlainTextFieldStyle())
@@ -50,6 +51,7 @@ struct CityVisited: View {
                                         showSearch.toggle()
                                     }
                                 }
+                                .disabled(isFocused)
                         }
                         
 
@@ -60,17 +62,19 @@ struct CityVisited: View {
                                     ForEach(vm.selectedCities.enumerated().map{$0}, id: \.element.name) { v in
                                         HStack{
                                             Circle()
-                                                .frame(width: 20, height: 20)
+                                                .frame(width: 15, height: 15)
+                                                .foregroundColor(.black)
                                             Gap(w: 10)
                                             Text(v.element.name)
-                                                .font(.system(size: 14))
+                                                .font(.custom(.regular, size: 14))
+                                                .foregroundStyle(.black)
                                             
                                         }
                                         .padding(10)
                                         .background{
                                             RoundedRectangle(cornerRadius: 40)
                                                 .fill(.clear)
-                                                .stroke(.greyX, lineWidth: 3)
+                                                .stroke(.gray.opacity(0.2), lineWidth: 2)
                                         }
                                         .overlay(
                                             GeometryReader { geo in
@@ -94,6 +98,7 @@ struct CityVisited: View {
                         } else{
                             Gap(h: 30)
                             Text("Your selected cities will appear below")
+                                .font(.custom(.regular, size: 16))
                                 .foregroundStyle(.gray)
                         }
                         
@@ -116,6 +121,8 @@ struct CityVisited: View {
                                                         .clipShape( UnevenRoundedRectangle(cornerRadii: .init(topLeading: 15, topTrailing: 15)))
                                                     HStack{
                                                         Text(v.element.name)
+                                                            .font(.custom(.regular, size: 15))
+                                                            .foregroundColor(.black)
                                                         Spacer()
                                                         Image(systemName: "xmark.circle")
                                                             .foregroundStyle(.red)
@@ -154,13 +161,16 @@ struct CityVisited: View {
                         Spacer()
                         HStack{
                             Text("\(vm.selectedCities.count) Cities selected")
+                                .font(.custom(.semiBold, size: 18))
+                                .foregroundStyle(.black)
                             Spacer()
                             Image(systemName: "arrow.right")
-                                .font(.system(size: 20))
+                                .font(.custom(.regular, size: 20))
                                 .foregroundStyle(.white)
                                 .padding(13)
                                 .background {
                                     RoundedRectangle(cornerRadius: 10)
+                                        .foregroundStyle(.black)
                                 }
                                 .onTapGesture{
                                     router.push(to: .TripType)
@@ -187,6 +197,7 @@ struct CityVisited: View {
                 }
             }
             .frame(maxWidth: UIScreen.main.bounds.width,   maxHeight: UIScreen.main.bounds.height, alignment: .topLeading)
+            .background(.white)
             .ignoresSafeArea(.all, edges: .bottom)
             .navigationBarBackButtonHidden(true)
         }

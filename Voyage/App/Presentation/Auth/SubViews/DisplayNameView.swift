@@ -13,12 +13,12 @@ struct DisplayNameView: View {
         VStack(alignment: .leading, spacing: 10){
             Gap(h: 10)
             Text("Hi \(name.truncate(7)) 👋")
-                .font(.system(size: 30, weight: .bold))
+                .font(.custom(.bold, size: 30))
                 .foregroundStyle(.white)
                 .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                 
             Text("You can change your name\nif you like or proceed.")
-                .font(.system(size: 12))
+                .font(.custom(.regular, size: 12))
                 .foregroundStyle(.white)
                 .fixedSize(horizontal: false, vertical: true)
            

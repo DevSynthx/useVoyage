@@ -24,19 +24,18 @@ struct TripTypeView: View {
         GeometryReader { geo in
             let size = geo.size
             ZStack (alignment: .bottom){
-            
                 VStack(alignment: .leading, spacing: 0){
                       
                         Gap(h:size.height / 30 )
                         Text("What trip is\nup next?")
-                            .font(.system(size: 30, weight: .bold))
+                            .font(.custom(.bold, size: 30))
                             .foregroundStyle(.black)
                             .padding(.leading, 20)
                             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                         
                         Gap(h: 15)
                         Text("Select what type of trip you want to go for")
-                            .font(.system(size: 14, weight: .light))
+                            .font(.custom(.light, size: 14))
                             .foregroundStyle(.gray)
                             .padding(.leading, 20)
                     
@@ -55,7 +54,7 @@ struct TripTypeView: View {
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                     .overlay{
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(lineWidth: 3)
+                                            .stroke(currentIndex == v.offset ? .blue.opacity(0.4) : .clear, lineWidth: 3)
                                     }
                                     .background(GeometryReader { itemGeo in
                                         Color.clear
@@ -103,7 +102,7 @@ struct TripTypeView: View {
                     .scrollPosition(id: $tripType)
                     Gap(h: 20)
                     Text(vm.tripType[currentIndex].name)
-                        .font(.system(size: 14, weight: .semibold))
+                        .font(.custom(.semiBold, size: 14))
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
 
                     Gap(h: 30)
@@ -114,7 +113,7 @@ struct TripTypeView: View {
                             .rotationEffect(.degrees(180))
                         
                         Text("SWIPE")
-                            .font(.system(size: 12))
+                            .font(.custom(.regular, size: 14))
                             .foregroundStyle(.black)
                             .kerning(5)
                         Image("arrow_right")
@@ -156,6 +155,8 @@ struct TripTypeView: View {
                 
                 HStack{
                     Text("\(vm.singleTrip)  selected")
+                        .font(.custom(.semiBold, size: 18))
+                        .foregroundStyle(.black)
                     Spacer()
                     Image(systemName: "arrow.right")
                         .font(.system(size: 20))
@@ -163,6 +164,7 @@ struct TripTypeView: View {
                         .padding(13)
                         .background {
                             RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(.black)
                         }
                         .onTapGesture{
                             router.push(to: .BudgetType)
@@ -185,9 +187,11 @@ struct TripTypeView: View {
             
             
             .frame(maxWidth: UIScreen.main.bounds.width,   maxHeight: UIScreen.main.bounds.height, alignment: .topLeading)
+            .background(.white)
             .ignoresSafeArea(.all, edges: .bottom)
             .navigationBarBackButtonHidden(true)
         }
+        .backgroundStyle(.white)
     }
     
     private func nearestItemIndex(for midXValues: [CGFloat], in totalWidth: CGFloat) -> Int? {

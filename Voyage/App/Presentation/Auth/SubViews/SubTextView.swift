@@ -18,7 +18,7 @@ struct SubTextView: View {
     var body: some View {
         VStack(spacing: 0){
 
-            HStack(alignment: .top, spacing: 40) {
+            HStack(alignment: .center, spacing: 40) {
                 Image("arrow_right")
                     .resizable()
                     .frame(width: 20, height: 20)
@@ -26,7 +26,7 @@ struct SubTextView: View {
                     .opacity(opacity)
                     .offset(x: backArrowOffset)
                 Text("SWIPE")
-                    .font(.system(size: 12))
+                    .font(.custom(.regular, size: 12))
                     .foregroundStyle(.black)
                     .kerning(5)
                     .scaleEffect(scaleText)
@@ -39,8 +39,7 @@ struct SubTextView: View {
             }
            Gap(h: 50)
             Text("Exploring meets\naccurate planning")
-                .font(.system(size: 32))
-                .font(.custom(.regular, size: 32))
+                .font(.custom(.regular, size: 30))
                 .foregroundStyle(.black)
                 .multilineTextAlignment(.center)
                 .opacity(textOpacity)

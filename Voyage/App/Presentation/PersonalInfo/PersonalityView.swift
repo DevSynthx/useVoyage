@@ -16,13 +16,14 @@ struct PersonalityView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack(alignment: .leading){
+                Gap(h: 25)
                 Text("What’s your\npersonality?")
-                    .font(.system(size: 30, weight: .bold))
+                    .font(.custom(.bold, size: 30))
                     .foregroundStyle(.black)
                     .padding(.leading, 20)
                 Gap(h: 20)
                 Text("Tell us more about yourself. Select a\nminimum of 3 characters.")
-                    .font(.system(size: 14, weight: .light))
+                    .font(.custom(.light, size: 14))
                     .foregroundStyle(.gray)
                     .padding(.leading, 20)
                 
@@ -36,7 +37,7 @@ struct PersonalityView: View {
                                             .font(.system(size: 14))
                                             .padding(.trailing, 8)
                                         Image(systemName: "xmark")
-                                            .font(.system(size: 17))
+                                            .font(.system(size: 13))
                                             .foregroundStyle(.white)
                                             .onTapGesture {
                                                 select(name: v.element.name)
@@ -47,6 +48,7 @@ struct PersonalityView: View {
                                     .padding(.horizontal, 10)
                                 .background{
                                     RoundedRectangle(cornerRadius: 30)
+                                        .foregroundStyle(.black)
                                 }
                         }
                     }
@@ -80,7 +82,7 @@ struct PersonalityView: View {
                                         VStack{
                                             Text(v.element.name)
                                                 .foregroundStyle(.black)
-                                                .font(.system(size: 20))
+                                                .font(.custom(.regular, size: 20))
                                                 .padding(.leading, 15)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
                                                 .padding(.top, 20)
@@ -100,7 +102,7 @@ struct PersonalityView: View {
                                     })
                                     .background {
                                         RoundedRectangle(cornerRadius: 6)
-                                            .fill(.greyX)
+                                            .fill(.gray.opacity(0.05))
                                 }
                                 
                                     Image("cornerShape")
@@ -172,7 +174,7 @@ struct PersonalityView: View {
                                     })
                                     .background {
                                         RoundedRectangle(cornerRadius: 6)
-                                            .fill(.greyX)
+                                            .fill(.gray.opacity(0.05))
                                 }
                                 
                                     Image("cornerShape")
@@ -294,7 +296,7 @@ struct PersonalityView: View {
                                     })
                                     .background {
                                         RoundedRectangle(cornerRadius: 6)
-                                            .fill(.greyX)
+                                            .fill(.gray.opacity(0.05))
                                         }
                                 
                                     Image("cornerShape")
@@ -329,6 +331,8 @@ struct PersonalityView: View {
             
             HStack{
                 Text("\(vm.personalities.filter{$0.selected == true}.count) Personalities selected")
+                    .font(.custom(.light, size: 18))
+                    .foregroundStyle(.black)
                 Spacer()
                 Image(systemName: "arrow.right")
                     .font(.system(size: 20))
@@ -359,6 +363,7 @@ struct PersonalityView: View {
             .transition(.move(edge: .bottom))
         }
         .ignoresSafeArea(.all, edges: .bottom)
+        .background(.greyX)
         
     }
     

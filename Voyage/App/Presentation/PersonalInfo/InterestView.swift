@@ -15,13 +15,14 @@ struct InterestView: View {
     @State private var showCount: Bool = false
     var body: some View {
         VStack(alignment: .leading){
+            Gap(h: 25)
             Text("What are you\ninterested in?")
-                .font(.system(size: 30, weight: .bold))
+                .font(.custom(.bold, size: 30))
                 .foregroundStyle(.black)
                 .padding(.leading, 20)
             Gap(h: 15)
             Text("Tell us more about yourself. Select a\nminimum of 3 interests.")
-                .font(.system(size: 14, weight: .light))
+                .font(.custom(.light, size: 14))
                 .foregroundStyle(.gray)
                 .padding(.leading, 20)
             
@@ -31,11 +32,11 @@ struct InterestView: View {
                     ForEach(vm.interests.enumerated().map{$0}.filter{$0.element.selected == true}, id: \.element.name) { v in
                                 HStack{
                                     Text(v.element.name)
+                                        .font(.custom(.regular, size: 14))
                                         .foregroundStyle(.white)
-                                        .font(.system(size: 14))
                                         .padding(.trailing, 8)
                                     Image(systemName: "xmark")
-                                        .font(.system(size: 17))
+                                        .font(.system(size: 13))
                                         .foregroundStyle(.white)
                                         .onTapGesture {
                                             select(name: v.element.name)
@@ -46,6 +47,7 @@ struct InterestView: View {
                                 .padding(.horizontal, 10)
                             .background{
                                 RoundedRectangle(cornerRadius: 30)
+                                    .foregroundStyle(.black)
                             }
                     }
                 }
@@ -59,20 +61,20 @@ struct InterestView: View {
                         HStack{
                             ZStack(alignment: .topTrailing){
                                 RoundedRectangle(cornerRadius: 9)
-                                    .fill(v.element.selected ?.blue : .clear)
-                                    .stroke(.greyX, lineWidth: 3)
+                                    .fill(v.element.selected ?.gray.opacity(0.4) : .clear)
+                                    .stroke(.gray.opacity(0.15), lineWidth: 3)
                                     .frame(width: 150, height: 140)
                                     .overlay{
                                             VStack{
                                                 Image(v.element.image)
                                                     .resizable()
                                                     .scaledToFit()
-                                                    .foregroundStyle(v.element.selected ?.white : .black)
+                                                    .foregroundStyle(.black)
                                                     .frame(width:  40, height: 40)
                                                 
                                                 Text(v.element.name)
-                                                    .foregroundStyle(v.element.selected ?.white : .black)
-                                                    .font(.system(size: 15))
+                                                    .font(.custom(.semiBold, size: 15))
+                                                    .foregroundStyle(.black)
                                                     .padding(.top, 5)
 
                                             }
@@ -81,16 +83,29 @@ struct InterestView: View {
                                     .onTapGesture{
                                         select(name: v.element.name)
                                     }
-                                Image("borderCorner")
-                                    .resizable()
-                                    .foregroundStyle(v.element.selected ?.green : .greyX)
-                                    .frame(width: 30, height: 30)
-                                    .overlay{
-                                        Image("checkMark")
-                                            .resizable()
-                                            .foregroundStyle(v.element.selected ? .white : .greyX)
-                                            .frame(width: 20, height: 20)
-                                    }
+                                if(v.element.selected){
+                                    Image("borderCorner")
+                                        .resizable()
+                                        .colorMultiply(.green)
+                                        .frame(width: 30, height: 30)
+                                        .overlay{
+                                            Image("checkMark")
+                                                .resizable()
+                                                .foregroundStyle(v.element.selected ? .white : .greyX)
+                                                .frame(width: 20, height: 20)
+                                        }
+                                }else{
+                                    Image("borderCorner")
+                                        .resizable()
+                                        .frame(width: 30, height: 30)
+                                        .overlay{
+                                            Image("checkMark")
+                                                .resizable()
+                                                .foregroundStyle(v.element.selected ? .white : .greyX)
+                                                .frame(width: 20, height: 20)
+                                        }
+                                }
+                                
                 
                             }
                             .clipShape(RoundedRectangle(cornerRadius: 9))
@@ -109,20 +124,20 @@ struct InterestView: View {
                         HStack{
                             ZStack(alignment: .topTrailing){
                                 RoundedRectangle(cornerRadius: 9)
-                                    .fill(v.element.selected ?.blue : .clear)
-                                    .stroke(.greyX, lineWidth: 3)
+                                    .fill(v.element.selected ?.gray.opacity(0.4) : .clear)
+                                    .stroke(.gray.opacity(0.15), lineWidth: 3)
                                     .frame(width: 150, height: 140)
                                     .overlay{
                                             VStack{
                                                 Image(v.element.image)
                                                     .resizable()
                                                     .scaledToFit()
-                                                    .foregroundStyle(v.element.selected ?.white : .black)
+                                                    .foregroundStyle(.black)
                                                     .frame(width:  40, height: 40)
                                                 
                                                 Text(v.element.name)
-                                                    .foregroundStyle(v.element.selected ?.white : .black)
-                                                    .font(.system(size: 15))
+                                                    .font(.custom(.semiBold, size: 15))
+                                                    .foregroundStyle(.black)
                                                     .padding(.top, 5)
 
                                             }
@@ -131,16 +146,28 @@ struct InterestView: View {
                                     .onTapGesture{
                                         select(name: v.element.name)
                                     }
-                                Image("borderCorner")
-                                    .resizable()
-                                    .foregroundStyle(v.element.selected ?.green : .greyX)
-                                    .frame(width: 30, height: 30)
-                                    .overlay{
-                                        Image("checkMark")
-                                            .resizable()
-                                            .foregroundStyle(v.element.selected ? .white : .greyX)
-                                            .frame(width: 20, height: 20)
-                                    }
+                                if(v.element.selected){
+                                    Image("borderCorner")
+                                        .resizable()
+                                        .colorMultiply(.green)
+                                        .frame(width: 30, height: 30)
+                                        .overlay{
+                                            Image("checkMark")
+                                                .resizable()
+                                                .foregroundStyle(v.element.selected ? .white : .greyX)
+                                                .frame(width: 20, height: 20)
+                                        }
+                                }else{
+                                    Image("borderCorner")
+                                        .resizable()
+                                        .frame(width: 30, height: 30)
+                                        .overlay{
+                                            Image("checkMark")
+                                                .resizable()
+                                                .foregroundStyle(v.element.selected ? .white : .greyX)
+                                                .frame(width: 20, height: 20)
+                                        }
+                                }
                 
                             }
                             .clipShape(RoundedRectangle(cornerRadius: 9))
@@ -159,20 +186,20 @@ struct InterestView: View {
                         HStack{
                             ZStack(alignment: .topTrailing){
                                 RoundedRectangle(cornerRadius: 9)
-                                    .fill(v.element.selected ?.blue : .clear)
-                                    .stroke(.greyX, lineWidth: 3)
+                                    .fill(v.element.selected ?.gray.opacity(0.4) : .clear)
+                                    .stroke(.gray.opacity(0.15), lineWidth: 3)
                                     .frame(width: 150, height: 140)
                                     .overlay{
                                             VStack{
                                                 Image(v.element.image)
                                                     .resizable()
                                                     .scaledToFit()
-                                                    .foregroundStyle(v.element.selected ?.white : .black)
+                                                    .foregroundStyle(.black)
                                                     .frame(width:  40, height: 40)
                                                 
                                                 Text(v.element.name)
-                                                    .foregroundStyle(v.element.selected ?.white : .black)
-                                                    .font(.system(size: 15))
+                                                    .font(.custom(.semiBold, size: 15))
+                                                    .foregroundStyle(.black)
                                                     .padding(.top, 5)
 
                                             }
@@ -181,16 +208,28 @@ struct InterestView: View {
                                     .onTapGesture{
                                         select(name: v.element.name)
                                     }
-                                Image("borderCorner")
-                                    .resizable()
-                                    .foregroundStyle(v.element.selected ?.green : .greyX)
-                                    .frame(width: 30, height: 30)
-                                    .overlay{
-                                        Image("checkMark")
-                                            .resizable()
-                                            .foregroundStyle(v.element.selected ? .white : .greyX)
-                                            .frame(width: 20, height: 20)
-                                    }
+                                if(v.element.selected){
+                                    Image("borderCorner")
+                                        .resizable()
+                                        .colorMultiply(.green)
+                                        .frame(width: 30, height: 30)
+                                        .overlay{
+                                            Image("checkMark")
+                                                .resizable()
+                                                .foregroundStyle(v.element.selected ? .white : .greyX)
+                                                .frame(width: 20, height: 20)
+                                        }
+                                }else{
+                                    Image("borderCorner")
+                                        .resizable()
+                                        .frame(width: 30, height: 30)
+                                        .overlay{
+                                            Image("checkMark")
+                                                .resizable()
+                                                .foregroundStyle(v.element.selected ? .white : .greyX)
+                                                .frame(width: 20, height: 20)
+                                        }
+                                }
                 
                             }
                             .clipShape(RoundedRectangle(cornerRadius: 9))
@@ -206,13 +245,16 @@ struct InterestView: View {
 
             HStack{
                 Text("\(vm.interests.filter{$0.selected == true}.count) Interests selected")
+                    .font(.custom(.semiBold, size: 18))
+                    .foregroundStyle(.black)
                 Spacer()
                 Image(systemName: "arrow.right")
-                    .font(.system(size: 20))
+                    .font(.custom(.regular, size: 20))
                     .foregroundStyle(.white)
                     .padding(13)
                     .background {
                         RoundedRectangle(cornerRadius: 10)
+                            .foregroundStyle(.black)
                     }
                     .onTapGesture{
                         router.push(to: .CityVisited)
@@ -236,6 +278,7 @@ struct InterestView: View {
         }
         .frame(maxWidth: UIScreen.main.bounds.width,   maxHeight: UIScreen.main.bounds.height, alignment: .topLeading)
         .ignoresSafeArea(.all, edges: .bottom)
+        .background(.greyX)
         .navigationBarBackButtonHidden(true)
     }
     
