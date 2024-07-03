@@ -158,17 +158,10 @@ struct TripTypeView: View {
                         .font(.custom(.semiBold, size: 18))
                         .foregroundStyle(.black)
                     Spacer()
-                    Image(systemName: "arrow.right")
-                        .font(.system(size: 20))
-                        .foregroundStyle(.white)
-                        .padding(13)
-                        .background {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(.black)
-                        }
-                        .onTapGesture{
-                            router.push(to: .BudgetType)
-                        }
+                    NextButton {
+                        router.push(to: .BudgetType)
+                    }
+                   
                 }
                 .padding(.bottom, 20)
                 .padding(.horizontal, 20)
@@ -206,6 +199,7 @@ struct TripTypeView: View {
 #Preview {
     TripTypeView()
         .environmentObject(PersonalInfoVM())
+        .environmentObject(Router(root: Routes.BudgetType))
 }
 
 

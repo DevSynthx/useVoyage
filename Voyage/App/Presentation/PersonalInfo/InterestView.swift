@@ -23,6 +23,7 @@ struct InterestView: View {
             Gap(h: 15)
             Text("Tell us more about yourself. Select a\nminimum of 3 interests.")
                 .font(.custom(.light, size: 14))
+                .lineSpacing(5)
                 .foregroundStyle(.gray)
                 .padding(.leading, 20)
             
@@ -248,17 +249,13 @@ struct InterestView: View {
                     .font(.custom(.semiBold, size: 18))
                     .foregroundStyle(.black)
                 Spacer()
-                Image(systemName: "arrow.right")
-                    .font(.custom(.regular, size: 20))
-                    .foregroundStyle(.white)
-                    .padding(13)
-                    .background {
-                        RoundedRectangle(cornerRadius: 10)
-                            .foregroundStyle(.black)
-                    }
-                    .onTapGesture{
-                        router.push(to: .CityVisited)
-                    }
+                NextButton(color: vm.interests.filter{$0.selected == true}.count > 3 ? .black : .gray.opacity(0.3),
+                action: {
+                        if(vm.interests.filter{$0.selected == true}.count > 3 ){
+                            router.push(to: .CityVisited)
+                        }
+                })
+
             }
             .padding(.bottom, 20)
             .padding(.top, 20)

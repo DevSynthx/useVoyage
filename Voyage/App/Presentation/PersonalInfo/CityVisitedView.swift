@@ -164,17 +164,9 @@ struct CityVisited: View {
                                 .font(.custom(.semiBold, size: 18))
                                 .foregroundStyle(.black)
                             Spacer()
-                            Image(systemName: "arrow.right")
-                                .font(.custom(.regular, size: 20))
-                                .foregroundStyle(.white)
-                                .padding(13)
-                                .background {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .foregroundStyle(.black)
-                                }
-                                .onTapGesture{
-                                    router.push(to: .TripType)
-                                }
+                            NextButton {
+                                router.push(to: .TripType)
+                            }
                         }
                         .padding(.bottom, 20)
                         .padding(.top, 20)
@@ -207,6 +199,7 @@ struct CityVisited: View {
 #Preview {
     CityVisited()
         .environmentObject(PersonalInfoVM())
+        .environmentObject(Router(root: Routes.TripType))
 }
 
 

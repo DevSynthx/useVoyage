@@ -20,6 +20,7 @@
 		0C39EA3F2C25BA3500540D03 /* PersonalityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C39EA3E2C25BA3500540D03 /* PersonalityView.swift */; };
 		0C39EA422C25C06000540D03 /* PersonalInfoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C39EA412C25C06000540D03 /* PersonalInfoVM.swift */; };
 		0C3B85F92C1CB90000F99478 /* SampleViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3B85F82C1CB90000F99478 /* SampleViewX.swift */; };
+		0C6553FF2C348B09006D338B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6553FE2C348B09006D338B /* LocationManager.swift */; };
 		0C66BA2D2C186B3E005FB848 /* SubTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66BA2C2C186B3E005FB848 /* SubTextView.swift */; };
 		0C6EB11E2B7ABE6C00D514D0 /* ServiceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6EB11D2B7ABE6C00D514D0 /* ServiceContainer.swift */; };
 		0C6EB1212B7AC0F400D514D0 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6EB1202B7AC0F400D514D0 /* TestView.swift */; };
@@ -36,6 +37,7 @@
 		0C859AB72B7B8A5600597CBA /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C859AB62B7B8A5600597CBA /* TestModel.swift */; };
 		0C9ACD182C2849D1005E3CB2 /* CityVisitedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9ACD172C2849D1005E3CB2 /* CityVisitedView.swift */; };
 		0C9ACD1A2C2854A1005E3CB2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9ACD192C2854A1005E3CB2 /* SearchView.swift */; };
+		0C9D0E452C35AF9A00D402D5 /* ComplimentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9D0E442C35AF9A00D402D5 /* ComplimentView.swift */; };
 		0CA23A782C28E4A000F070F5 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CA23A772C28E4A000F070F5 /* cities.json */; };
 		0CA23A7B2C28E52800F070F5 /* CitiesDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA23A7A2C28E52800F070F5 /* CitiesDTO.swift */; };
 		0CA288AA2C2D91D800077C6E /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA288A92C2D91D800077C6E /* CustomSlider.swift */; };
@@ -94,6 +96,7 @@
 		0C39EA3E2C25BA3500540D03 /* PersonalityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalityView.swift; sourceTree = "<group>"; };
 		0C39EA412C25C06000540D03 /* PersonalInfoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoVM.swift; sourceTree = "<group>"; };
 		0C3B85F82C1CB90000F99478 /* SampleViewX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewX.swift; sourceTree = "<group>"; };
+		0C6553FE2C348B09006D338B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0C66BA2C2C186B3E005FB848 /* SubTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTextView.swift; sourceTree = "<group>"; };
 		0C6EB11D2B7ABE6C00D514D0 /* ServiceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceContainer.swift; sourceTree = "<group>"; };
 		0C6EB1202B7AC0F400D514D0 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 		0C859AB62B7B8A5600597CBA /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		0C9ACD172C2849D1005E3CB2 /* CityVisitedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityVisitedView.swift; sourceTree = "<group>"; };
 		0C9ACD192C2854A1005E3CB2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		0C9D0E442C35AF9A00D402D5 /* ComplimentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplimentView.swift; sourceTree = "<group>"; };
 		0CA23A772C28E4A000F070F5 /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 		0CA23A7A2C28E52800F070F5 /* CitiesDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesDTO.swift; sourceTree = "<group>"; };
 		0CA288A92C2D91D800077C6E /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 				0C804E7C2C2C6A9700202AD0 /* BudgetView.swift */,
 				0CA288A92C2D91D800077C6E /* CustomSlider.swift */,
 				0CCAEC5C2C3208DA003D10DE /* SelectedInfoView.swift */,
+				0C9D0E442C35AF9A00D402D5 /* ComplimentView.swift */,
 			);
 			path = PersonalInfo;
 			sourceTree = "<group>";
@@ -201,9 +206,25 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		0C6553FB2C348AC2006D338B /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		0C6553FD2C348AF8006D338B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0C6553FE2C348B09006D338B /* LocationManager.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		0C6EB11F2B7AC0D600D514D0 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				0C6553FD2C348AF8006D338B /* Controller */,
 				0CDC4B582C27815B0057FB69 /* Utils */,
 				0C39EA3D2C25B9AC00540D03 /* PersonalInfo */,
 				0C3744FE2C12807300B86938 /* Components */,
@@ -377,6 +398,7 @@
 		0CCA16142B7A7A2C00758383 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				0C6553FB2C348AC2006D338B /* New Group */,
 				0C859AB52B7B8A4700597CBA /* Model */,
 				0CCA16182B7A7AC800758383 /* TestsService.swift */,
 			);
@@ -575,11 +597,13 @@
 				0C6EB1242B7ADAB700D514D0 /* HttpLogger.swift in Sources */,
 				0C32C5D72C24F781000784A8 /* ActionButton.swift in Sources */,
 				0C713C272C162726007304C7 /* SampleView.swift in Sources */,
+				0C9D0E452C35AF9A00D402D5 /* ComplimentView.swift in Sources */,
 				0CCA160C2B7A514300758383 /* HTTPService.swift in Sources */,
 				0C713C302C1671DF007304C7 /* AuthTypeVM.swift in Sources */,
 				0CCA16102B7A51A000758383 /* HttpMethod.swift in Sources */,
 				0CCA160E2B7A515100758383 /* ErrorHandler.swift in Sources */,
 				0C3B85F92C1CB90000F99478 /* SampleViewX.swift in Sources */,
+				0C6553FF2C348B09006D338B /* LocationManager.swift in Sources */,
 				0C30826A2B7BF6C200C03E7A /* GravityVM.swift in Sources */,
 				0C7469112C29FEF80091F063 /* TripTypeView.swift in Sources */,
 				0CC33DC32C0FE3B000F60F3A /* AuthView.swift in Sources */,
@@ -767,6 +791,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Voyage/Preview Content\"";
@@ -774,11 +799,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Voyage/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Voyage;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -786,9 +813,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.usevoyage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -797,6 +827,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Voyage/Preview Content\"";
@@ -804,11 +835,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Voyage/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Voyage;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -816,9 +849,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.usevoyage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

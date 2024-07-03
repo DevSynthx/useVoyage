@@ -103,17 +103,10 @@ struct BudgetView: View {
                             .font(.custom(.semiBold, size: 18))
                             .foregroundStyle(.black)
                         Spacer()
-                        Image(systemName: "arrow.right")
-                            .font(.system(size: 20))
-                            .foregroundStyle(.white)
-                            .padding(13)
-                            .background {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(.black)
-                            }
-                            .onTapGesture{
-                                //router.push(to: .CityVisited)
-                            }
+                        NextButton {
+                            //router.push(to: .BudgetType)
+                        }
+                       
                     }
                     .padding(.bottom, 10)
                     .padding(.horizontal, 20)
@@ -146,4 +139,5 @@ struct BudgetView: View {
 #Preview {
     BudgetView()
         .environmentObject(PersonalInfoVM())
+        .environmentObject(Router(root: Routes.TripType))
 }

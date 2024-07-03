@@ -16,6 +16,8 @@ struct Main: View {
                 case .AuthView: AuthView()
                 case .PersonalityView:
                     PersonalityView()
+                case .ComplimentView:
+                    ComplimentView()
                 case .InterestView:
                     InterestView()
                 case .CityVisited:

@@ -24,6 +24,7 @@ struct PersonalityView: View {
                 Gap(h: 20)
                 Text("Tell us more about yourself. Select a\nminimum of 3 characters.")
                     .font(.custom(.light, size: 14))
+                    .lineSpacing(5)
                     .foregroundStyle(.gray)
                     .padding(.leading, 20)
                 
@@ -327,27 +328,20 @@ struct PersonalityView: View {
             }
             .frame(maxWidth: UIScreen.main.bounds.width,   maxHeight: UIScreen.main.bounds.height, alignment: .topLeading)
             .ignoresSafeArea(.all, edges: .bottom)
-        .navigationBarBackButtonHidden(true)
+      
             
             HStack{
                 Text("\(vm.personalities.filter{$0.selected == true}.count) Personalities selected")
                     .font(.custom(.light, size: 18))
                     .foregroundStyle(.black)
                 Spacer()
-                Image(systemName: "arrow.right")
-                    .font(.system(size: 20))
-                    .foregroundStyle(.white)
-                    .padding(13)
-                    .background {
-                        RoundedRectangle(cornerRadius: 10)
-                            .foregroundStyle(vm.personalities.filter{$0.selected == true}.count > 3 ? .black : .gray.opacity(0.3))
-                    }
-                    .onTapGesture {
+                NextButton(color: vm.personalities.filter{$0.selected == true}.count > 3 ? .black : .gray.opacity(0.3), 
+                action: {
                         if(vm.personalities.filter{$0.selected == true}.count > 3 ){
-                            router.push(to: .InterestView)
+                            router.push(to: .ComplimentView)
                         }
-                       
-                    }
+                })
+               
             }
             .padding(.top, 20)
             .padding(.bottom, 20)
@@ -364,6 +358,7 @@ struct PersonalityView: View {
         }
         .ignoresSafeArea(.all, edges: .bottom)
         .background(.greyX)
+        .navigationBarBackButtonHidden(true)
         
     }
     

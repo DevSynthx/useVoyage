@@ -39,7 +39,7 @@ struct SubTextView: View {
             }
            Gap(h: 50)
             Text("Exploring meets\naccurate planning")
-                .font(.custom(.regular, size: 30))
+                .font(.custom(.regular, size: 25))
                 .foregroundStyle(.black)
                 .multilineTextAlignment(.center)
                 .opacity(textOpacity)

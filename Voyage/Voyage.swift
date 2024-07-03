@@ -9,15 +9,16 @@ import SwiftUI
 
 @main
 struct Voyage: App {
-    init(){
-        setupServiceContainer()
-    }
-    let persistenceController = PersistenceController.shared
+//    init(){
+//        setupServiceContainer()
+//    }
+//    let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
             Main()
                .environmentObject(PersonalInfoVM())
+               .environmentObject(LocationManagerVM())
                // .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

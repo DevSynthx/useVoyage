@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AuthView: View {
     @StateObject private var authTypeVm = AuthTypeVM()
-    
+    @EnvironmentObject var location : LocationManagerVM
     @State private var animate = [false, false, false]
     @State private var backArrowOffset: CGFloat = 0.5
     @State private var forwardArrowOffset: CGFloat = -0.5
@@ -157,8 +157,10 @@ struct AuthView: View {
                 GeometryReader { v in
                     SampleViewX(namespace: nameSpacexx,
                                 currentItem: currentItemX)
+                    .onAppear{
+                        //location.requestAllowOnceLocationPermission()
+                    }
                 }
-               
             }
         }
         .frame(maxWidth:  UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height, alignment: .center)
