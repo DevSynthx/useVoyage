@@ -19,12 +19,17 @@ class PersonalInfoVM: ObservableObject {
     @Published var budgetTypes = [BudgetType]()
     @Published var singleTrip: String = ""
     @Published var searchText : String = ""
+    @Published var username : String = ""
     private var cancellable = Set<AnyCancellable>()
     init(){
         getPersonalInfo()
         fetchCities()
         searchSubscriber()
      
+    }
+    
+    func enterName(name: String){
+        self.username = name
     }
     
     func getPersonalInfo(){

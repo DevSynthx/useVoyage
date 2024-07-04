@@ -104,6 +104,7 @@ struct RouterView<T: Hashable, Content: View>: View {
 
 enum Routes {
     case AuthView
+    case GetStartedView
     case PersonalityView
     case InterestView
     case CityVisited

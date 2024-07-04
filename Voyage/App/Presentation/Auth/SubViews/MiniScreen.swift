@@ -16,16 +16,17 @@ import SwiftUI
 
 struct MiniScreen: View {
     @EnvironmentObject var router: Router<Routes>
+    @EnvironmentObject var vm: PersonalInfoVM
     var height : CGFloat
     var width : CGFloat
     @State var text: String = "David"
     @State var isContinue: Bool = false
     @State var isDone: Bool = false
     @State var formState: ContinueState = .start
-    @Binding var username: String
     var body: some View {
         
         ZStack{
+         
             Rectangle()
                 .cornerRadius(20)
                 .frame(width: width / 1.1, height: height / 3)
@@ -53,9 +54,9 @@ struct MiniScreen: View {
                             case .start:
                                 WelcomeView()
                             case .continuex:
-                                EnterNameView(username: $username)
+                                EnterNameView(username: $vm.username)
                             case .done:
-                                DisplayNameView(name: $username)
+                                DisplayNameView(name: $vm.username)
                         }
                         
                        Spacer()
@@ -67,7 +68,7 @@ struct MiniScreen: View {
                                         case .start:
                                             self.formState = .continuex
                                         case .continuex:
-                                            guard !username.isEmpty else {
+                                            guard !vm.username.isEmpty else {
                                                 print("Error")
                                                 return
                                             }
@@ -94,7 +95,7 @@ struct MiniScreen: View {
                                 )
                                 Spacer()
                                 AppButton(action:{
-                                    router.push(to: .PersonalityView)
+                                    router.push(to: .GetStartedView)
                                 },
                                 title: "Get Started"
                                 )
@@ -111,13 +112,16 @@ struct MiniScreen: View {
                 }
             
         }
+      
     }
 }
 
 #Preview {
     GeometryReader { geo in
-        MiniScreen(height: geo.size.height, width: geo.size.width, username: .constant("David"))
+        MiniScreen(height: geo.size.height, width: geo.size.width)
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
+            
 
     }
+    .environmentObject(PersonalInfoVM())
 }

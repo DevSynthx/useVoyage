@@ -59,7 +59,7 @@
 		0CCA16172B7A7A8E00758383 /* TestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA16162B7A7A8E00758383 /* TestRepository.swift */; };
 		0CCA16192B7A7AC800758383 /* TestsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA16182B7A7AC800758383 /* TestsService.swift */; };
 		0CCA161C2B7A840100758383 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA161B2B7A840100758383 /* Service.swift */; };
-		0CCAEC5D2C3208DA003D10DE /* SelectedInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCAEC5C2C3208DA003D10DE /* SelectedInfoView.swift */; };
+		0CCAEC5D2C3208DA003D10DE /* GetStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCAEC5C2C3208DA003D10DE /* GetStartedView.swift */; };
 		0CDC4B552C27748D0057FB69 /* RouteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDC4B542C27748D0057FB69 /* RouteService.swift */; };
 		0CDC4B572C277A400057FB69 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDC4B562C277A400057FB69 /* Main.swift */; };
 		0CE352E42BAB52C800C9827C /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE352E32BAB52C800C9827C /* WelcomeScreen.swift */; };
@@ -140,7 +140,7 @@
 		0CCA16162B7A7A8E00758383 /* TestRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRepository.swift; sourceTree = "<group>"; };
 		0CCA16182B7A7AC800758383 /* TestsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsService.swift; sourceTree = "<group>"; };
 		0CCA161B2B7A840100758383 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		0CCAEC5C2C3208DA003D10DE /* SelectedInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedInfoView.swift; sourceTree = "<group>"; };
+		0CCAEC5C2C3208DA003D10DE /* GetStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedView.swift; sourceTree = "<group>"; };
 		0CDC4B542C27748D0057FB69 /* RouteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteService.swift; sourceTree = "<group>"; };
 		0CDC4B562C277A400057FB69 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		0CE352E32BAB52C800C9827C /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
@@ -192,7 +192,7 @@
 				0C7469102C29FEF80091F063 /* TripTypeView.swift */,
 				0C804E7C2C2C6A9700202AD0 /* BudgetView.swift */,
 				0CA288A92C2D91D800077C6E /* CustomSlider.swift */,
-				0CCAEC5C2C3208DA003D10DE /* SelectedInfoView.swift */,
+				0CCAEC5C2C3208DA003D10DE /* GetStartedView.swift */,
 				0C9D0E442C35AF9A00D402D5 /* ComplimentView.swift */,
 			);
 			path = PersonalInfo;
@@ -586,7 +586,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C39EA422C25C06000540D03 /* PersonalInfoVM.swift in Sources */,
-				0CCAEC5D2C3208DA003D10DE /* SelectedInfoView.swift in Sources */,
+				0CCAEC5D2C3208DA003D10DE /* GetStartedView.swift in Sources */,
 				0CCA15E52B7A455D00758383 /* Persistence.swift in Sources */,
 				0C3745022C1280B300B86938 /* AppColor.swift in Sources */,
 				0CA288AA2C2D91D800077C6E /* CustomSlider.swift in Sources */,

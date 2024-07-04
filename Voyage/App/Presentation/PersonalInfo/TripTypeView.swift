@@ -19,6 +19,13 @@ struct TripTypeView: View {
     @State private var contentHeight: CGSize = .zero
     @State var tripType: TripTypeModel?
     @State private var currentIndex: Int = 0
+    @State private var offsetValues = [CGFloat](repeating: UIScreen.main.bounds.height / 2, count: 3)
+    @State private var roadTicketOffset = [CGFloat](repeating: UIScreen.main.bounds.height / 2, count: 3)
+    @State private var groupTicketOffset = [CGFloat](repeating: UIScreen.main.bounds.height / 2, count: 3)
+    @State private var baecationTicketOffset = [CGFloat](repeating: UIScreen.main.bounds.height / 2, count: 2)
+    @State private var girlsTicketOffset = [CGFloat](repeating: UIScreen.main.bounds.height / 2, count: 3)
+    @State private var guysTicketOffset = [CGFloat](repeating: UIScreen.main.bounds.height / 2, count: 3)
+    @State private var soloOffset: CGFloat = UIScreen.main.bounds.height / 2
     var body: some View {
         
         GeometryReader { geo in
@@ -76,12 +83,7 @@ struct TripTypeView: View {
                                             if(!vm.tripType.isEmpty){
                                                 countOffset = 5
                                                 showCount = true
-                                            } else{
-                                                countOffset = 40
-                                                showCount = false
                                             }
-                                          
-                                           
                                         }
                                        
                                     }
@@ -103,6 +105,7 @@ struct TripTypeView: View {
                     Gap(h: 20)
                     Text(vm.tripType[currentIndex].name)
                         .font(.custom(.semiBold, size: 14))
+                        .foregroundStyle(.black)
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
 
                     Gap(h: 30)
@@ -125,33 +128,169 @@ struct TripTypeView: View {
 
                     }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                
-            
-                if(!vm.singleTrip.isEmpty){
-                    ZStack {
-                        if(vm.singleTrip == "Road Trip"){
-                            Image("carTicket")
-                                .resizable()
-                                .containerRelativeFrame([.vertical, .horizontal]) { size, axis in
-                                    size * 0.72
-                                }
-                                .frame(maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .bottom)
-                                .rotationEffect(.degrees(10))
-                                .offset(y: size.height / 3.5)
-                        }else{
+                  
+                switch vm.singleTrip {
+                    case "Solo Adventure":
+                        ZStack{
                             Image("planeTicket")
                                 .resizable()
                                 .containerRelativeFrame([.vertical, .horizontal]) { size, axis in
-                                    size * 0.7
+                                    size * 0.6
                                 }
                                 .frame(maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .bottom)
-                                .rotationEffect(.degrees(10))
-                                .offset(y: size.height / 3.5)
+                                .rotationEffect(.degrees(10), anchor: .center)
+                                .offset(x: 10, y: soloOffset)
+                                .transition(.slide)
+                                .onAppear {
+                                     withAnimation(.spring(duration: 0.5)) {
+                                         soloOffset =  size.height / 4.5
+                                     }
+                                 }
+                                .onDisappear{
+                                    soloOffset = UIScreen.main.bounds.height / 2
+                                }
                         }
-                       
-                    }
-                    .shadow(color: .gray.opacity(0.3),  radius: 20)
+                    case "Family Vacation":
+                        ZStack{
+                            ForEach(0..<3) { v in
+                                Image("planeTicket")
+                                    .resizable()
+                                    .containerRelativeFrame([.vertical, .horizontal]) { size, axis in
+                                        size * 0.6
+                                    }
+                                    .frame(maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .bottom)
+                                    .rotationEffect(.degrees(v == 0 ? -15 : (v == 1 ? 2 : (v == 2 ? -5 : 5))), anchor: .center)
+                                    .offset(x: v == 0 ? -40 : (v == 1 ? 20 : (v == 2 ? -30 : -50)) , y:  offsetValues[v])
+                                    .transition(.slide)
+                                    .onAppear {
+                                         withAnimation(.spring(duration: 0.5).delay(Double(v) * 0.1)) {
+                                             offsetValues[v] = size.height / 4.5
+                                         }
+                                     }
+                                    .onDisappear{
+                                        offsetValues[v] = UIScreen.main.bounds.height / 2
+                                    }
+                            }
+                        }
+                    case "Road Trip":
+                        ZStack{
+                            ForEach(0..<3) { v in
+                                Image("carTicket")
+                                    .resizable()
+                                    .containerRelativeFrame([.vertical, .horizontal]) { size, axis in
+                                        size * 0.6
+                                    }
+                                    .frame(maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .bottom)
+                                    .rotationEffect(.degrees(v == 0 ? -15 : (v == 1 ? 2 : 15)), anchor: .center)
+                                    .offset(x: v == 0 ? -30 : (v == 1 ? 0 : 50), y:  roadTicketOffset[v])
+                                    .transition(.slide)
+                                    .onAppear {
+                                         withAnimation(.spring(duration: 0.5).delay(Double(v) * 0.1)) {
+                                        // Adjust the value to control how far up the images slide
+                                             roadTicketOffset[v] = size.height / 4.5
+                                         }
+                                     }
+                                    .onDisappear{
+                                        roadTicketOffset[v] = UIScreen.main.bounds.height / 2
+                                    }
+                            }
+                        }
+                    case "Baecation":
+                        ZStack{
+                            ForEach(0..<2) { v in
+                                Image("planeTicket")
+                                    .resizable()
+                                    .containerRelativeFrame([.vertical, .horizontal]) { size, axis in
+                                        size * 0.6
+                                    }
+                                    .frame(maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .bottom)
+                                    .rotationEffect(.degrees(v == 0 ? 15 : (v == 1 ? -15 : 15)), anchor: .center)
+                                    .offset(x: v == 70 ? 40 : (v == 1 ? -60 : 50), y:  baecationTicketOffset[v])
+                                    .transition(.slide)
+                                    .onAppear {
+                                         withAnimation(.spring(duration: 0.5).delay(Double(v) * 0.1)) {
+                                        // Adjust the value to control how far up the images slide
+                                             baecationTicketOffset[v] = size.height / 4.5
+                                         }
+                                     }
+                                    .onDisappear{
+                                        baecationTicketOffset[v] = UIScreen.main.bounds.height / 2
+                                    }
+                            }
+                        }
+                    case "Group travel":
+                        ZStack{
+                            ForEach(0..<3) { v in
+                                Image("planeTicket")
+                                    .resizable()
+                                    .containerRelativeFrame([.vertical, .horizontal]) { size, axis in
+                                        size * 0.6
+                                    }
+                                    .frame(maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .bottom)
+                                    .rotationEffect(.degrees(v == 0 ? -15 : (v == 1 ? 2 : 15)), anchor: .center)
+                                    .offset(x: v == 0 ? -30 : (v == 1 ? 0 : 50), y:  groupTicketOffset[v])
+                                    .transition(.slide)
+                                    .onAppear {
+                                         withAnimation(.spring(duration: 0.5).delay(Double(v) * 0.1)) {
+                                        // Adjust the value to control how far up the images slide
+                                             groupTicketOffset[v] = size.height / 4.5
+                                         }
+                                     }
+                                    .onDisappear{
+                                        groupTicketOffset[v] = UIScreen.main.bounds.height / 2
+                                    }
+                            }
+                        }
+                    case "Girls' trip":
+                        ZStack{
+                            ForEach(0..<3) { v in
+                                Image("planeTicket")
+                                    .resizable()
+                                    .containerRelativeFrame([.vertical, .horizontal]) { size, axis in
+                                        size * 0.6
+                                    }
+                                    .frame(maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .bottom)
+                                    .rotationEffect(.degrees(v == 0 ? -15 : (v == 1 ? 2 : 15)), anchor: .center)
+                                    .offset(x: v == 0 ? -30 : (v == 1 ? 0 : 50), y:  girlsTicketOffset[v])
+                                    .transition(.slide)
+                                    .onAppear {
+                                         withAnimation(.spring(duration: 0.5).delay(Double(v) * 0.1)) {
+                                        // Adjust the value to control how far up the images slide
+                                             girlsTicketOffset[v] = size.height / 4.5
+                                         }
+                                     }
+                                    .onDisappear{
+                                        girlsTicketOffset[v] = UIScreen.main.bounds.height / 2
+                                    }
+                            }
+                        }
+                    case "Guys' trip":
+                        ZStack{
+                            ForEach(0..<3) { v in
+                                Image("planeTicket")
+                                    .resizable()
+                                    .containerRelativeFrame([.vertical, .horizontal]) { size, axis in
+                                        size * 0.6
+                                    }
+                                    .frame(maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .bottom)
+                                    .rotationEffect(.degrees(v == 0 ? -15 : (v == 1 ? 2 : 15)), anchor: .center)
+                                    .offset(x: v == 0 ? -30 : (v == 1 ? 0 : 50), y:  guysTicketOffset[v])
+                                    .transition(.slide)
+                                    .onAppear {
+                                         withAnimation(.spring(duration: 0.5).delay(Double(v) * 0.1)) {
+                                             guysTicketOffset[v] = size.height / 4.5
+                                         }
+                                     }
+                                    .onDisappear{
+                                        guysTicketOffset[v] = UIScreen.main.bounds.height / 2
+                                    }
+                            }
+                        }
+                    default:
+                        Text("")
                 }
+            
+          
                 
                 HStack{
                     Text("\(vm.singleTrip)  selected")
@@ -175,7 +314,6 @@ struct TripTypeView: View {
                 .animation(.smooth, value: countOffset)
                 .opacity(showCount ? 1 : 0)
                 .transition(.move(edge: .bottom))
-
             }
             
             

@@ -49,6 +49,7 @@ class CardXVM : ObservableObject {
 struct GetStartedView: View {
     @StateObject private var cardVm = CardXVM()
     @EnvironmentObject var vm: PersonalInfoVM
+    @EnvironmentObject var route: Router<Routes>
     var width = UIScreen.main.bounds.width
     @State var currentIndex : Int = 0
     @State private var progress: CGFloat = 20.0
@@ -126,12 +127,13 @@ struct GetStartedView: View {
                                         .stroke(.white, lineWidth: 2)
                                 }
                                 .onTapGesture {
-                                    withAnimation {
-                                        moveToBack(0)
-                                        if let topCard = cards.first {
-                                            progress = CGFloat(topCard.progress)
-                                        }
-                                    }
+                                    route.push(to: .PersonalityView)
+//                                    withAnimation {
+//                                        moveToBack(0)
+//                                        if let topCard = cards.first {
+//                                            progress = CGFloat(topCard.progress)
+//                                        }
+//                                    }
                                 }
                             Gap(w: 15)
                             Text("Choose a\ncategory to\nget started")

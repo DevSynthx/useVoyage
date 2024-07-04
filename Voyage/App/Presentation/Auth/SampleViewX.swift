@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SampleViewX: View {
+    @EnvironmentObject var vm: PersonalInfoVM
     var namespace: Namespace.ID
     var currentItem: AuthType
     @State var offset: CGFloat = 0
@@ -15,8 +16,7 @@ struct SampleViewX: View {
     @State var lastoffset: CGFloat = 0
     @State var isOpen: Bool = false
     @State var showScreen: Bool = false
-    @State var firstAppear: Bool = false
-    @State var username: String = ""
+    @State var firstAppear: Bool = false    
     @GestureState var gestureoffset: CGFloat = 0
     var body: some View {
         
@@ -37,7 +37,7 @@ struct SampleViewX: View {
                 
                 VStack(spacing: 0){
                     Spacer()
-                    MiniScreen(height: height , width: width, username: $username )
+                    MiniScreen(height: height , width: width)
                     .opacity(showScreen ? 1 : 0)
                     .onAppear{
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7){
@@ -49,9 +49,9 @@ struct SampleViewX: View {
                     ZStack(alignment: .center){
                         Image("hand")
                         
-                        Text(username.truncate(7))
+                        Text(vm.username.truncate(7))
                             .font(.system(size: 20, weight: .bold))
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.passportText)
                             .rotationEffect(Angle(degrees: -20))
                             .offset(y: -140)
                         
@@ -159,6 +159,7 @@ struct SampleViewX: View {
 
 #Preview {
     SampleViewX(namespace:  Namespace().wrappedValue, currentItem: .model())
+        .environmentObject(PersonalInfoVM())
 }
 
 extension HorizontalAlignment {

@@ -14,6 +14,8 @@ struct Main: View {
         RouterView(router: router) { path in
             switch path {
                 case .AuthView: AuthView()
+                case .GetStartedView:
+                    GetStartedView()
                 case .PersonalityView:
                     PersonalityView()
                 case .ComplimentView:

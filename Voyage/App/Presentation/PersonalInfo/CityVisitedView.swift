@@ -34,24 +34,52 @@ struct CityVisited: View {
                                 .padding(.leading, 20)
                                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                             Gap(h: 30)
-                            TextField("", text: self.$text, prompt: Text("  Search city").foregroundStyle(.gray))
-                                .foregroundStyle(.black)
-                                .frame(height: 40)
-                                .focused($isFocused)
-                                .textFieldStyle(PlainTextFieldStyle())
-                                .padding([.horizontal], 4)
-                                .cornerRadius(6)
-                                .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.gray))
-                                .padding([.horizontal], 24)
-                                .matchedGeometryEffect(id: "textfield", in: nameSpace, isSource: true)
-                                .matchedGeometryEffect(id: "show", in: nameSpace, isSource: true)
-                                .animation(.spring, value: showSearch)
-                                .onTapGesture {
-                                    withAnimation {
-                                        showSearch.toggle()
-                                    }
+                            VStack(alignment: .leading){
+                                HStack{
+                                    Image(systemName: "magnifyingglass")
+                                        .foregroundStyle(.gray)
+                                    Text("Search city")
+                                        .foregroundStyle(.gray)
                                 }
-                                .disabled(isFocused)
+                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                
+                            }
+                            .padding(.leading, 13)
+                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                            .background{
+                                RoundedRectangle(cornerRadius: 5)
+                                    .fill(.white)
+                                    .stroke(.gray, lineWidth: /*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
+                                    .frame(height: 40)
+                                
+                            }
+                            .matchedGeometryEffect(id: "textfield", in: nameSpace, isSource: true)
+                            .matchedGeometryEffect(id: "show", in: nameSpace, isSource: true)
+                            .animation(.spring, value: showSearch)
+                            .padding(.horizontal, 20)
+                            .onTapGesture {
+                                withAnimation {
+                                    showSearch.toggle()
+                                }
+                            }
+//                            TextField("", text: self.$text, prompt: Text("  Search city").foregroundStyle(.gray))
+//                                .foregroundStyle(.black)
+//                                .frame(height: 40)
+//                                .focused($isFocused)
+//                                .textFieldStyle(PlainTextFieldStyle())
+//                                .padding([.horizontal], 4)
+//                                .cornerRadius(6)
+//                                .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.gray))
+//                                .padding([.horizontal], 24)
+//                                .matchedGeometryEffect(id: "textfield", in: nameSpace, isSource: true)
+//                                .matchedGeometryEffect(id: "show", in: nameSpace, isSource: true)
+//                                .animation(.spring, value: showSearch)
+//                                .onTapGesture {
+//                                    withAnimation {
+//                                        showSearch.toggle()
+//                                    }
+//                                }
+//                                .disabled(isFocused)
                         }
                         
 
