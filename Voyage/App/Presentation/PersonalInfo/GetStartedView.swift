@@ -7,6 +7,34 @@
 
 import SwiftUI
 
+
+
+struct CardA {
+    let id: Int
+    let color: Color
+    let progress: Int
+    
+    var view: some View {
+        VStack{
+            Image("personalityIcon")
+            Gap(h: 10)
+            Text("get started")
+                .font(.custom(.medium, size: 12))
+                .foregroundStyle(.black)
+        }
+        .frame(width: 100, height: 115)
+        .background{
+            Rectangle()
+                .fill(color)
+                .frame(width: 100, height: 115)
+                .cornerRadius(10)
+                .shadow(radius: 5)
+                .padding()
+        }
+       
+    }
+}
+
 class CardXVM : ObservableObject {
     @Published var cards: [(String,CGFloat, Color)]  = [
         ("water", 0, .red), ("Fruits", 0, .green), ("Sugar", 0, .blue), ("Apples", 0, .yellow)
@@ -18,46 +46,264 @@ class CardXVM : ObservableObject {
     }
 }
 
-struct SelectedInfoView: View {
+struct GetStartedView: View {
     @StateObject private var cardVm = CardXVM()
+    @EnvironmentObject var vm: PersonalInfoVM
     var width = UIScreen.main.bounds.width
+    @State var currentIndex : Int = 0
+    @State private var progress: CGFloat = 20.0
+    @State private var contentHeight: CGSize = .zero
+    @State private var cards: [CardA] = [
+        CardA(id: 0, color: .white, progress: 20),
+        CardA(id: 1, color: .gray, progress: 40),
+        CardA(id: 2, color: .gray, progress: 60),
+        CardA(id: 3, color: .gray, progress: 80),
+        CardA(id: 4, color: .gray, progress: 100)
+       ]
+       
     var body: some View {
-        VStack {
-           //CardView()
-            BoomerangeCard()
-                .frame(height: 220)
-                .padding(.horizontal, 10)
-//            ZStack{
-//                ForEach(cardVm.cards.indices.reversed(), id: \.self) { v in
-//                    HStack {
-//                        Rectangle()
-//                            .fill( cardVm.cards[v].2)
-//                            .frame(width: getCardWidth(index: v), height: getCardHeight(index: v))
-//                            .cornerRadius(8)
-//                            .shadow(radius: 4)
-//                            .offset(x: getOffset(index: v))
-//                            .rotationEffect(.init(degrees: getRotation(index: v)))
-//                        
-//                    }
-//                    .contentShape(Rectangle())
-//                    .offset(x: cardVm.cards[v].1)
-//                    .gesture(
-//                      DragGesture(minimumDistance: 0)
-//                        .onChanged({ value in
-//                            onChange(value: value, index: v)
-//                        })
-//                        .onEnded({ valuex in
-//                            onEnd(value: valuex, index: v)
-//                        })
-//                    
-//                    )
-//                }
-//            }
+     
+        GeometryReader(content: { geo in
+            let size = geo.size
+            VStack {
+                Gap(h: size.height / 7)
+                VStack{
+                    VStack {
+                        Gap(h: 10)
+                        Image("plane_icon")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .containerRelativeFrame(.horizontal, { size, _ in
+                                size / 4
+                            })
+                            .frame(maxWidth: .infinity, alignment: . trailing)
+                            .padding(.trailing, 20)
+                        Gap(h: 15)
+                        HStack(spacing: 0) {
+                            ZStack {
+                                ForEach(Array(cards.enumerated()), id: \.element.id) { index, card in
+                                    card.view
+                                        .offset(x: offsetForx(index: index))
+                                        .scaleEffect(scaleForx(index: index), anchor: .center)
+                                        .zIndex(Double(cards.count - index)) // Ensure correct layering
+                                        .overlay(
+                                            GeometryReader { geo in
+                                                Color.clear.preference(key: HeightPreferenceKey.self, value: geo.size)
+                                            }
+                                        )
+                                        .gesture(
+                                            DragGesture()
+                                                .onEnded { value in
+                                                    if value.translation.width < -50 {
+                                                        
+                                                        withAnimation {
+                                                            moveToBack(index)
+                                                            if let topCard = cards.first {
+                                                                progress = CGFloat(topCard.progress)
+                                                            }
+                                                        }
+                                                    }
+                                                    else if value.translation.width > 50 {
+                                                        withAnimation {
+                                                            moveToBack(index)
+                                                            if let topCard = cards.first {
+                                                                progress = CGFloat(topCard.progress)
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                        )
+
+                                }
+                                
+                            }
+                        
+                            Gap(w: 20)
+                            Image(systemName: "arrow.forward")
+                                .padding(8)
+                                .background{
+                                    Circle()
+                                        .stroke(.white, lineWidth: 2)
+                                }
+                                .onTapGesture {
+                                    withAnimation {
+                                        moveToBack(0)
+                                        if let topCard = cards.first {
+                                            progress = CGFloat(topCard.progress)
+                                        }
+                                    }
+                                }
+                            Gap(w: 15)
+                            Text("Choose a\ncategory to\nget started")
+                                .font(.custom(.bold, size: 16))
+                                .lineSpacing(3)
+                                .foregroundStyle(.white)
+                         
+                        }
+                        .frame(height: contentHeight.height / 1.2)
+                        .padding(.trailing, 1)
+                        .onPreferenceChange(HeightPreferenceKey.self, perform: { value in
+                            self.contentHeight = value
+                        })
+                        Gap(h: 30)
+                        ZStack{
+                            Rectangle()
+                                .frame(width: 100, height: 4, alignment: .leading)
+                                .foregroundColor(.gray.opacity(0.5))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.horizontal, 21)
+                            Rectangle()
+                                .frame(width: progress, height: 4, alignment: .leading)
+                                .foregroundColor(.white)
+                                .animation(.easeInOut(duration: 0.5), value: progress)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.horizontal, 21)
+                        }
+                       
+
+                        Gap(h: 20)
+                    }
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                    .padding(.horizontal, 25)
+                    .background{
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(LinearGradient(
+                                               gradient: Gradient(colors: [Color(hex: "FF87C7"), Color(hex: "48ACF0")]),
+                                               startPoint: .topLeading,
+                                               endPoint: .bottomTrailing))
+                           .padding(.horizontal, 25)
+                    }
+                    .padding(.top, 25)
+
+                    Gap(h: 10)
+                    Image("screen_buttons")
+                         .resizable()
+                         .scaledToFit()
+                         .padding(.horizontal, 24)
+                         .padding(.bottom, 5)
+                    Gap(h: 7)
+                }
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                .background{
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(.black)
+                }
+                Spacer()
+                ZStack(alignment: .center){
+                    Image("hand")
+                        .containerRelativeFrame(.horizontal) { size, _ in
+                            size / 3
+                        }
+                    
+                    Text(vm.username.truncate(7))
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundStyle(.passportText)
+                        .rotationEffect(Angle(degrees: -20))
+                        .offset(y: -140)
+                    
+                }
+                
+                   
+               
+              // CardView()
+    //            BoomerangeCard()
+    //                .frame(height: 220)
+    //                .padding(.horizontal, 10)
+    //            ZStack{
+    //                ForEach(cardVm.cards.indices.reversed(), id: \.self) { v in
+    //                    HStack {
+    //                        Rectangle()
+    //                            .fill( cardVm.cards[v].2)
+    //                            .frame(width: getCardWidth(index: v), height: getCardHeight(index: v))
+    //                            .cornerRadius(8)
+    //                            .shadow(radius: 4)
+    //                            .offset(x: getOffset(index: v))
+    //                            .rotationEffect(.init(degrees: getRotation(index: v)))
+    //
+    //                    }
+    //                    .contentShape(Rectangle())
+    //                    .offset(x: cardVm.cards[v].1)
+    //                    .gesture(
+    //                      DragGesture(minimumDistance: 0)
+    //                        .onChanged({ value in
+    //                            onChange(value: value, index: v)
+    //                        })
+    //                        .onEnded({ valuex in
+    //                            onEnd(value: valuex, index: v)
+    //                        })
+    //
+    //                    )
+    //                }
+    //            }
+            }
+            .padding(25)
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
+
+        })
+        .background{
+            Image("backseat")
+                .scaledToFill()
+                  
         }
-        .padding(25)
-        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .bottom)
+        .ignoresSafeArea(.all)
     }
     
+    
+    private func scaleForx(index value: Int) -> Double {
+        let index = Double(value)
+        if index == 0 {
+            return 1.0
+        } else if index == 1 {
+            return 0.75
+        } else if index == 2 {
+            return 0.60
+        } else {
+            return 0.7
+        }
+    }
+    
+    func offsetForx(index value: Int)-> Double {
+        let index = Double(value )
+        if index >= 0 {
+            if index > 2 {
+                return 20
+            }
+            return  (index * 40)
+        } else{
+            if -index > 3 {
+                return 30
+            }
+            return (-index * 10)
+        }
+     
+    }
+    
+    func indexOfx(card : CardA) -> Int {
+        if let index = cards.firstIndex(where: { CCard in
+            CCard.id == card.id
+        }){
+            return index
+        }
+        return 0
+    }
+    
+    private func moveToBack(_ index: Int) {
+        let removedCard = cards.remove(at: index)
+               cards.append(CardA(id: removedCard.id, color: .gray, progress: removedCard.progress))
+               if let firstCard = cards.first {
+                   cards[0] = CardA(id: firstCard.id, color: .white, progress: firstCard.progress)
+               }
+       
+       }
+    
+    private func moveToFront(_ index: Int) {
+           if index > 0 {
+               let card = cards.removeLast()
+               cards.insert(CardA(id: card.id, color: .gray, progress: card.progress), at: 0)
+               cards[1] = CardA(id: cards[1].id, color: .white, progress: cards[1].progress)
+           }
+    }
+       
     
      func onChange(value: DragGesture.Value, index: Int){
         if value.translation.width < 0 {
@@ -103,7 +349,8 @@ struct SelectedInfoView: View {
 }
 
 #Preview {
-    SelectedInfoView()
+    GetStartedView()
+        .environmentObject(PersonalInfoVM())
 }
 
 
@@ -380,8 +627,8 @@ struct BoomerangeCard: View {
             .foregroundStyle(card.color)
             .frame(width: size.width, height: size.height )
             .scaleEffect(card.scale, anchor:card.isRotated ? .center : .top)
-            .offset(x: offsetForx(index: index))
-            .offset(x: card.extraOffset)
+            .offset(y: -offsetForx(index: index))
+            .offset(y: card.extraOffset)
             .scaleEffect(scaleForx(index: index), anchor: .top)
             .zIndex(card.zIndex)
     }
@@ -391,7 +638,8 @@ struct BoomerangeCard: View {
             Color.red,
             Color.blue,
             Color.green,
-            Color.yellow
+            Color.yellow,
+            Color.pink
         ]
         for index in colors {
             cards.append(.init(color: index))
