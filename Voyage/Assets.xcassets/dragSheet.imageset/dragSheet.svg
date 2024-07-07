@@ -1,0 +1,19 @@
+<svg width="527" height="791" viewBox="0 0 527 791" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_1615_8078" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="527" height="791">
+<path d="M0.831543 0.958984H526.541V527.842C526.541 673.013 408.857 790.697 263.686 790.697V790.697C118.516 790.697 0.831543 673.013 0.831543 527.842V0.958984Z" fill="#FDFEFF"/>
+</mask>
+<g mask="url(#mask0_1615_8078)">
+<rect x="-68.646" y="-82.7812" width="667.188" height="861.834" fill="#EDEDED"/>
+<g filter="url(#filter0_f_1615_8078)">
+<rect x="239.269" y="694" width="49" height="12" rx="6" fill="#B3B3B3"/>
+</g>
+<rect x="239.269" y="694" width="49" height="7" rx="3.5" fill="#333333"/>
+</g>
+<defs>
+<filter id="filter0_f_1615_8078" x="227.411" y="682.142" width="72.7159" height="35.7159" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="5.92896" result="effect1_foregroundBlur_1615_8078"/>
+</filter>
+</defs>
+</svg>
