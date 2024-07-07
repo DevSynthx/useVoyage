@@ -109,21 +109,7 @@ struct TripTypeView: View {
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
 
                     Gap(h: 30)
-                    HStack(alignment: .center, spacing: 40) {
-                        Image("arrow_right")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .rotationEffect(.degrees(180))
-                        
-                        Text("SWIPE")
-                            .font(.custom(.regular, size: 14))
-                            .foregroundStyle(.black)
-                            .kerning(5)
-                        Image("arrow_right")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                        
-                    }
+                    SwipeView()
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
 
                     }

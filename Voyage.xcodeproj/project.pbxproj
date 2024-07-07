@@ -14,7 +14,6 @@
 		0C32C5D32C24F29F000784A8 /* EnterNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32C5D22C24F29F000784A8 /* EnterNameView.swift */; };
 		0C32C5D52C24F6A7000784A8 /* DisplayNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32C5D42C24F6A7000784A8 /* DisplayNameView.swift */; };
 		0C32C5D72C24F781000784A8 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32C5D62C24F781000784A8 /* ActionButton.swift */; };
-		0C3745022C1280B300B86938 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3745012C1280B300B86938 /* AppColor.swift */; };
 		0C3745062C12876800B86938 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3745052C12876800B86938 /* Extensions.swift */; };
 		0C3745082C1287D500B86938 /* Gap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3745072C1287D500B86938 /* Gap.swift */; };
 		0C39EA3F2C25BA3500540D03 /* PersonalityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C39EA3E2C25BA3500540D03 /* PersonalityView.swift */; };
@@ -28,6 +27,7 @@
 		0C713C272C162726007304C7 /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C713C262C162726007304C7 /* SampleView.swift */; };
 		0C713C2A2C162D92007304C7 /* MiniWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C713C292C162D92007304C7 /* MiniWindow.swift */; };
 		0C713C302C1671DF007304C7 /* AuthTypeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C713C2F2C1671DF007304C7 /* AuthTypeVM.swift */; };
+		0C73470D2C3774C2001C8D12 /* ChooseSeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C73470C2C3774C2001C8D12 /* ChooseSeasonView.swift */; };
 		0C7469112C29FEF80091F063 /* TripTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7469102C29FEF80091F063 /* TripTypeView.swift */; };
 		0C7FDB882C30D68F008A26BA /* Matter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0C7FDB872C30D68F008A26BA /* Matter-Bold.ttf */; };
 		0C7FDB8A2C30D6A2008A26BA /* Matter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0C7FDB892C30D6A2008A26BA /* Matter-Light.ttf */; };
@@ -90,7 +90,6 @@
 		0C32C5D22C24F29F000784A8 /* EnterNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameView.swift; sourceTree = "<group>"; };
 		0C32C5D42C24F6A7000784A8 /* DisplayNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayNameView.swift; sourceTree = "<group>"; };
 		0C32C5D62C24F781000784A8 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
-		0C3745012C1280B300B86938 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		0C3745052C12876800B86938 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0C3745072C1287D500B86938 /* Gap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gap.swift; sourceTree = "<group>"; };
 		0C39EA3E2C25BA3500540D03 /* PersonalityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalityView.swift; sourceTree = "<group>"; };
@@ -104,6 +103,7 @@
 		0C713C262C162726007304C7 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		0C713C292C162D92007304C7 /* MiniWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniWindow.swift; sourceTree = "<group>"; };
 		0C713C2F2C1671DF007304C7 /* AuthTypeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTypeVM.swift; sourceTree = "<group>"; };
+		0C73470C2C3774C2001C8D12 /* ChooseSeasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSeasonView.swift; sourceTree = "<group>"; };
 		0C7469102C29FEF80091F063 /* TripTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTypeView.swift; sourceTree = "<group>"; };
 		0C7FDB872C30D68F008A26BA /* Matter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Matter-Bold.ttf"; sourceTree = "<group>"; };
 		0C7FDB892C30D6A2008A26BA /* Matter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Matter-Light.ttf"; sourceTree = "<group>"; };
@@ -174,7 +174,6 @@
 		0C3744FE2C12807300B86938 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				0C3745012C1280B300B86938 /* AppColor.swift */,
 				0C3745072C1287D500B86938 /* Gap.swift */,
 				0C32C5D62C24F781000784A8 /* ActionButton.swift */,
 			);
@@ -194,6 +193,7 @@
 				0CA288A92C2D91D800077C6E /* CustomSlider.swift */,
 				0CCAEC5C2C3208DA003D10DE /* GetStartedView.swift */,
 				0C9D0E442C35AF9A00D402D5 /* ComplimentView.swift */,
+				0C73470C2C3774C2001C8D12 /* ChooseSeasonView.swift */,
 			);
 			path = PersonalInfo;
 			sourceTree = "<group>";
@@ -588,7 +588,6 @@
 				0C39EA422C25C06000540D03 /* PersonalInfoVM.swift in Sources */,
 				0CCAEC5D2C3208DA003D10DE /* GetStartedView.swift in Sources */,
 				0CCA15E52B7A455D00758383 /* Persistence.swift in Sources */,
-				0C3745022C1280B300B86938 /* AppColor.swift in Sources */,
 				0CA288AA2C2D91D800077C6E /* CustomSlider.swift in Sources */,
 				0CCA15DE2B7A455B00758383 /* ContentView.swift in Sources */,
 				0C32C5D52C24F6A7000784A8 /* DisplayNameView.swift in Sources */,
@@ -610,6 +609,7 @@
 				0C39EA3F2C25BA3500540D03 /* PersonalityView.swift in Sources */,
 				0CA23A7B2C28E52800F070F5 /* CitiesDTO.swift in Sources */,
 				0CDC4B572C277A400057FB69 /* Main.swift in Sources */,
+				0C73470D2C3774C2001C8D12 /* ChooseSeasonView.swift in Sources */,
 				0C32C5D12C24DC51000784A8 /* WelcomeView.swift in Sources */,
 				0CCA161C2B7A840100758383 /* Service.swift in Sources */,
 				0CCA15E82B7A455D00758383 /* project_z.xcdatamodeld in Sources */,

@@ -34,6 +34,38 @@ extension Color {
     }
 }
 
+extension UIWindow {
+    static var current: UIWindow? {
+        for scene in UIApplication.shared.connectedScenes {
+            guard let windowScene = scene as? UIWindowScene else { continue }
+            for window in windowScene.windows {
+                if window.isKeyWindow { return window }
+            }
+        }
+        return nil
+    }
+}
+
+
+extension UIScreen {
+    static var current: UIScreen? {
+        UIWindow.current?.screen
+    }
+}
+
+extension ShapeStyle where Self == Color {
+    static var greyX: Color {
+        return Color("grey")
+    }
+    
+    static var passportText: Color {
+        return Color(hex: "F9DCB2")
+    }
+    static var seasonViewBg: Color {
+        return Color(hex: "7A8696")
+    }
+}
+
 extension View {
     func underlineTextField() -> some View {
         self

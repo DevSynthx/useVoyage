@@ -34,7 +34,10 @@ struct AuthView: View {
     @State var currentItemX = AuthType(window: "get_started_mid_window", title: "Get Started", logo: "arrow", isOpen: false)
     @Namespace private var nameSpacexx
     @State private var bottomSheetShown = false
-   
+    let size = UIScreen.main.bounds.size
+    let sizex = UIScreen.current?.bounds.size
+    @State private var sizeOfCard: CGSize = .zero
+    @State private var screenSize: CGSize = .zero
     /*
     init(){
         for familyName in UIFont.familyNames{
@@ -49,11 +52,13 @@ struct AuthView: View {
             
             if !isTapped{
                 VStack{
+                    Gap(h: 20)
                     Image("dot")
                         .resizable(resizingMode: .stretch)
                         .aspectRatio(contentMode: .fill)
                         .scaledToFit()
-                    Gap(h: 90)
+                    Spacer()
+            
                     Text("Voyage")
                         .font(.custom(.bold, size: 50))
                         .foregroundStyle(.black)
@@ -61,8 +66,8 @@ struct AuthView: View {
                         .opacity(appNameOpacity)
                         .transition(.scale)
                    
-                    GeometryReader(content: { geo in
-                        let size = geo.size
+                    Gap(h: screenSize.height / 18)
+                
                         ScrollView (.horizontal, showsIndicators: false){
                             HStack(spacing: 20){
                                 ForEach(authTypeVm.auths.enumerated().map { $0 }, id: \.element.title) { index, auth in
@@ -77,6 +82,10 @@ struct AuthView: View {
                                                 .zIndex(auth.title == currentItemX.title ? 1 : 0)
                                                 .scaleEffect(scaleForIndex(index))
                                                 .animation(Animation.spring().delay(delayForIndex(index)), value: animate[index])
+                                                .getSizeOfView { size in
+                                                                    print("size of the Horizontal Card is: \(size)")
+                                                    sizeOfCard = size
+                                                                }
                                                 .onTapGesture {
                                     
                                                     if(currentIndex == index){
@@ -88,6 +97,7 @@ struct AuthView: View {
                                             }
                                      
                                     }
+                                 
                                     .zIndex(1)
                                          .background(GeometryReader { itemGeo in
                                              Color.clear
@@ -101,30 +111,30 @@ struct AuthView: View {
                                     }
                                 }
                             }
-                            .frame(height: size.height)
+                            .frame(height: sizeOfCard.height)
                             .padding(.horizontal, 100)
                             .onPreferenceChange(ViewOffsetKey.self) { midXValues in
-                                if let nearestIndex = nearestItemIndex(for: midXValues, in: geo.size.width) {
+                                if let nearestIndex = nearestItemIndex(for: midXValues, in: size.width) {
                                     currentIndex = nearestIndex
                                 }
                             }
                             .scrollTargetLayout()
-                    
-                           
                         }
                         .scrollTargetBehavior(.viewAligned)
                         .defaultScrollAnchor(.center)
-                    })
-          
+                    
+               
+                
+                    Gap(h: 30)
                     SubTextView(backArrowOffset: backArrowOffset, forwardArrowOffset: forwardArrowOffset, scaleOpacity: scaleOpacity, scaleText: scaleText, textOffset: textOffset, textOpacity: textOpacity, opacity: opacity
                     )
-                    
-                    Gap(h: 50)
+                    Gap(h: 30)
+                    Spacer()
                     Image("dot")
                         .resizable(resizingMode: .stretch)
                         .aspectRatio(contentMode: .fill)
                         .scaledToFit()
-                  
+                    Gap(h: 30)
                 }
                 .onAppear{
                     withAnimation(.spring.delay(0.2)) {
@@ -164,7 +174,12 @@ struct AuthView: View {
             }
         }
         .frame(maxWidth:  UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height, alignment: .center)
-        .background(.greyX)
+        .background(.grey.opacity(0.95))
+        .onAppear {
+            if let screen = UIScreen.current {
+                self.screenSize = screen.bounds.size
+            }
+        }
         
         
     }
@@ -224,6 +239,20 @@ struct ViewOffsetKey: PreferenceKey {
     }
 }
 
+extension View {
+    func getSizeOfView(_ getSize: @escaping ((CGSize) -> Void)) -> some View {
+        return self
+            .background {
+                GeometryReader { geometry in
+                    Color.clear.preference(key: SizePreferenceKey.self,
+                                           value: geometry.size)
+                    .onPreferenceChange(SizePreferenceKey.self) { value in
+                        getSize(value)
+                    }
+                }
+            }
+    }
+}
 
 
 

@@ -28,6 +28,8 @@ struct Main: View {
                     TripTypeView()
                 case .BudgetType:
                     BudgetView()
+                case .ChooseSeasonView:
+                    ChooseSeasonView()
             }
         }
         

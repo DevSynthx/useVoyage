@@ -104,7 +104,7 @@ struct BudgetView: View {
                             .foregroundStyle(.black)
                         Spacer()
                         NextButton {
-                            //router.push(to: .BudgetType)
+                        router.push(to: .ChooseSeasonView)
                         }
                        
                     }

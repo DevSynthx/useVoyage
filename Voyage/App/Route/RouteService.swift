@@ -111,6 +111,7 @@ enum Routes {
     case TripType
     case BudgetType
     case ComplimentView
+    case ChooseSeasonView
 }
  
 
