@@ -112,6 +112,8 @@ enum Routes {
     case BudgetType
     case ComplimentView
     case ChooseSeasonView
+    case ProfileScreen
+    case HomeScreen
 }
  
 

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeScreen: View {
     let size = UIScreen.main.bounds.size
+    @EnvironmentObject var route: Router<Routes>
     var body: some View {
         ZStack {
             VStack(spacing: 0){
@@ -45,6 +46,9 @@ struct HomeScreen: View {
                     }
                     Gap(w: 25)
                     Image("profileIcon")
+                        .onTapGesture {
+                            route.push(to: .ProfileScreen)
+                        }
                 }
                 .padding(.vertical, 20.4)
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
@@ -122,6 +126,7 @@ struct HomeScreen: View {
             .background{
                 Image("homeBG")
             }
+            .navigationBarBackButtonHidden(true)
         }
         
     }
@@ -129,4 +134,5 @@ struct HomeScreen: View {
 
 #Preview {
     HomeScreen()
+        .environmentObject(Router(root: Routes.AuthView))
 }

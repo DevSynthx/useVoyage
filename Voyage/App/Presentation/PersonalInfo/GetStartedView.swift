@@ -144,6 +144,11 @@ struct GetStartedView: View {
                                 }
                                 .onTapGesture {
                                     route.push(to: .PersonalityView)
+                                    if vm.selectedTrip.ticketCount != 0 {
+                                        route.push(to: .HomeScreen)
+                                    } else {
+                                        route.push(to: .PersonalityView)
+                                    }
 //                                    withAnimation {
 //                                        moveToBack(0)
 //                                        if let topCard = cards.first {

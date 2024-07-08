@@ -13,6 +13,8 @@ struct Main: View {
     var body: some View {
         RouterView(router: router) { path in
             switch path {
+                case .HomeScreen: HomeScreen()
+                case .ProfileScreen: ProfileView()
                 case .AuthView: AuthView()
                 case .GetStartedView:
                     GetStartedView()

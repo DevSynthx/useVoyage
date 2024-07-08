@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C15BF2B2C3C0419007C7135 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C15BF2A2C3C0419007C7135 /* HomeScreen.swift */; };
+		0C15BF2D2C3C4393007C7135 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C15BF2C2C3C4393007C7135 /* ProfileView.swift */; };
 		0C3082682B7BEECB00C03E7A /* GravityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3082672B7BEECB00C03E7A /* GravityView.swift */; };
 		0C30826A2B7BF6C200C03E7A /* GravityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3082692B7BF6C200C03E7A /* GravityVM.swift */; };
 		0C32C5CC2C248D0F000784A8 /* MiniScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32C5CB2C248D0F000784A8 /* MiniScreen.swift */; };
@@ -85,6 +86,7 @@
 
 /* Begin PBXFileReference section */
 		0C15BF2A2C3C0419007C7135 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		0C15BF2C2C3C4393007C7135 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		0C3082672B7BEECB00C03E7A /* GravityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityView.swift; sourceTree = "<group>"; };
 		0C3082692B7BF6C200C03E7A /* GravityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityVM.swift; sourceTree = "<group>"; };
 		0C32C5CB2C248D0F000784A8 /* MiniScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniScreen.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				0C3082672B7BEECB00C03E7A /* GravityView.swift */,
 				0C3082692B7BF6C200C03E7A /* GravityVM.swift */,
 				0C15BF2A2C3C0419007C7135 /* HomeScreen.swift */,
+				0C15BF2C2C3C4393007C7135 /* ProfileView.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				0CCA160C2B7A514300758383 /* HTTPService.swift in Sources */,
 				0C713C302C1671DF007304C7 /* AuthTypeVM.swift in Sources */,
 				0CCA16102B7A51A000758383 /* HttpMethod.swift in Sources */,
+				0C15BF2D2C3C4393007C7135 /* ProfileView.swift in Sources */,
 				0CCA160E2B7A515100758383 /* ErrorHandler.swift in Sources */,
 				0C3B85F92C1CB90000F99478 /* SampleViewX.swift in Sources */,
 				0C6553FF2C348B09006D338B /* LocationManager.swift in Sources */,
