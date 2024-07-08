@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChooseSeasonView: View {
     @EnvironmentObject var vm: PersonalInfoVM
+    @EnvironmentObject var router: Router<Routes>
     @State var offset: CGFloat = 0
     @State var lastoffset: CGFloat = 0
     @State var isOpen: Bool = false
@@ -180,6 +181,7 @@ struct ChooseSeasonView: View {
                                             self.isOpen = false
                                         }
                                         offset = 0
+                                        router.push(to: .GetStartedView)
                                         withAnimation {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
                                                 self.isDragged = false
@@ -262,6 +264,7 @@ struct ChooseSeasonView: View {
 #Preview {
     ChooseSeasonView()
         .environmentObject(PersonalInfoVM())
+        .environmentObject(Router(root: Routes.AuthView))
 }
 
 

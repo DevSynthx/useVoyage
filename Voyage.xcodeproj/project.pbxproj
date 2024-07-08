@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C15BF2B2C3C0419007C7135 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C15BF2A2C3C0419007C7135 /* HomeScreen.swift */; };
 		0C3082682B7BEECB00C03E7A /* GravityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3082672B7BEECB00C03E7A /* GravityView.swift */; };
 		0C30826A2B7BF6C200C03E7A /* GravityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3082692B7BF6C200C03E7A /* GravityVM.swift */; };
 		0C32C5CC2C248D0F000784A8 /* MiniScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32C5CB2C248D0F000784A8 /* MiniScreen.swift */; };
@@ -83,6 +84,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C15BF2A2C3C0419007C7135 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		0C3082672B7BEECB00C03E7A /* GravityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityView.swift; sourceTree = "<group>"; };
 		0C3082692B7BF6C200C03E7A /* GravityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityVM.swift; sourceTree = "<group>"; };
 		0C32C5CB2C248D0F000784A8 /* MiniScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniScreen.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				0C6EB1202B7AC0F400D514D0 /* TestView.swift */,
 				0C3082672B7BEECB00C03E7A /* GravityView.swift */,
 				0C3082692B7BF6C200C03E7A /* GravityVM.swift */,
+				0C15BF2A2C3C0419007C7135 /* HomeScreen.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				0C3745062C12876800B86938 /* Extensions.swift in Sources */,
 				0C9ACD1A2C2854A1005E3CB2 /* SearchView.swift in Sources */,
 				0C3082682B7BEECB00C03E7A /* GravityView.swift in Sources */,
+				0C15BF2B2C3C0419007C7135 /* HomeScreen.swift in Sources */,
 				0CB09F3E2C27A67700C5BF3A /* InterestView.swift in Sources */,
 				0C6EB1212B7AC0F400D514D0 /* TestView.swift in Sources */,
 				0CCA16172B7A7A8E00758383 /* TestRepository.swift in Sources */,

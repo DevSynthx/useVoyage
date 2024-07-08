@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class PersonalInfoVM: ObservableObject {
     @Published var personalities = [PersonalityModel]()
@@ -15,8 +16,9 @@ class PersonalInfoVM: ObservableObject {
     @Published var cities = [CitiesDTO]()
     @Published var filtercities = [CitiesDTO]()
     @Published var selectedCities = [CitiesDTO]()
-    @Published var selectedTrip = [TripTypeModel]()
+    @Published var selectedTrip = TripTypeModel(image: "", name: "", ticketCount: 0, ticketType: "")
     @Published var budgetTypes = [BudgetType]()
+    @Published var cards = [SelectionCard]()
     @Published var singleTrip: String = ""
     @Published var searchText : String = ""
     @Published var username : String = ""
@@ -37,6 +39,7 @@ class PersonalInfoVM: ObservableObject {
         interests.append(contentsOf: InterestModel.interests)
         tripType.append(contentsOf: TripTypeModel.tripType)
         budgetTypes.append(contentsOf: BudgetType.budgetType)
+        cards.append(contentsOf: SelectionCard.selections)
     }
     
     func selectPersonalities(name : String){
@@ -72,7 +75,7 @@ class PersonalInfoVM: ObservableObject {
     
     //----------------> Selected trips implementation
     func selectTrip(city : TripTypeModel){
-        self.singleTrip = city.name
+        self.selectedTrip = city
     }
     
     // ----------------> Ends here
@@ -98,6 +101,29 @@ class PersonalInfoVM: ObservableObject {
             print( interests[index].selected)
         }
     }
+    
+     func moveToBack(_ index: Int) {
+        let removedCard = cards.remove(at: index)
+         let res =  SelectionCard( id: removedCard.id, image: removedCard.image, name: removedCard.name, color: .gray, progress: removedCard.progress)
+               cards.append(res)
+               if let firstCard = cards.first {
+                   cards[0] = SelectionCard( id: firstCard.id, image: firstCard.image, name: firstCard.name, color: .white, progress: firstCard.progress)
+                   
+               }
+       
+       }
+    
+    
+    func indexOfx(card : SelectionCard) -> Int {
+        if let index = cards.firstIndex(where: { CCard in
+            CCard.id == card.id
+        }){
+            return index
+        }
+        return 0
+    }
+    
+
 
 }
 
@@ -155,15 +181,17 @@ struct TripTypeModel: Hashable, Identifiable{
     var id: Self {self }
     var image: String
     var name: String
+    var ticketCount: Int
+    var ticketType: String
     
     static var tripType: [TripTypeModel] = [
-        TripTypeModel(image: "solo", name: "Solo Adventure"),
-        TripTypeModel(image: "family", name: "Family Vacation"),
-        TripTypeModel(image: "drive", name: "Road Trip"),
-        TripTypeModel(image: "date", name: "Baecation"),
-        TripTypeModel(image: "date", name: "Group travel"),
-        TripTypeModel(image: "date", name: "Girls' trip"),
-        TripTypeModel(image: "date", name: "Guys' trip")
+        TripTypeModel(image: "solo", name: "Solo Adventure", ticketCount: 1, ticketType: "planeTicket"),
+        TripTypeModel(image: "family", name: "Family Vacation", ticketCount: 3, ticketType: "planeTicket"),
+        TripTypeModel(image: "drive", name: "Road Trip", ticketCount: 1, ticketType: "carTicket"),
+        TripTypeModel(image: "date", name: "Baecation", ticketCount: 2, ticketType: "planeTicket"),
+        TripTypeModel(image: "date", name: "Group travel", ticketCount: 3, ticketType: "planeTicket"),
+        TripTypeModel(image: "date", name: "Girls' trip", ticketCount: 3, ticketType: "planeTicket"),
+        TripTypeModel(image: "date", name: "Guys' trip", ticketCount: 3, ticketType: "planeTicket")
     ]
     
 }
@@ -181,3 +209,25 @@ struct BudgetType: Hashable, Identifiable{
     ]
     
 }
+
+
+struct SelectionCard: Hashable{
+    var id : Int
+    var image: String
+    var name: String
+    var color: Color
+    var progress: Int
+    
+   
+    static var selections: [SelectionCard] = [
+        SelectionCard( id: 0, image: "tight", name: "Personlity", color: .white, progress: 20),
+        SelectionCard(id: 1, image: "tight", name: "Interest", color: Color.gray, progress: 40),
+        SelectionCard(id: 2, image: "tight", name: "Cities Visited", color: Color.gray, progress: 60),
+        SelectionCard(id: 3, image: "tight", name: "Trip Type", color: Color.gray, progress: 80),
+        SelectionCard(id: 4, image: "tight", name: "Season", color: Color.gray, progress: 100)
+        
+    ]
+    
+}
+
+

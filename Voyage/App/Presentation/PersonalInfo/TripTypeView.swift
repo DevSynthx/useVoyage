@@ -115,7 +115,7 @@ struct TripTypeView: View {
                     }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                   
-                switch vm.singleTrip {
+                switch vm.selectedTrip.name {
                     case "Solo Adventure":
                         ZStack{
                             Image("planeTicket")
@@ -279,7 +279,7 @@ struct TripTypeView: View {
           
                 
                 HStack{
-                    Text("\(vm.singleTrip)  selected")
+                    Text("\(vm.selectedTrip.name)  selected")
                         .font(.custom(.semiBold, size: 18))
                         .foregroundStyle(.black)
                     Spacer()

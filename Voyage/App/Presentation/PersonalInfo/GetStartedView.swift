@@ -10,9 +10,8 @@ import SwiftUI
 
 
 struct CardA {
-    let id: Int
+   // let id: Int
     let color: Color
-    let progress: Int
     
     var view: some View {
         VStack{
@@ -55,11 +54,11 @@ struct GetStartedView: View {
     @State private var progress: CGFloat = 20.0
     @State private var contentHeight: CGSize = .zero
     @State private var cards: [CardA] = [
-        CardA(id: 0, color: .white, progress: 20),
-        CardA(id: 1, color: .gray, progress: 40),
-        CardA(id: 2, color: .gray, progress: 60),
-        CardA(id: 3, color: .gray, progress: 80),
-        CardA(id: 4, color: .gray, progress: 100)
+//        CardA(id: 0, color: .white, progress: 20),
+//        CardA(id: 1, color: .gray, progress: 40),
+//        CardA(id: 2, color: .gray, progress: 60),
+//        CardA(id: 3, color: .gray, progress: 80),
+//        CardA(id: 4, color: .gray, progress: 100)
        ]
        
     var body: some View {
@@ -82,32 +81,49 @@ struct GetStartedView: View {
                         Gap(h: 15)
                         HStack(spacing: 0) {
                             ZStack {
-                                ForEach(Array(cards.enumerated()), id: \.element.id) { index, card in
-                                    card.view
-                                        .offset(x: offsetForx(index: index))
-                                        .scaleEffect(scaleForx(index: index), anchor: .center)
-                                        .zIndex(Double(cards.count - index)) // Ensure correct layering
+                                ForEach(Array(vm.cards.enumerated()), id: \.element.id) { index, card in
+                                    VStack{
+                                        Image("personalityIcon")
+                                        Gap(h: 10)
+                                        Text(card.name)
+                                            .font(.custom(.medium, size: 12))
+                                            .foregroundStyle(.black)
+                                    }
+                                    .frame(width: 100, height: 115)
+                                    .background{
+                                        Rectangle()
+                                            .fill(card.color)
+                                            .frame(width: 100, height: 115)
+                                            .cornerRadius(10)
+                                            .shadow(radius: 5)
+                                            .padding()
+                                    }
+                                     // CardA(color: card.color, progress: card.progress)
+                                       .offset(x: offsetForx(index: index))
+                                       .scaleEffect(scaleForx(index: index), anchor: .center)
+                                       .zIndex(Double(cards.count - index)) // Ensure correct layering
                                         .overlay(
                                             GeometryReader { geo in
                                                 Color.clear.preference(key: HeightPreferenceKey.self, value: geo.size)
                                             }
                                         )
+                                        .contentShape(Rectangle())
                                         .gesture(
                                             DragGesture()
                                                 .onEnded { value in
                                                     if value.translation.width < -50 {
                                                         
                                                         withAnimation {
-                                                            moveToBack(index)
-                                                            if let topCard = cards.first {
+                                                            vm.moveToBack(index)
+                                                            if let topCard = vm.cards.first {
                                                                 progress = CGFloat(topCard.progress)
                                                             }
                                                         }
                                                     }
                                                     else if value.translation.width > 50 {
                                                         withAnimation {
-                                                            moveToBack(index)
-                                                            if let topCard = cards.first {
+                                                            vm.moveToBack(index)
+                                                            if let topCard = vm.cards.first {
                                                                 progress = CGFloat(topCard.progress)
                                                             }
                                                         }
@@ -192,6 +208,18 @@ struct GetStartedView: View {
                 }
                 Spacer()
                 ZStack(alignment: .center){
+                    ForEach(Array(0..<vm.selectedTrip.ticketCount), id: \.self) { v in
+                        Image(vm.selectedTrip.ticketType == "" ? "planeTicket" : vm.selectedTrip.ticketType)
+                            .resizable()
+                            .containerRelativeFrame([.vertical, .horizontal]) { size, axis in
+                                size * 0.35
+                            }
+                            .frame(maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .bottom)
+                            .rotationEffect(.degrees(v == 0 ? -15 : (v == 1 ? 2 : (v == 2 ? -13 : 5))), anchor: .center)
+                            .offset(x: v == 0 ? -40 : (v == 1 ? 20 : (v == 2 ? -30 : -50)) , y:  -190)
+
+                    }
+                   
                     Image("hand")
                         .containerRelativeFrame(.horizontal) { size, _ in
                             size / 3
@@ -240,6 +268,7 @@ struct GetStartedView: View {
             }
             .padding(25)
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
+            .navigationBarBackButtonHidden(true)
 
         })
         .background{
@@ -280,31 +309,31 @@ struct GetStartedView: View {
      
     }
     
-    func indexOfx(card : CardA) -> Int {
-        if let index = cards.firstIndex(where: { CCard in
-            CCard.id == card.id
-        }){
-            return index
-        }
-        return 0
-    }
+//    func indexOfx(card : CardA) -> Int {
+//        if let index = cards.firstIndex(where: { CCard in
+//            CCard.id == card.id
+//        }){
+//            return index
+//        }
+//        return 0
+//    }
     
-    private func moveToBack(_ index: Int) {
-        let removedCard = cards.remove(at: index)
-               cards.append(CardA(id: removedCard.id, color: .gray, progress: removedCard.progress))
-               if let firstCard = cards.first {
-                   cards[0] = CardA(id: firstCard.id, color: .white, progress: firstCard.progress)
-               }
-       
-       }
+//    private func moveToBack(_ index: Int) {
+//        let removedCard = cards.remove(at: index)
+//               cards.append(CardA(id: removedCard.id, color: .gray, progress: removedCard.progress))
+//               if let firstCard = cards.first {
+//                   cards[0] = CardA(id: firstCard.id, color: .white, progress: firstCard.progress)
+//               }
+//       
+//       }
     
-    private func moveToFront(_ index: Int) {
-           if index > 0 {
-               let card = cards.removeLast()
-               cards.insert(CardA(id: card.id, color: .gray, progress: card.progress), at: 0)
-               cards[1] = CardA(id: cards[1].id, color: .white, progress: cards[1].progress)
-           }
-    }
+//    private func moveToFront(_ index: Int) {
+//           if index > 0 {
+//               let card = cards.removeLast()
+//               cards.insert(CardA(id: card.id, color: .gray, progress: card.progress), at: 0)
+//               cards[1] = CardA(id: cards[1].id, color: .white, progress: cards[1].progress)
+//           }
+//    }
        
     
      func onChange(value: DragGesture.Value, index: Int){

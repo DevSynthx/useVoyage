@@ -61,8 +61,17 @@ extension ShapeStyle where Self == Color {
     static var passportText: Color {
         return Color(hex: "F9DCB2")
     }
+    static var yellowCard: Color {
+        return Color(hex: "FFDC08")
+    }
+    static var lightYellow: Color {
+        return Color(hex: "AD7F18")
+    }
     static var seasonViewBg: Color {
         return Color(hex: "7A8696")
+    }
+    static var deepGray: Color {
+        return Color(hex: "2C2C2C")
     }
 }
 
