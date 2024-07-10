@@ -209,6 +209,7 @@ struct ChooseSeasonView: View {
                 Gap(h: 35)
                 Text(seasons[centeredIndex].capitalized)
                     .font(.custom(.bold, size: 35))
+                    .foregroundStyle(.white)
                     .padding(.horizontal, 20)
                     .animation(.interactiveSpring, value: seasons[centeredIndex])
                 Gap(h: 15)
@@ -216,6 +217,8 @@ struct ChooseSeasonView: View {
                 HStack(alignment: .center, spacing: 30) {
                     ForEach(months.indices, id:\.self) { i in
                         Text(months[i])
+                            .font(.custom(.regular, size: 15))
+                            .foregroundStyle(.white)
                             .frame(width: 135)
                             .foregroundStyle((centeredIndex - 3) == (-i) ? .white : .greyX.opacity(0.4))
                         //.frame(width: 120, height: 100, alignment: .center)
