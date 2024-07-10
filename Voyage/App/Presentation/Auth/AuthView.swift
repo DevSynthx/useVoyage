@@ -52,7 +52,7 @@ struct AuthView: View {
             
             if !isTapped{
                 VStack{
-                    Gap(h: 20)
+                    Gap(h: 30)
                     Image("dot")
                         .resizable(resizingMode: .stretch)
                         .aspectRatio(contentMode: .fill)
@@ -180,6 +180,7 @@ struct AuthView: View {
                 self.screenSize = screen.bounds.size
             }
         }
+        //.ignoresSafeArea(.all)
         
         
     }
@@ -226,6 +227,8 @@ struct AuthView: View {
 
 #Preview {
     AuthView()
+        .environmentObject(PersonalInfoVM())
+        .environmentObject(Router(root: Routes.AuthView))
 }
 
 

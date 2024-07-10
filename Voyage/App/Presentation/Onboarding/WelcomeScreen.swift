@@ -14,8 +14,10 @@ struct WelcomeScreen: View {
     @GestureState private var translation: CGFloat = 0
     @State private var widths: [CGFloat] = [90, 30, 30]
     @State var offsetx: CGFloat = -370
-    @State var newValueOffset: CGFloat = -0
     @State private var offset : CGFloat = 40
+    @State private var scalefx : CGFloat = 0.7
+    @State private var valueChanged: Bool = false
+    @State private var value: Bool = false
     var body: some View {
         GeometryReader { geo in
             ZStack {
@@ -31,14 +33,15 @@ struct WelcomeScreen: View {
                                                 //.aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                                                 .scaleEffect(imageScrollToIndex == 2 ? 1.55 : 1.1)
                                                     .offset(y:  imageScrollToIndex == 2 ? 60 : -60)
-                                            DragView(offset: $offsetx)
-                                                .scaleEffect(imageScrollToIndex == 2 ? 1 : 0.7)
+                                            DragView(offset: $offsetx, value: $value)
+                                                .scaleEffect(scalefx)
                                                 .offset(y:  imageScrollToIndex == 2 ? 50 : -60)
                                                     .zIndex(1)
-                                                    .onChange(of: offsetx) { oldValue, newValue in
-                                                        self.newValueOffset = newValue
-                                                        print("new value: \(newValue)")
-                                                    }
+                                                    .onChange(of: value, { oldValue, newValue in
+                                                        valueChanged = newValue
+                                                        print("new_value: \(newValue)")
+                                                    })
+                                                    .disabled(scalefx == 1 ? false : true)
 
                                                 Image("sideSeat")
                                                     .resizable()
@@ -50,6 +53,9 @@ struct WelcomeScreen: View {
                                             .id(v)
                                         }
                                         Image("OnboardingA")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            
                                             .id(v)
                                     }
                                     .onChange(of: imageScrollToIndex) { oldValue, newValue in
@@ -67,6 +73,7 @@ struct WelcomeScreen: View {
 
 
                        }
+                  
                     
                     UnevenRoundedRectangle(cornerRadii: .init(
                         topLeading: 20.0,
@@ -134,14 +141,13 @@ struct WelcomeScreen: View {
                         
                         }
                 }
-                if (-400 ... -200).contains(newValueOffset) {
+                .ignoresSafeArea(.all)
+                if valueChanged {
                     AuthView()
                 }
             }
-           
-           
         }
-        .edgesIgnoringSafeArea(.all)
+        //.ignoresSafeArea(.all)
 
     
     }
@@ -152,6 +158,7 @@ struct WelcomeScreen: View {
         if imageScrollToIndex == 1 && scrollToIndex == 3 {
             imageScrollToIndex = 2
             offsetx = -30
+            scalefx = 1
               }
         else if scrollToIndex == 1 {
             print("herer")
@@ -159,9 +166,10 @@ struct WelcomeScreen: View {
             offsetx =  -370
         }
         else{
-                  imageScrollToIndex += 1
-              }
-           updateWidths(for: scrollToIndex)
+            imageScrollToIndex += 1
+            scalefx = 0.7
+        }
+        updateWidths(for: scrollToIndex)
        }
 
     

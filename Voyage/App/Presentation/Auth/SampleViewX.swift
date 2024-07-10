@@ -19,7 +19,6 @@ struct SampleViewX: View {
     @State var firstAppear: Bool = false    
     @GestureState var gestureoffset: CGFloat = 0
     var body: some View {
-        
         GeometryReader { geo in
             let height = geo.frame(in: .global).height
             let width = geo.frame(in: .global).width
@@ -70,15 +69,18 @@ struct SampleViewX: View {
                             VStack(alignment: .leading){
                                 Gap(h: 70)
                                 Text("Enjoy the full\nexperience")
-                                    .font(.system(size: 40, weight: .semibold))
+                                    .font(.custom(.bold, size: 40))
+                                    .foregroundStyle(.white)
                                 Gap(h: 30)
                                 Text("Turn on your app location to\nhelp us give you a more tailored\nexperience.")
-                                    .font(.system(size: 15, weight: .regular))
+                                    .font(.custom(.regular, size: 15))
+                                    .lineSpacing(5)
+                                    .foregroundStyle(.white)
                                     
                                    
                             }
                             .frame(maxHeight: height / 1.5, alignment: .top)
-                            .ignoresSafeArea(.all, edges: .bottom)
+                            //.ignoresSafeArea(.all, edges: .bottom)
                         }
                         .offset(y: -height + height - 50 )
     //                    .offset(y: -offset > 0 ? -offset <= (height - 100) ? offset : -(height - 100) : 0)

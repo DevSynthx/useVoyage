@@ -15,6 +15,7 @@ struct DragView: View {
     @Binding var offset: CGFloat
     //= -300
     @State var lastoffset: CGFloat = 0
+    @Binding var value: Bool
     @State var isOpen: Bool = false
     @State var isDragged: Bool = false
     var body: some View {
@@ -42,25 +43,14 @@ struct DragView: View {
                // .scaledToFill()
               
             Image("onBoardBG_dragg")
-                .overlay(alignment: .top){
+                .overlay(alignment: .bottom){
                     VStack(alignment: .center){
-                         
-                        Gap(h: 20)
-                        Text("Open the window to get started")
+                        Spacer()
+                        
+                        Image("drag_icon")
+                        Text("DRAG UP TO EXPLORE")
                             .font(.system(size: 15, weight: .regular))
                             .foregroundStyle(.black)
-                            .padding(.horizontal, 25)
-                            .frame(width: size.width, alignment: .leading)
-                        
-                        Spacer()
-                       
-                            VStack{
-                                Image("drag_icon")
-                                Text("DRAG UP TO EXPLORE")
-                                    .font(.system(size: 15, weight: .regular))
-                                    .foregroundStyle(.black)
-                            }
-                    
                         
                         Gap(h: 10)
                         RoundedRectangle(cornerRadius: 20)
@@ -99,6 +89,7 @@ struct DragView: View {
                                 offset = -(maxHeight / 1.9)
                                 withAnimation {
                                     self.isOpen = true
+                                    self.value = true
                                 }
                                 withAnimation {
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
@@ -109,6 +100,7 @@ struct DragView: View {
                             } else {
                                 withAnimation {
                                     self.isOpen = false
+                                    self.value = false
                                 }
                                 offset = 0
                                // router.push(to: .GetStartedView)
@@ -160,5 +152,5 @@ struct DragView: View {
 }
 
 #Preview {
-    DragView(offset: .constant(-350))
+    DragView(offset: .constant(-350), value: .constant(false))
 }
