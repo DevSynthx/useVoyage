@@ -174,7 +174,7 @@ struct AuthView: View {
             }
         }
         .frame(maxWidth:  UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height, alignment: .center)
-        .background(.grey.opacity(0.95))
+        .background(.onBoardingBG)
         .onAppear {
             if let screen = UIScreen.current {
                 self.screenSize = screen.bounds.size

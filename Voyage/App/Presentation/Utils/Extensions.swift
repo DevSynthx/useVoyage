@@ -74,6 +74,12 @@ extension ShapeStyle where Self == Color {
     static var deepGray: Color {
         return Color(hex: "2C2C2C")
     }
+    static var darkBlue: Color {
+        return Color(hex: "032C9E")
+    }
+    static var onBoardingBG: Color {
+        return Color(hex: "F4F4F4")
+    }
 }
 
 extension View {

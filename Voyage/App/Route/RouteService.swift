@@ -114,6 +114,7 @@ enum Routes {
     case ChooseSeasonView
     case ProfileScreen
     case HomeScreen
+    case onBoardingView
 }
  
 

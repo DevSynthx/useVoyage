@@ -44,6 +44,7 @@
 		0CA23A7B2C28E52800F070F5 /* CitiesDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA23A7A2C28E52800F070F5 /* CitiesDTO.swift */; };
 		0CA288AA2C2D91D800077C6E /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA288A92C2D91D800077C6E /* CustomSlider.swift */; };
 		0CB09F3E2C27A67700C5BF3A /* InterestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB09F3D2C27A67700C5BF3A /* InterestView.swift */; };
+		0CB682452C3DBF5B00715BE1 /* DragView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB682442C3DBF5B00715BE1 /* DragView.swift */; };
 		0CC33DC32C0FE3B000F60F3A /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC33DC22C0FE3B000F60F3A /* AuthView.swift */; };
 		0CCA15DC2B7A455B00758383 /* Voyage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA15DB2B7A455B00758383 /* Voyage.swift */; };
 		0CCA15DE2B7A455B00758383 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA15DD2B7A455B00758383 /* ContentView.swift */; };
@@ -124,6 +125,7 @@
 		0CA23A7A2C28E52800F070F5 /* CitiesDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesDTO.swift; sourceTree = "<group>"; };
 		0CA288A92C2D91D800077C6E /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		0CB09F3D2C27A67700C5BF3A /* InterestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestView.swift; sourceTree = "<group>"; };
+		0CB682442C3DBF5B00715BE1 /* DragView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragView.swift; sourceTree = "<group>"; };
 		0CC33DC22C0FE3B000F60F3A /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		0CCA15D82B7A455B00758383 /* Voyage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voyage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CCA15DB2B7A455B00758383 /* Voyage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voyage.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				0CE352E32BAB52C800C9827C /* WelcomeScreen.swift */,
+				0CB682442C3DBF5B00715BE1 /* DragView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				0C3B85F92C1CB90000F99478 /* SampleViewX.swift in Sources */,
 				0C6553FF2C348B09006D338B /* LocationManager.swift in Sources */,
 				0C30826A2B7BF6C200C03E7A /* GravityVM.swift in Sources */,
+				0CB682452C3DBF5B00715BE1 /* DragView.swift in Sources */,
 				0C7469112C29FEF80091F063 /* TripTypeView.swift in Sources */,
 				0CC33DC32C0FE3B000F60F3A /* AuthView.swift in Sources */,
 				0C39EA3F2C25BA3500540D03 /* PersonalityView.swift in Sources */,

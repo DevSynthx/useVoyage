@@ -78,9 +78,11 @@ struct HomeScreen: View {
                                       Gap(w: 20)
                                         Text("Las Vegas Nevada, USA")
                                             .font(.custom(.light, size: 14))
+                                            .foregroundStyle(.white)
                                         Spacer()
                                         Image(systemName: "arrow.right")
                                             .font(.custom(.light, size: 13))
+                                            .foregroundStyle(.white)
                                     }
                                     .padding(.vertical, 5)
                                     .padding(.horizontal, 15)
@@ -93,9 +95,11 @@ struct HomeScreen: View {
                             VStack(alignment:.leading){
                                 Text("Ready for your next vacation?")
                                     .font(.custom(.bold, size: 18))
+                                    .foregroundStyle(.white)
                                     .padding(.bottom, 5)
                                 Text("Need new locations for your next trip? We got you")
                                     .font(.custom(.light, size: 12))
+                                    .foregroundStyle(.white)
                                     
                                 Gap(h: 25)
                                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
@@ -125,7 +129,9 @@ struct HomeScreen: View {
             }
             .background{
                 Image("homeBG")
+                    .resizable()
             }
+            .ignoresSafeArea(.all)
             .navigationBarBackButtonHidden(true)
         }
         

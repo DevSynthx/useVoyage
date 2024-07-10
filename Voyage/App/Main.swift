@@ -9,10 +9,12 @@ import SwiftUI
 
 struct Main: View {
     @ObservedObject
-    var router = Router<Routes>(root: .AuthView)
+    var router = Router<Routes>(root: .onBoardingView)
     var body: some View {
         RouterView(router: router) { path in
             switch path {
+                case .onBoardingView:
+                    WelcomeScreen()
                 case .HomeScreen: HomeScreen()
                 case .ProfileScreen: ProfileView()
                 case .AuthView: AuthView()
