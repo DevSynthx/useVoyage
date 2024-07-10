@@ -240,13 +240,16 @@ struct InterestView: View {
                     }
                 }
                 .padding(.leading, 40)
+                .scrollTargetLayout()
             }
+            .safeAreaPadding(.horizontal, 20)
+            .scrollTargetBehavior(.viewAligned)
             .defaultScrollAnchor(.center)
             
 
             HStack{
                 Text("\(vm.interests.filter{$0.selected == true}.count) Interests selected")
-                    .font(.custom(.semiBold, size: 18))
+                    .font(.custom(.medium, size: 18))
                     .foregroundStyle(.black)
                 Spacer()
                 NextButton(color: vm.interests.filter{$0.selected == true}.count > 3 ? .black : .gray.opacity(0.3),
@@ -257,10 +260,7 @@ struct InterestView: View {
                 })
 
             }
-            .padding(.bottom, 20)
-            .padding(.top, 20)
-            .padding(.horizontal, 20)
-           // .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding([.horizontal, .vertical], 20)
             .background {
                 Rectangle()
                       .foregroundStyle(.white)
@@ -275,7 +275,7 @@ struct InterestView: View {
         }
         .frame(maxWidth: UIScreen.main.bounds.width,   maxHeight: UIScreen.main.bounds.height, alignment: .topLeading)
         .ignoresSafeArea(.all, edges: .bottom)
-        .background(.greyX)
+        .background(.white)
         .navigationBarBackButtonHidden(true)
     }
     

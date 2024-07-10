@@ -62,24 +62,7 @@ struct CityVisited: View {
                                     showSearch.toggle()
                                 }
                             }
-//                            TextField("", text: self.$text, prompt: Text("  Search city").foregroundStyle(.gray))
-//                                .foregroundStyle(.black)
-//                                .frame(height: 40)
-//                                .focused($isFocused)
-//                                .textFieldStyle(PlainTextFieldStyle())
-//                                .padding([.horizontal], 4)
-//                                .cornerRadius(6)
-//                                .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.gray))
-//                                .padding([.horizontal], 24)
-//                                .matchedGeometryEffect(id: "textfield", in: nameSpace, isSource: true)
-//                                .matchedGeometryEffect(id: "show", in: nameSpace, isSource: true)
-//                                .animation(.spring, value: showSearch)
-//                                .onTapGesture {
-//                                    withAnimation {
-//                                        showSearch.toggle()
-//                                    }
-//                                }
-//                                .disabled(isFocused)
+
                         }
                         
 

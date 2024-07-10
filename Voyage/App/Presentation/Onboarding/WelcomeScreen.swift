@@ -155,9 +155,15 @@ struct WelcomeScreen: View {
     private func incrementIndex() {
            scrollToIndex = scrollToIndex == 3 ? 1 : scrollToIndex + 1
        // imageScrollToIndex += 1
+    
+       
+        if scrollToIndex == 1 {
+            scalefx = 0.7
+        }
         if imageScrollToIndex == 1 && scrollToIndex == 3 {
             imageScrollToIndex = 2
             offsetx = -30
+           
             scalefx = 1
               }
         else if scrollToIndex == 1 {

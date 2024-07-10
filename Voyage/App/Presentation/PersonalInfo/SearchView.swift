@@ -15,10 +15,10 @@ struct SearchView: View {
     var body: some View {
         
         VStack {
+            Gap(h: 20)
             HStack {
                 TextField("Email", text: $vm.searchText, prompt: Text("  Search city").foregroundStyle(.gray))
                     .frame(height: 40)
-                   // .focused($isFocused)
                     .textFieldStyle(PlainTextFieldStyle())
                     .padding([.horizontal], 4)
                     .cornerRadius(6)
@@ -34,7 +34,7 @@ struct SearchView: View {
             
             }
             .padding(.trailing, 20)
-            
+            Gap(h: 25)
             
             ScrollView(showsIndicators: false) {
                 ForEach(vm.filtercities, id: \.name) { v in
@@ -48,13 +48,11 @@ struct SearchView: View {
                         .padding(.horizontal, 20)
                         .onTapGesture {
                             vm.selectedCity(city: v)
+                            vm.searchText = ""
                             action()
                         }
                 }
             }
-            
-           
-            
         }
         .matchedGeometryEffect(id: "show", in: namespace, isSource: true)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)

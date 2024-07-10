@@ -23,7 +23,7 @@ struct PersonalityView: View {
                     .padding(.leading, 20)
                 Gap(h: 20)
                 Text("Tell us more about yourself. Select a\nminimum of 3 characters.")
-                    .font(.custom(.light, size: 14))
+                    .font(.custom(.light, size: 15))
                     .lineSpacing(5)
                     .foregroundStyle(.gray)
                     .padding(.leading, 20)
@@ -102,7 +102,7 @@ struct PersonalityView: View {
                                         size * 0.7
                                     })
                                     .background {
-                                        RoundedRectangle(cornerRadius: 6)
+                                        RoundedRectangle(cornerRadius: 8)
                                             .fill(.gray.opacity(0.05))
                                 }
                                 
@@ -117,7 +117,7 @@ struct PersonalityView: View {
                                                 .frame(width: 20, height: 20)
                                         }
                                 }
-                                .clipShape(Rectangle())
+                                .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topTrailing: 8)))
                                 .onTapGesture {
                                     select(name: v.element.name )
                                 }
@@ -126,8 +126,10 @@ struct PersonalityView: View {
                             .padding(.horizontal, 5)
                         }
                     }
-                    .padding(.horizontal, 40)
+                    .scrollTargetLayout()
                 }
+                .safeAreaPadding(.horizontal, 20)
+                .scrollTargetBehavior(.viewAligned)
                 .defaultScrollAnchor(.center)
                 Gap(h: 20)
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -174,7 +176,7 @@ struct PersonalityView: View {
                                         size * 0.7
                                     })
                                     .background {
-                                        RoundedRectangle(cornerRadius: 6)
+                                        RoundedRectangle(cornerRadius: 8)
                                             .fill(.gray.opacity(0.05))
                                 }
                                 
@@ -189,7 +191,7 @@ struct PersonalityView: View {
                                                 .frame(width: 20, height: 20)
                                         }
                                 }
-                                .clipShape(Rectangle())
+                                .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topTrailing: 8)))
                                 .onTapGesture {
                                     select(name: v.element.name )
                                 }
@@ -248,8 +250,10 @@ struct PersonalityView: View {
                             .padding(.horizontal, 5)
                         }
                     }
-                    .padding(.horizontal, 40)
+                    .scrollTargetLayout()
                 }
+                .safeAreaPadding(.horizontal, 20)
+                .scrollTargetBehavior(.viewAligned)
                 .defaultScrollAnchor(.center)
                 Gap(h: 20)
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -296,7 +300,7 @@ struct PersonalityView: View {
                                         size * 0.7
                                     })
                                     .background {
-                                        RoundedRectangle(cornerRadius: 6)
+                                        RoundedRectangle(cornerRadius: 8)
                                             .fill(.gray.opacity(0.05))
                                         }
                                 
@@ -311,7 +315,7 @@ struct PersonalityView: View {
                                                 .frame(width: 20, height: 20)
                                         }
                                 }
-                                .clipShape(Rectangle())
+                                .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topTrailing: 8)))
                                 .onTapGesture {
                                     select(name: v.element.name )
 
@@ -321,8 +325,10 @@ struct PersonalityView: View {
                             .padding(.horizontal, 5)
                         }
                     }
-                    .padding(.leading, 40)
+                    .scrollTargetLayout()
                 }
+                .safeAreaPadding(.horizontal, 20)
+                .scrollTargetBehavior(.viewAligned)
                 .defaultScrollAnchor(.center)
 
             }
@@ -332,7 +338,7 @@ struct PersonalityView: View {
             
             HStack{
                 Text("\(vm.personalities.filter{$0.selected == true}.count) Personalities selected")
-                    .font(.custom(.light, size: 18))
+                    .font(.custom(.medium, size: 18))
                     .foregroundStyle(.black)
                 Spacer()
                 NextButton(color: vm.personalities.filter{$0.selected == true}.count > 3 ? .black : .gray.opacity(0.3), 
@@ -343,9 +349,7 @@ struct PersonalityView: View {
                 })
                
             }
-            .padding(.top, 20)
-            .padding(.bottom, 20)
-            .padding(.horizontal, 20)
+            .padding([.horizontal, .vertical], 20)
             .background {
                 Rectangle()
                       .foregroundStyle(.white)
@@ -357,7 +361,7 @@ struct PersonalityView: View {
             .transition(.move(edge: .bottom))
         }
         .ignoresSafeArea(.all, edges: .bottom)
-        .background(.greyX)
+        .background(.white)
         .navigationBarBackButtonHidden(true)
         
     }

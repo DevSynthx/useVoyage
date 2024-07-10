@@ -137,6 +137,7 @@ struct GetStartedView: View {
                         
                             Gap(w: 20)
                             Image(systemName: "arrow.forward")
+                                .foregroundStyle(.white)
                                 .padding(8)
                                 .background{
                                     Circle()
@@ -149,12 +150,7 @@ struct GetStartedView: View {
                                     } else {
                                         route.push(to: .PersonalityView)
                                     }
-//                                    withAnimation {
-//                                        moveToBack(0)
-//                                        if let topCard = cards.first {
-//                                            progress = CGFloat(topCard.progress)
-//                                        }
-//                                    }
+
                                 }
                             Gap(w: 15)
                             Text("Choose a\ncategory to\nget started")
