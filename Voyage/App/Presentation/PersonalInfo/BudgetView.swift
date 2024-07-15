@@ -46,7 +46,7 @@ struct BudgetView: View {
                                         Gap(h: 15)
                                         Text(v.element.name)
                                             .font(.custom(.regular, size: 15))
-                                            .foregroundStyle(.black)
+                                            .foregroundStyle(.black.opacity(0.5))
                                     }
                                     .frame(height: size.height / 3.5)
                                     .frame(width: size.width)
@@ -91,7 +91,7 @@ struct BudgetView: View {
                             .padding(.bottom, 40)
 
                     Gap(h: size.height / 9)
-                    Text("DRAG TO SELECT")
+                    Text("DRAG TO SELECT YOUR RANGE")
                         .font(.custom(.regular, size: 15))
                         .foregroundStyle(.black)
                         .kerning(5.0)
@@ -100,7 +100,7 @@ struct BudgetView: View {
                     
                     HStack{
                         Text("\(vm.budgetTypes[scrollToIndex].image.capitalized) selected")
-                            .font(.custom(.semiBold, size: 18))
+                            .font(.custom(.medium, size: 18))
                             .foregroundStyle(.black)
                         Spacer()
                         NextButton {
@@ -108,7 +108,7 @@ struct BudgetView: View {
                         }
                        
                     }
-                    .padding(.bottom, 10)
+                    
                     .padding(.horizontal, 20)
                     .frame(maxWidth: .infinity, maxHeight: 100, alignment: .top)
                     .padding(.top, 20)
@@ -117,7 +117,7 @@ struct BudgetView: View {
                               .foregroundStyle(.white)
                               .shadow(color: .gray.opacity(0.1), radius: 3.5, y: -5)
                     }
-                    .offset(y: size.height / 23)
+                    .offset(y: size.height / 20)
                     .opacity(1)
                     .transition(.move(edge: .bottom))
                                             

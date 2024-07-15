@@ -11,10 +11,10 @@ struct PersonalityView: View {
     @EnvironmentObject var vm : PersonalInfoVM
     @EnvironmentObject var router: Router<Routes>
     @State private var rectSize: CGSize = .zero
-    @State private var countOffset: CGFloat = 30
+    @State private var countOffset: CGFloat = 70
     @State private var showCount: Bool = false
     var body: some View {
-        ZStack(alignment: .bottom) {
+       
             VStack(alignment: .leading){
                 Gap(h: 25)
                 Text("What’s your\npersonality?")
@@ -34,8 +34,8 @@ struct PersonalityView: View {
                         ForEach(vm.personalities.enumerated().map{$0}.filter{$0.element.selected == true}, id: \.element.name) { v in
                                     HStack{
                                         Text(v.element.name)
+                                            .font(.custom(.light, size: 13))
                                             .foregroundStyle(.white)
-                                            .font(.system(size: 14))
                                             .padding(.trailing, 8)
                                         Image(systemName: "xmark")
                                             .font(.system(size: 13))
@@ -57,6 +57,7 @@ struct PersonalityView: View {
                 }
                 //.defaultScrollAnchor(.center)
                 .opacity(vm.personalities.filter{$0.selected == true}.count > 0 ? 1 : 0)
+                .transition(.move(edge: .top))
                 Gap(h: 20)
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
@@ -83,7 +84,7 @@ struct PersonalityView: View {
                                         VStack{
                                             Text(v.element.name)
                                                 .foregroundStyle(.black)
-                                                .font(.custom(.regular, size: 20))
+                                                .font(.custom(.regular, size: 18))
                                                 .padding(.leading, 15)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
                                                 .padding(.top, 20)
@@ -97,7 +98,7 @@ struct PersonalityView: View {
                                         
                                         
                                     }
-                                    .frame(height: 150)
+                                    .frame(height: 130)
                                     .containerRelativeFrame([.horizontal], { size, axis in
                                         size * 0.7
                                     })
@@ -156,8 +157,8 @@ struct PersonalityView: View {
                                             
                                             VStack{
                                                 Text(v.element.name)
+                                                    .font(.custom(.regular, size: 18))
                                                     .foregroundStyle(.black)
-                                                    .font(.system(size: 20))
                                                     .padding(.leading, 15)
                                                     .frame(maxWidth: .infinity, alignment: .leading)
                                                     .padding(.top, 20)
@@ -171,7 +172,7 @@ struct PersonalityView: View {
                                          
 
                                         }
-                                        .frame(height: 150)
+                                        .frame(height: 130)
                                     .containerRelativeFrame([.horizontal], { size, axis in
                                         size * 0.7
                                     })
@@ -279,23 +280,23 @@ struct PersonalityView: View {
                                             }
                                             
                                             VStack{
+                                                Gap(h: 30)
                                                 Text(v.element.name)
+                                                    .font(.custom(.regular, size: 18))
                                                     .foregroundStyle(.black)
-                                                    .font(.system(size: 20))
                                                     .padding(.leading, 15)
                                                     .frame(maxWidth: .infinity, alignment: .leading)
-                                                    .padding(.top, 20)
+                                                  
                                                 Image(v.element.image)
-                                                    //.resizable()
-                                                    .frame(width:  100, height: 100)
+                                                  .frame(width:  100, height: 100)
                                                     .padding(.trailing, 10)
                                                     .frame(maxWidth: .infinity, alignment: .trailing)
-                                                    .offset( x: 0, y: 0)
+                                                    
                                             }
                                          
 
                                         }
-                                        .frame(height: 150)
+                                        .frame(height: 130)
                                     .containerRelativeFrame([.horizontal], { size, axis in
                                         size * 0.7
                                     })
@@ -330,39 +331,36 @@ struct PersonalityView: View {
                 .safeAreaPadding(.horizontal, 20)
                 .scrollTargetBehavior(.viewAligned)
                 .defaultScrollAnchor(.center)
+                
+                HStack{
+                    Text("\(vm.personalities.filter{$0.selected == true}.count) Personalities selected")
+                        .font(.custom(.medium, size: 18))
+                        .foregroundStyle(.black)
+                    Spacer()
+                    NextButton(color: vm.personalities.filter{$0.selected == true}.count >= 3 ? .black : .gray.opacity(0.3),
+                    action: {
+                            if(vm.personalities.filter{$0.selected == true}.count >= 3 ){
+                                router.push(to: .ComplimentView)
+                            }
+                    })
+                   
+                }
+                .padding([.horizontal, .vertical], 20)
+                .background {
+                    Rectangle()
+                          .foregroundStyle(.white)
+                          .shadow(color: .gray.opacity(0.1), radius: 3.5, y: -5)
+                }
+                .offset(y: countOffset)
+                .animation(.smooth, value: countOffset)
+                .opacity(showCount ? 1 : 0)
+                .transition(.move(edge: .bottom))
 
             }
             .frame(maxWidth: UIScreen.main.bounds.width,   maxHeight: UIScreen.main.bounds.height, alignment: .topLeading)
             .ignoresSafeArea(.all, edges: .bottom)
-      
-            
-            HStack{
-                Text("\(vm.personalities.filter{$0.selected == true}.count) Personalities selected")
-                    .font(.custom(.medium, size: 18))
-                    .foregroundStyle(.black)
-                Spacer()
-                NextButton(color: vm.personalities.filter{$0.selected == true}.count > 3 ? .black : .gray.opacity(0.3), 
-                action: {
-                        if(vm.personalities.filter{$0.selected == true}.count > 3 ){
-                            router.push(to: .ComplimentView)
-                        }
-                })
-               
-            }
-            .padding([.horizontal, .vertical], 20)
-            .background {
-                Rectangle()
-                      .foregroundStyle(.white)
-                      .shadow(color: .gray.opacity(0.1), radius: 3.5, y: -5)
-            }
-            .offset(y: countOffset)
-            .animation(.smooth, value: countOffset)
-            .opacity(showCount ? 1 : 0)
-            .transition(.move(edge: .bottom))
-        }
-        .ignoresSafeArea(.all, edges: .bottom)
-        .background(.white)
-        .navigationBarBackButtonHidden(true)
+            .background(.white)
+            .navigationBarBackButtonHidden(true)
         
     }
     
@@ -370,10 +368,10 @@ struct PersonalityView: View {
         vm.selectPersonalities(name: name)
         withAnimation(.smooth) {
             if(vm.personalities.filter{$0.selected == true}.count > 0){
-                countOffset = 0
+                countOffset = 40
                 showCount = true
             } else{
-                countOffset = 40
+                countOffset = 70
                 showCount = false
             }
         }

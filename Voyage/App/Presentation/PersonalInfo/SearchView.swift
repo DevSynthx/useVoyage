@@ -17,8 +17,10 @@ struct SearchView: View {
         VStack {
             Gap(h: 20)
             HStack {
-                TextField("Email", text: $vm.searchText, prompt: Text("  Search city").foregroundStyle(.gray))
+                TextField("Search city", text: $vm.searchText, prompt: Text("Search city").foregroundStyle(.gray))
+                    .foregroundStyle(.black)
                     .frame(height: 40)
+                    .padding(.horizontal, 10)
                     .textFieldStyle(PlainTextFieldStyle())
                     .padding([.horizontal], 4)
                     .cornerRadius(6)

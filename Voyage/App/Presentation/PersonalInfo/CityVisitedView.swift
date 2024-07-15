@@ -107,10 +107,11 @@ struct CityVisited: View {
                                 }
                             )
                         } else{
-                            Gap(h: 30)
+                            Gap(h: size.height * 0.07)
                             Text("Your selected cities will appear below")
                                 .font(.custom(.regular, size: 16))
                                 .foregroundStyle(.gray)
+                            Gap(h: size.height * 0.03)
                         }
                         
                         Image("map")
@@ -172,14 +173,14 @@ struct CityVisited: View {
                         Spacer()
                         HStack{
                             Text("\(vm.selectedCities.count) Cities selected")
-                                .font(.custom(.semiBold, size: 18))
+                                .font(.custom(.medium, size: 18))
                                 .foregroundStyle(.black)
                             Spacer()
                             NextButton {
                                 router.push(to: .TripType)
                             }
                         }
-                        .padding(.bottom, 20)
+                        .padding(.bottom, 30)
                         .padding(.top, 20)
                         .padding(.horizontal, 20)
                         .background {

@@ -11,7 +11,7 @@ struct WelcomeView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10){
             HStack (alignment: .top){
-                Text("Welcome\nto Zavel")
+                Text("Welcome\nto Voyage")
                     .font(.custom(.bold, size: 30))
                     .foregroundStyle(.white)
                     .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
@@ -27,6 +27,7 @@ struct WelcomeView: View {
           
             Text("Experience the world like never before,\nwith tailored recommendations made for\nthe best you")
                 .font(.custom(.regular, size: 12))
+                .lineSpacing(6)
                 .foregroundStyle(.white)
 
         }

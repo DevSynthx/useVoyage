@@ -81,6 +81,12 @@ final class Router<T: Hashable>: ObservableObject {
     func popToRoot() {
         paths.removeAll()
     }
+    
+    func resetAndPush(to path: T) {
+//           paths.removeAll()
+               root = path
+               paths = []
+       }
 }
 
 
@@ -99,6 +105,7 @@ struct RouterView<T: Hashable, Content: View>: View {
             }
         }
         .environmentObject(router)
+
     }
 }
 

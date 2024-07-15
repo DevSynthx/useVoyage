@@ -20,7 +20,6 @@ struct DragView: View {
     @State var isDragged: Bool = false
     var body: some View {
         ZStack{
-            Image("windowBorder")
             Image("onBoardBG_A")
             Image("onBoardBG_B")
             Image("onBoardBG_B")
@@ -43,6 +42,10 @@ struct DragView: View {
                // .scaledToFill()
               
             Image("onBoardBG_dragg")
+               // .resizable()
+//                .containerRelativeFrame(.vertical, { size, _ in
+//                    size * 0.7
+//                })
                 .overlay(alignment: .bottom){
                     VStack(alignment: .center){
                         Spacer()
@@ -57,13 +60,13 @@ struct DragView: View {
                             .frame(width: 50, height: 10)
                             .foregroundStyle(.black)
                        //Spacer()
-                       Gap(h: 40)
+                       Gap(h: 20)
                            
                     }
                     .frame(maxHeight: size.height, alignment: .topLeading)
                     .ignoresSafeArea(.all, edges: .bottom)
                 }
-                .offset(y: -size.height + size.height - 10 )
+                .offset(y: -size.height + size.height - 40 )
                 .offset(y: calculateOffset(offset: offset, height: size.height))
                 .offset(y: offset)
                 .mask {
@@ -71,7 +74,10 @@ struct DragView: View {
                 }
                 .gesture(
                     DragGesture().updating($gestureoffset, body: { value, out, _ in
-                        out = value.translation.height
+                        // Check if the drag is moving upwards
+                        if value.translation.height < 0 {
+                            out = value.translation.height
+                        }
                         onChange()
                        
                     }).onEnded({ v in
@@ -128,7 +134,7 @@ struct DragView: View {
     func calculateOffset(offset: CGFloat, height: CGFloat) -> CGFloat {
         if offset < 10{
             print("offset: \(offset)")
-            return -0
+            return 0
         }
            if offset >= 100 {
                //303
@@ -145,8 +151,12 @@ struct DragView: View {
        }
     func onChange(){
         DispatchQueue.main.async {
-            self.offset = gestureoffset + lastoffset
-        
+            // Only update offset if gestureoffset is negative (upward drag)
+           
+            if gestureoffset < 0 {
+                self.offset = gestureoffset + lastoffset
+            }
+            
         }
     }
 }

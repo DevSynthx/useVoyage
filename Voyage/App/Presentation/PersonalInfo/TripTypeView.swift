@@ -50,8 +50,7 @@ struct TripTypeView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack{
                             ForEach(vm.tripType.enumerated().map{$0}, id: \.element.name) { v in
-                                
-                              
+
                                 Image(v.element.image)
                                     .resizable()
                                     .scaledToFit()
@@ -80,10 +79,7 @@ struct TripTypeView: View {
                                                 return
                                             }
                                             vm.selectTrip(city: v.element)
-                                            if(!vm.tripType.isEmpty){
-                                                countOffset = 5
-                                                showCount = true
-                                            }
+                                           
                                         }
                                        
                                     }
@@ -104,7 +100,7 @@ struct TripTypeView: View {
                     .scrollPosition(id: $tripType)
                     Gap(h: 20)
                     Text(vm.tripType[currentIndex].name)
-                        .font(.custom(.semiBold, size: 14))
+                        .font(.custom(.semiBold, size: 16))
                         .foregroundStyle(.black)
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
 
@@ -115,7 +111,7 @@ struct TripTypeView: View {
                     }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                   
-                switch vm.selectedTrip.name {
+                switch vm.tripType[currentIndex].name {
                     case "Solo Adventure":
                         ZStack{
                             Image("planeTicket")
@@ -129,7 +125,7 @@ struct TripTypeView: View {
                                 .transition(.slide)
                                 .onAppear {
                                      withAnimation(.spring(duration: 0.5)) {
-                                         soloOffset =  size.height / 4.5
+                                         soloOffset =  size.height / 5.7
                                      }
                                  }
                                 .onDisappear{
@@ -145,12 +141,12 @@ struct TripTypeView: View {
                                         size * 0.6
                                     }
                                     .frame(maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .bottom)
-                                    .rotationEffect(.degrees(v == 0 ? -15 : (v == 1 ? 2 : (v == 2 ? -5 : 5))), anchor: .center)
-                                    .offset(x: v == 0 ? -40 : (v == 1 ? 20 : (v == 2 ? -30 : -50)) , y:  offsetValues[v])
+                                    .rotationEffect(.degrees(v == 0 ? -15 : (v == 1 ? 2 : 15)), anchor: .center)
+                                    .offset(x: v == 0 ? -30 : (v == 1 ? 0 : 50), y:  offsetValues[v])
                                     .transition(.slide)
                                     .onAppear {
                                          withAnimation(.spring(duration: 0.5).delay(Double(v) * 0.1)) {
-                                             offsetValues[v] = size.height / 4.5
+                                             offsetValues[v] = size.height / 4.9
                                          }
                                      }
                                     .onDisappear{
@@ -173,7 +169,7 @@ struct TripTypeView: View {
                                     .onAppear {
                                          withAnimation(.spring(duration: 0.5).delay(Double(v) * 0.1)) {
                                         // Adjust the value to control how far up the images slide
-                                             roadTicketOffset[v] = size.height / 4.5
+                                             roadTicketOffset[v] = size.height / 4.9
                                          }
                                      }
                                     .onDisappear{
@@ -196,7 +192,7 @@ struct TripTypeView: View {
                                     .onAppear {
                                          withAnimation(.spring(duration: 0.5).delay(Double(v) * 0.1)) {
                                         // Adjust the value to control how far up the images slide
-                                             baecationTicketOffset[v] = size.height / 4.5
+                                             baecationTicketOffset[v] = size.height / 4.9
                                          }
                                      }
                                     .onDisappear{
@@ -219,7 +215,7 @@ struct TripTypeView: View {
                                     .onAppear {
                                          withAnimation(.spring(duration: 0.5).delay(Double(v) * 0.1)) {
                                         // Adjust the value to control how far up the images slide
-                                             groupTicketOffset[v] = size.height / 4.5
+                                             groupTicketOffset[v] = size.height / 4.9
                                          }
                                      }
                                     .onDisappear{
@@ -242,7 +238,7 @@ struct TripTypeView: View {
                                     .onAppear {
                                          withAnimation(.spring(duration: 0.5).delay(Double(v) * 0.1)) {
                                         // Adjust the value to control how far up the images slide
-                                             girlsTicketOffset[v] = size.height / 4.5
+                                             girlsTicketOffset[v] = size.height / 4.9
                                          }
                                      }
                                     .onDisappear{
@@ -264,7 +260,7 @@ struct TripTypeView: View {
                                     .transition(.slide)
                                     .onAppear {
                                          withAnimation(.spring(duration: 0.5).delay(Double(v) * 0.1)) {
-                                             guysTicketOffset[v] = size.height / 4.5
+                                             guysTicketOffset[v] = size.height / 4.9
                                          }
                                      }
                                     .onDisappear{
@@ -279,26 +275,27 @@ struct TripTypeView: View {
           
                 
                 HStack{
-                    Text("\(vm.selectedTrip.name)  selected")
+                    Text("\(vm.tripType[currentIndex].name)  selected")
                         .font(.custom(.semiBold, size: 18))
                         .foregroundStyle(.black)
                     Spacer()
                     NextButton {
+                        vm.selectTrip(city:vm.tripType[currentIndex])
                         router.push(to: .BudgetType)
                     }
                    
                 }
-                .padding(.bottom, 20)
+                .padding(.bottom, 30)
                 .padding(.horizontal, 20)
                 .padding(.top, 20)
                 .background {
                     Rectangle()
                           .foregroundStyle(.white)
                           .shadow(color: .gray.opacity(0.1), radius: 3.5, y: -5)
+                          
                 }
-                .offset(y: countOffset)
+                .offset(y: 0)
                 .animation(.smooth, value: countOffset)
-                .opacity(showCount ? 1 : 0)
                 .transition(.move(edge: .bottom))
             }
             

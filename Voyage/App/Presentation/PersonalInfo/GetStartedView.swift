@@ -53,6 +53,8 @@ struct GetStartedView: View {
     @State var currentIndex : Int = 0
     @State private var progress: CGFloat = 20.0
     @State private var contentHeight: CGSize = .zero
+    let text = "We have\nmapped out\nthe perfect\ngetaway for you"
+    let textB = "Choose a\ncategory to\nget started"
     @State private var cards: [CardA] = [
 //        CardA(id: 0, color: .white, progress: 20),
 //        CardA(id: 1, color: .gray, progress: 40),
@@ -146,14 +148,14 @@ struct GetStartedView: View {
                                 .onTapGesture {
                                     route.push(to: .PersonalityView)
                                     if vm.selectedTrip.ticketCount != 0 {
-                                        route.push(to: .HomeScreen)
+                                        route.resetAndPush(to: .HomeScreen)
                                     } else {
                                         route.push(to: .PersonalityView)
                                     }
 
                                 }
                             Gap(w: 15)
-                            Text("Choose a\ncategory to\nget started")
+                            Text(vm.selectedTrip.ticketCount != 0 ? text : textB)
                                 .font(.custom(.bold, size: 16))
                                 .lineSpacing(3)
                                 .foregroundStyle(.white)
@@ -165,19 +167,42 @@ struct GetStartedView: View {
                             self.contentHeight = value
                         })
                         Gap(h: 30)
-                        ZStack{
-                            Rectangle()
-                                .frame(width: 100, height: 4, alignment: .leading)
-                                .foregroundColor(.gray.opacity(0.5))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.horizontal, 21)
-                            Rectangle()
-                                .frame(width: progress, height: 4, alignment: .leading)
-                                .foregroundColor(.white)
-                                .animation(.easeInOut(duration: 0.5), value: progress)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.horizontal, 21)
+                        HStack{
+                            ZStack{
+                                Rectangle()
+                                    .frame(width: 100, height: 3, alignment: .leading)
+                                    .foregroundColor(.gray.opacity(0.3))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.horizontal, 21)
+                                Rectangle()
+                                    .frame(width: progress, height: 3, alignment: .leading)
+                                    .foregroundColor(.white)
+                                    .animation(.easeInOut(duration: 0.5), value: progress)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.horizontal, 21)
+                            }
+                            
+                            if(vm.selectedTrip.ticketCount != 0){
+                                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                                    HStack{
+                                      Text("Show me")
+                                            .font(.custom(.semiBold, size: 13))
+                                            .foregroundStyle(.black)
+                                        Gap(w: 9)
+                                        Image("star")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .containerRelativeFrame(.horizontal) { size, _ in
+                                                size * 0.04
+                                            }
+                                    }
+                                    .padding(.vertical, 5)
+                                })
+                                .buttonStyle(.borderedProminent)
+                                .accentColor(.white)
+                            }
                         }
+                        .padding(.trailing, 10)
                        
 
                         Gap(h: 20)
@@ -208,6 +233,7 @@ struct GetStartedView: View {
                         .fill(.black)
                 }
                 Spacer()
+            //vm.selectedTrip.ticketCount
                 ZStack(alignment: .center){
                     ForEach(Array(0..<vm.selectedTrip.ticketCount), id: \.self) { v in
                         Image(vm.selectedTrip.ticketType == "" ? "planeTicket" : vm.selectedTrip.ticketType)
@@ -216,8 +242,8 @@ struct GetStartedView: View {
                                 size * 0.35
                             }
                             .frame(maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .bottom)
-                            .rotationEffect(.degrees(v == 0 ? -15 : (v == 1 ? 2 : (v == 2 ? -13 : 5))), anchor: .center)
-                            .offset(x: v == 0 ? -40 : (v == 1 ? 20 : (v == 2 ? -30 : -50)) , y:  -190)
+                            .rotationEffect(.degrees(v == 0 ? -15 : (v == 1 ? 2 : (v == 2 ? 10 : 5))), anchor: .center)
+                            .offset(x: v == 0 ? -10 : (v == 1 ? 30 : (v == 2 ? 55 : 20)) , y:  -190)
 
                     }
                    

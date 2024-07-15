@@ -13,13 +13,19 @@ class LocationManagerVM: NSObject, ObservableObject, CLLocationManagerDelegate {
     override init() {
         super.init()
         locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
+        //locationManager.requestWhenInUseAuthorization()
     }
     
     func checkLocationIsEnabled(){
         if CLLocationManager.locationServicesEnabled() {
             locationManager = CLLocationManager()
+        } else{
+            print("Location is not enabled on your device")
         }
+    }
+    
+    func checkLocationAuthorization() {
+        
     }
     
     func requestAllowOnceLocationPermission(){
@@ -27,11 +33,13 @@ class LocationManagerVM: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let latestLocation = locations.first else {
+        guard locations.first != nil else {
+            print("An error occurred")
             return
         }
     }
     
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
     }

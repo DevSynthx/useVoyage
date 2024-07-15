@@ -44,4 +44,5 @@ struct Main: View {
     Main()
         .environmentObject(Router(root: Routes.AuthView))
         .environmentObject(PersonalInfoVM())
+        .environmentObject(LocationManagerVM())
 }

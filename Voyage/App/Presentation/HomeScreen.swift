@@ -55,8 +55,6 @@ struct HomeScreen: View {
                 .background{
                     Rectangle()
                         .foregroundStyle(.yellowCard)
-                    //.frame(height: 95)
-                    //.padding(.horizontal, 20)
                     
                 }
                 .padding(.horizontal, 20)
@@ -133,6 +131,7 @@ struct HomeScreen: View {
             }
             .ignoresSafeArea(.all)
             .navigationBarBackButtonHidden(true)
+            
         }
         
     }
@@ -140,5 +139,5 @@ struct HomeScreen: View {
 
 #Preview {
     HomeScreen()
-        .environmentObject(Router(root: Routes.AuthView))
+        .environmentObject(Router(root: Routes.ProfileScreen))
 }

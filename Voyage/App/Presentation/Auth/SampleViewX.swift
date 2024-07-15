@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SampleViewX: View {
     @EnvironmentObject var vm: PersonalInfoVM
+    @EnvironmentObject var location: LocationManagerVM
     var namespace: Namespace.ID
     var currentItem: AuthType
     @State var offset: CGFloat = 0
@@ -48,7 +49,7 @@ struct SampleViewX: View {
                     ZStack(alignment: .center){
                         Image("hand")
                         
-                        Text(vm.username.truncate(7))
+                        Text(vm.username.truncate(10))
                             .font(.system(size: 20, weight: .bold))
                             .foregroundStyle(.passportText)
                             .rotationEffect(Angle(degrees: -20))
@@ -99,7 +100,9 @@ struct SampleViewX: View {
                     .resizable()
                     .gesture(
                         DragGesture().updating($gestureoffset, body: { value, out, _ in
-                            out = value.translation.height
+                            if value.translation.height < 0 {
+                                out = value.translation.height
+                            }
                            
                             onChange()
                            
@@ -144,6 +147,9 @@ struct SampleViewX: View {
             }
             .frame(height: UIScreen.main.bounds.height, alignment: .bottom)
             .ignoresSafeArea(.all)
+            .onAppear{
+               // location.requestAllowOnceLocationPermission()
+            }
             
         }
         .ignoresSafeArea(.keyboard)
@@ -152,8 +158,12 @@ struct SampleViewX: View {
     }
     
     func onChange(){
+        
         DispatchQueue.main.async {
-            self.offset = gestureoffset + lastoffset
+            if gestureoffset < 0 {
+                self.offset = gestureoffset + lastoffset
+            }
+           // self.offset = gestureoffset + lastoffset
         
         }
     }
@@ -162,6 +172,8 @@ struct SampleViewX: View {
 #Preview {
     SampleViewX(namespace:  Namespace().wrappedValue, currentItem: .model())
         .environmentObject(PersonalInfoVM())
+        .environmentObject(LocationManagerVM())
+
 }
 
 extension HorizontalAlignment {

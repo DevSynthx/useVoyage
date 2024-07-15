@@ -93,14 +93,14 @@ struct ChooseSeasonView: View {
                             VStack(alignment: .center){
                             
                                 Gap(h: 100)
-                                Text("Choose your ideal\nvacation season")
+                                Text("Picture your\nideal vacation")
                                     .font(.system(size: 35, weight: .semibold))
                                     .foregroundStyle(.black)
                                     .padding(.horizontal, 25)
                                     .frame(width: size.width, alignment: .leading)
                                  
                                 Gap(h: 20)
-                                Text("Open the window to get started")
+                                Text("Now let's pick the perfect season for it!")
                                     .font(.system(size: 15, weight: .regular))
                                     .foregroundStyle(.black)
                                     .padding(.horizontal, 25)
@@ -151,7 +151,9 @@ struct ChooseSeasonView: View {
                         }
                         .gesture(
                             DragGesture().updating($gestureoffset, body: { value, out, _ in
-                                out = value.translation.height
+                              
+                                    out = value.translation.height
+                                
                                 onChange()
                                
                             }).onEnded({ v in
@@ -226,7 +228,7 @@ struct ChooseSeasonView: View {
                     }
                 }.modifier(ScrollingHStackModifier(items: colors.count, itemWidth: 138, itemSpacing: 30, centeredIndex: $centeredIndex)) // Adjusted itemWidth to 50 and itemSpacing to 10
                 
-                Gap(h: size.height / 5.0)
+                Gap(h: size.height / 4.0)
             }
 
             
@@ -258,8 +260,11 @@ struct ChooseSeasonView: View {
        }
     func onChange(){
         DispatchQueue.main.async {
+            // Only update offset if gestureoffset is negative (upward drag)
+            if gestureoffset < 0 {
+             
+            }
             self.offset = gestureoffset + lastoffset
-        
         }
     }
 }

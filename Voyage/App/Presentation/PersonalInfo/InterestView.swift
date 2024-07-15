@@ -252,9 +252,9 @@ struct InterestView: View {
                     .font(.custom(.medium, size: 18))
                     .foregroundStyle(.black)
                 Spacer()
-                NextButton(color: vm.interests.filter{$0.selected == true}.count > 3 ? .black : .gray.opacity(0.3),
+                NextButton(color: vm.interests.filter{$0.selected == true}.count >= 3 ? .black : .gray.opacity(0.3),
                 action: {
-                        if(vm.interests.filter{$0.selected == true}.count > 3 ){
+                        if(vm.interests.filter{$0.selected == true}.count >= 3 ){
                             router.push(to: .CityVisited)
                         }
                 })
@@ -283,10 +283,10 @@ struct InterestView: View {
         vm.selectInterest(name: name)
         withAnimation(.smooth) {
             if(vm.interests.filter{$0.selected == true}.count > 0){
-                countOffset = 40
+                countOffset = 30
                 showCount = true
             } else{
-                countOffset = 40
+                countOffset = 70
                 showCount = false
             }
         }

@@ -98,7 +98,6 @@ class PersonalInfoVM: ObservableObject {
     func selectInterest(name : String){
         if let index = interests.firstIndex(where: { $0.name == name}){
             interests[index].selected.toggle()
-            print( interests[index].selected)
         }
     }
     

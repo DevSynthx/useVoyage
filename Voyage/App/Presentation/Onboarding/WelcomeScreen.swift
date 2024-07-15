@@ -29,14 +29,18 @@ struct WelcomeScreen: View {
                                     ForEach(0..<2) { v in
                                         if(v == 1){
                                         ZStack(alignment: .top){
-                                                Image("windowBorder")
-                                                //.aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                                                .scaleEffect(imageScrollToIndex == 2 ? 1.55 : 1.1)
-                                                    .offset(y:  imageScrollToIndex == 2 ? 60 : -60)
+                                                Image("windowBorder 1")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .containerRelativeFrame(.horizontal, { size, _ in
+                                                    size
+                                                })
+                                                .scaleEffect(imageScrollToIndex == 2 ? 1.65 : 1.1)
+                                                    .offset(y:  imageScrollToIndex == 2 ? -20 : -105)
                                             DragView(offset: $offsetx, value: $value)
                                                 .scaleEffect(scalefx)
-                                                .offset(y:  imageScrollToIndex == 2 ? 50 : -60)
-                                                    .zIndex(1)
+                                                .offset(y:  imageScrollToIndex == 2 ? 10 : -80)
+                                                    .zIndex(scalefx == 1 ? 1 : 0)
                                                     .onChange(of: value, { oldValue, newValue in
                                                         valueChanged = newValue
                                                         print("new_value: \(newValue)")
@@ -44,18 +48,15 @@ struct WelcomeScreen: View {
                                                     .disabled(scalefx == 1 ? false : true)
 
                                                 Image("sideSeat")
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .offset(x: imageScrollToIndex == 2 ? 380 : 50, y: 35)
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .offset(x: imageScrollToIndex == 2 ? 380 : 70, y: 60)
                                                   
                                             }
-                                            .background(.onBoardingBG)
                                             .id(v)
                                         }
                                         Image("OnboardingA")
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
-                                            
                                             .id(v)
                                     }
                                     .onChange(of: imageScrollToIndex) { oldValue, newValue in
@@ -73,13 +74,14 @@ struct WelcomeScreen: View {
 
 
                        }
+                     .background(.onBoardingBG)
                   
                     
                     UnevenRoundedRectangle(cornerRadii: .init(
                         topLeading: 20.0,
                         topTrailing: 20.0),
                         style: .continuous)
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: geo.size.height / 3.8)
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: geo.size.height / 3.5)
                         .foregroundStyle(.white)
                         .overlay(alignment: .topLeading){
                             
@@ -119,7 +121,7 @@ struct WelcomeScreen: View {
                                 .scrollDisabled(true)
                                 
                                 Spacer()
-                                HStack {
+                                HStack(alignment: .bottom) {
                                     HStack{
                                         ForEach(Array(widths.indices), id: \.self) { v in
                                            RoundedRectangle(cornerRadius: 20)
@@ -135,7 +137,7 @@ struct WelcomeScreen: View {
                                     }
                                 }
                                 .padding(.horizontal, 30)
-                                Gap(h: 20)
+                                Gap(h: 30)
                             }
                             .padding(.top, 30)
                         
@@ -162,7 +164,7 @@ struct WelcomeScreen: View {
         }
         if imageScrollToIndex == 1 && scrollToIndex == 3 {
             imageScrollToIndex = 2
-            offsetx = -30
+            offsetx = 0
            
             scalefx = 1
               }

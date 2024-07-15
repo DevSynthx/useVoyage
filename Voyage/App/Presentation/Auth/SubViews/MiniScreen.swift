@@ -120,8 +120,7 @@ struct MiniScreen: View {
     GeometryReader { geo in
         MiniScreen(height: geo.size.height, width: geo.size.width)
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
-            
-
     }
     .environmentObject(PersonalInfoVM())
+    .environmentObject(Router(root: Routes.GetStartedView))
 }
