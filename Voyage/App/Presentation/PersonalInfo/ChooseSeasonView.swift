@@ -9,13 +9,16 @@ import SwiftUI
 
 struct ChooseSeasonView: View {
     @EnvironmentObject var vm: PersonalInfoVM
-    @EnvironmentObject var router: Router<Routes>
+    @Environment(\.router) var router
+    @State private var timer: Timer?
     @State var offset: CGFloat = 0
     @State var lastoffset: CGFloat = 0
     @State var isOpen: Bool = false
     @State var isDragged: Bool = false
     @State var showScreen: Bool = false
     @State var firstAppear: Bool = false
+    @State private var offsetx: CGFloat = 0.0
+    @State private var direction: CGFloat = 1.0
     let size = UIScreen.main.bounds.size
     @GestureState var gestureoffset: CGFloat = 0
     @State private var centeredIndex = 3
@@ -111,16 +114,27 @@ struct ChooseSeasonView: View {
                                     VStack{
                                         Image("drag_icon")
                                             .rotationEffect(.degrees(180))
+                                            .offset(y:  offsetx)
                                         Text("DRAG DOWN TO CHOOSE")
                                             .font(.system(size: 15, weight: .regular))
                                             .foregroundStyle(.black)
                                     }
+                                    .onAppear{
+                                        startAnimating()
+                                       //isAnimating = true
+                                    }
                                 } else {
                                     VStack{
                                         Image("drag_icon")
+                                            .offset(y:  offsetx)
+//                                            .animation(.spring(duration: 1).delay(0.3).repeatForever(autoreverses: true), value: isAnimating)
                                         Text("DRAG UP TO START")
                                             .font(.system(size: 15, weight: .regular))
                                             .foregroundStyle(.black)
+                                    }
+                                    .onAppear{
+                                        startAnimating()
+                                       //isAnimating = true
                                     }
                                 }
                                 
@@ -183,7 +197,8 @@ struct ChooseSeasonView: View {
                                             self.isOpen = false
                                         }
                                         offset = 0
-                                        router.push(to: .GetStartedView)
+                                        stopTimer()
+                                        router?.push(to: .GetStartedView)
                                         withAnimation {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
                                                 self.isDragged = false
@@ -239,6 +254,19 @@ struct ChooseSeasonView: View {
         .navigationBarBackButtonHidden(true)
                
       
+    }
+    private func startAnimating() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+               withAnimation(.spring(duration: 1)) {
+                   offsetx += -20 * direction
+               }
+               direction *= -1
+               
+           }
+       }
+    private func stopTimer(){
+        timer?.invalidate()
+        timer = nil
     }
     func calculateOffset(offset: CGFloat, height: CGFloat) -> CGFloat {
         if offset < 10{

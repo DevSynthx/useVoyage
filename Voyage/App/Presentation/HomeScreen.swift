@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeScreen: View {
     let size = UIScreen.main.bounds.size
-    @EnvironmentObject var route: Router<Routes>
+    @Environment(\.router) var router
     var body: some View {
         ZStack {
             VStack(spacing: 0){
@@ -47,7 +47,7 @@ struct HomeScreen: View {
                     Gap(w: 25)
                     Image("profileIcon")
                         .onTapGesture {
-                            route.push(to: .ProfileScreen)
+                            router?.push(to: .ProfileScreen)
                         }
                 }
                 .padding(.vertical, 20.4)

@@ -48,7 +48,7 @@ class CardXVM : ObservableObject {
 struct GetStartedView: View {
     @StateObject private var cardVm = CardXVM()
     @EnvironmentObject var vm: PersonalInfoVM
-    @EnvironmentObject var route: Router<Routes>
+    @Environment(\.router) var router
     var width = UIScreen.main.bounds.width
     @State var currentIndex : Int = 0
     @State private var progress: CGFloat = 20.0
@@ -67,19 +67,19 @@ struct GetStartedView: View {
      
         GeometryReader(content: { geo in
             let size = geo.size
-            VStack {
-                Gap(h: size.height / 7)
+            ZStack(alignment: .top) {
+            
                 VStack{
                     VStack {
                         Gap(h: 10)
                         Image("plane_icon")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
+                            //.resizable()
+                            //.aspectRatio(contentMode: .fill)
                             .containerRelativeFrame(.horizontal, { size, _ in
-                                size / 4
+                                size / 20
                             })
                             .frame(maxWidth: .infinity, alignment: . trailing)
-                            .padding(.trailing, 20)
+                            .padding(.trailing, 40)
                         Gap(h: 15)
                         HStack(spacing: 0) {
                             ZStack {
@@ -146,16 +146,16 @@ struct GetStartedView: View {
                                         .stroke(.white, lineWidth: 2)
                                 }
                                 .onTapGesture {
-                                    route.push(to: .PersonalityView)
+                                    router?.push(to: .PersonalityView)
                                     if vm.selectedTrip.ticketCount != 0 {
-                                        route.resetAndPush(to: .HomeScreen)
+                                        router?.resetAndPush(to: .HomeScreen)
                                     } else {
-                                        route.push(to: .PersonalityView)
+                                        router?.push(to: .PersonalityView)
                                     }
 
                                 }
                             Gap(w: 15)
-                            Text(vm.selectedTrip.ticketCount != 0 ? text : textB)
+                            Text(vm.selectedTrip.ticketCount != 0 ? textB : textB)
                                 .font(.custom(.bold, size: 16))
                                 .lineSpacing(3)
                                 .foregroundStyle(.white)
@@ -166,8 +166,8 @@ struct GetStartedView: View {
                         .onPreferenceChange(HeightPreferenceKey.self, perform: { value in
                             self.contentHeight = value
                         })
-                        Gap(h: 30)
-                        HStack{
+                        Gap(h: vm.selectedTrip.ticketCount != 0 ? 10 : 25)
+                        HStack(alignment: .bottom){
                             ZStack{
                                 Rectangle()
                                     .frame(width: 100, height: 3, alignment: .leading)
@@ -181,7 +181,7 @@ struct GetStartedView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.horizontal, 21)
                             }
-                            
+                           
                             if(vm.selectedTrip.ticketCount != 0){
                                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                                     HStack{
@@ -190,13 +190,11 @@ struct GetStartedView: View {
                                             .foregroundStyle(.black)
                                         Gap(w: 9)
                                         Image("star")
-                                            .resizable()
                                             .aspectRatio(contentMode: .fill)
                                             .containerRelativeFrame(.horizontal) { size, _ in
                                                 size * 0.04
                                             }
                                     }
-                                    .padding(.vertical, 5)
                                 })
                                 .buttonStyle(.borderedProminent)
                                 .accentColor(.white)
@@ -227,25 +225,29 @@ struct GetStartedView: View {
                          .padding(.bottom, 5)
                     Gap(h: 7)
                 }
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+               // .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 .background{
                     RoundedRectangle(cornerRadius: 16)
                         .fill(.black)
                 }
-                Spacer()
+                .offset(y: size.height / 6)
+            
             //vm.selectedTrip.ticketCount
                 ZStack(alignment: .center){
-                    ForEach(Array(0..<vm.selectedTrip.ticketCount), id: \.self) { v in
-                        Image(vm.selectedTrip.ticketType == "" ? "planeTicket" : vm.selectedTrip.ticketType)
-                            .resizable()
-                            .containerRelativeFrame([.vertical, .horizontal]) { size, axis in
-                                size * 0.35
-                            }
-                            .frame(maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .bottom)
-                            .rotationEffect(.degrees(v == 0 ? -15 : (v == 1 ? 2 : (v == 2 ? 10 : 5))), anchor: .center)
-                            .offset(x: v == 0 ? -10 : (v == 1 ? 30 : (v == 2 ? 55 : 20)) , y:  -190)
+               
+                        ForEach(Array(0..<vm.selectedTrip.ticketCount), id: \.self) { v in
+                            Image(vm.selectedTrip.ticketType == "" ? "planeTicket" : vm.selectedTrip.ticketType)
+                                .resizable()
+                                .containerRelativeFrame([.vertical, .horizontal]) { size, axis in
+                                    size / 2.7
+                                }
+                                .rotationEffect(.degrees(v == 0 ? -15 : (v == 1 ? -15 : (v == 2 ? 10 : 5))), anchor: .center)
+                                .offset(x: v == 0 ? 50 : (v == 1 ? -10 : (v == 2 ? 35 : 20)) , y: -110)
 
-                    }
+                        }
+                    
+                  //  .frame(height: 100)
+                    
                    
                     Image("hand")
                         .containerRelativeFrame(.horizontal) { size, _ in
@@ -259,6 +261,7 @@ struct GetStartedView: View {
                         .offset(y: -140)
                     
                 }
+                .offset(y: size.height / 2.2)
                 
                    
                
@@ -294,7 +297,7 @@ struct GetStartedView: View {
     //            }
             }
             .padding(25)
-            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .top)
             .navigationBarBackButtonHidden(true)
 
         })

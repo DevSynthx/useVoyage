@@ -36,13 +36,12 @@ struct Main: View {
                     ChooseSeasonView()
             }
         }
-        
+        .environment(\.router, router)
     }
 }
 
 #Preview {
     Main()
-        .environmentObject(Router(root: Routes.AuthView))
         .environmentObject(PersonalInfoVM())
         .environmentObject(LocationManagerVM())
 }

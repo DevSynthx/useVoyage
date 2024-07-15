@@ -54,10 +54,12 @@ struct WelcomeScreen: View {
                                             }
                                             .id(v)
                                         }
-                                        Image("OnboardingA")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
+                                        OnBoardingView(screenHeight: geo.size.height / 7.5, handHeight: geo.size.height / 3.1)
                                             .id(v)
+//                                        Image("OnboardingA")
+//                                            .resizable()
+//                                            .aspectRatio(contentMode: .fit)
+//                                            .id(v)
                                     }
                                     .onChange(of: imageScrollToIndex) { oldValue, newValue in
                                         withAnimation {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InterestView: View {
     @EnvironmentObject var vm: PersonalInfoVM
-    @EnvironmentObject var router: Router<Routes>
+    @Environment(\.router) var router
     @State private var rectSize: CGSize = .zero
     @State private var countOffset: CGFloat = 70
     @State private var showCount: Bool = false
@@ -255,7 +255,7 @@ struct InterestView: View {
                 NextButton(color: vm.interests.filter{$0.selected == true}.count >= 3 ? .black : .gray.opacity(0.3),
                 action: {
                         if(vm.interests.filter{$0.selected == true}.count >= 3 ){
-                            router.push(to: .CityVisited)
+                            router?.push(to: .CityVisited)
                         }
                 })
 

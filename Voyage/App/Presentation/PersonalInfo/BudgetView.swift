@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BudgetView: View {
     @EnvironmentObject var vm: PersonalInfoVM
-    @EnvironmentObject var router: Router<Routes>
+    @Environment(\.router) var router
     @State var scrollToIndex: Int = 0
     @State private var celsius: Double = 0
     @State private var contentHeight: CGSize = .zero
@@ -104,7 +104,7 @@ struct BudgetView: View {
                             .foregroundStyle(.black)
                         Spacer()
                         NextButton {
-                        router.push(to: .ChooseSeasonView)
+                        router?.push(to: .ChooseSeasonView)
                         }
                        
                     }

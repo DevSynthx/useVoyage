@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ComplimentView: View {
-    @EnvironmentObject var route : Router<Routes>
+    @Environment(\.router) var router
     var body: some View {
         VStack{
             Image("handShake")
@@ -34,7 +34,7 @@ struct ComplimentView: View {
             Gap(h: 70)
 
             NextButton {
-                route.push(to: .InterestView)
+                router?.push(to: .InterestView)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -109,6 +109,20 @@ struct RouterView<T: Hashable, Content: View>: View {
     }
 }
 
+import SwiftUI
+
+struct RouterKey: EnvironmentKey {
+    static let defaultValue: Router<Routes>? = nil
+}
+
+extension EnvironmentValues {
+    var router: Router<Routes>? {
+        get { self[RouterKey.self] }
+        set { self[RouterKey.self] = newValue }
+    }
+}
+
+
 enum Routes {
     case AuthView
     case GetStartedView

@@ -8,8 +8,24 @@
 import SwiftUI
 
 struct OnBoardingView: View {
+    var screenHeight: CGFloat = 100
+    var handHeight: CGFloat = 250
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+       
+            ZStack (alignment: .top) {
+                Image("backseat")
+                      .resizable()
+                      .offset(y: -55)
+                Image("screenView")
+                    .offset(y: screenHeight)
+                Image("onBoardHand")
+                    .offset(y: handHeight)
+
+            }
+
+            .ignoresSafeArea()
+        
+      
     }
 }
 

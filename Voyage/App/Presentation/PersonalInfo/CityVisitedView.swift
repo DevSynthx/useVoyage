@@ -10,7 +10,7 @@ import SwiftUI
 struct CityVisited: View {
     @FocusState var isFocused: Bool
     @EnvironmentObject var vm: PersonalInfoVM
-    @EnvironmentObject var router: Router<Routes>
+    @Environment(\.router) var router
     @State private var countOffset: CGFloat = 70
     @State private var showCount: Bool = false
     @State var text: String = ""
@@ -177,7 +177,7 @@ struct CityVisited: View {
                                 .foregroundStyle(.black)
                             Spacer()
                             NextButton {
-                                router.push(to: .TripType)
+                                router?.push(to: .TripType)
                             }
                         }
                         .padding(.bottom, 30)
