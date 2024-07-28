@@ -24,6 +24,7 @@ struct MiniScreen: View {
     @State var isContinue: Bool = false
     @State var isDone: Bool = false
     @State var formState: ContinueState = .start
+    @FocusState.Binding var isFocused: Bool
     var body: some View {
         
         ZStack{
@@ -46,7 +47,7 @@ struct MiniScreen: View {
                                    gradient: Gradient(colors: [Color(hex: "FF87C7"), Color(hex: "48ACF0")]),
                                    startPoint: .topLeading,
                                    endPoint: .bottomTrailing))
-                .cornerRadius(15)
+                .cornerRadius(10)
                 .frame(width: width / 1.3, height: height / 3.9)
                 .overlay{
                     VStack {
@@ -54,7 +55,7 @@ struct MiniScreen: View {
                             case .start:
                                 WelcomeView()
                             case .enterName:
-                                EnterNameView(username: $vm.username)
+                                EnterNameView(username: $vm.username, isFocused: $isFocused)
                             case .getStarted:
                                 DisplayNameView(name: $vm.username)
                             case .cards:
@@ -122,6 +123,7 @@ struct MiniScreen: View {
                         Gap(h: 10)
                     }
                     .padding(.top, 15)
+                    .padding(.bottom, 3)
                   
                 }
             
@@ -132,7 +134,7 @@ struct MiniScreen: View {
 
 #Preview {
     GeometryReader { geo in
-        MiniScreen(height: geo.size.height, width: geo.size.width)
+        MiniScreen(height: geo.size.height, width: geo.size.width, isFocused:FocusState<Bool>().projectedValue)
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
     }
     .environmentObject(PersonalInfoVM())

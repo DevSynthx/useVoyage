@@ -27,7 +27,7 @@ struct WelcomeView: View {
           
             Text("Experience the world like never before,\nwith tailored recommendations made for\nthe best you")
                 .font(.customx(.regular, size: 12))
-                .lineSpacing(6)
+                .lineSpacing(4)
                 .foregroundStyle(.white)
 
         }

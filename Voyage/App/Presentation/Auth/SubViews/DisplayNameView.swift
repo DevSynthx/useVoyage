@@ -11,7 +11,6 @@ struct DisplayNameView: View {
     @Binding var name: String
     var body: some View {
         VStack(alignment: .leading){
-            Gap(h: 10)
             HStack {
                 Text("Hi \(name)")
                     .font(.customx(.bold, size: 30))
@@ -19,10 +18,10 @@ struct DisplayNameView: View {
                     .lineLimit(1)
                     .truncationMode(.tail)
                 .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
-                Text("👋")
+                Text("👋,")
                     .font(.customx(.bold, size: 30))
             }
-                
+            Gap(h: 14)
             Text("You can change your name\nif you like or proceed.")
                 .font(.customx(.regular, size: 12))
                 .foregroundStyle(.white)

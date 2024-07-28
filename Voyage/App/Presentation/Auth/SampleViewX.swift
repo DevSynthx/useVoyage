@@ -19,6 +19,7 @@ struct SampleViewX: View {
     @State var showScreen: Bool = false
     @State var firstAppear: Bool = false    
     @GestureState var gestureoffset: CGFloat = 0
+    @FocusState private var keyboardShown: Bool
     var body: some View {
         GeometryReader { geo in
             let height = geo.frame(in: .global).height
@@ -37,7 +38,7 @@ struct SampleViewX: View {
                 
                 VStack(spacing: 0){
                     Spacer()
-                    MiniScreen(height: height , width: width)
+                    MiniScreen(height: height , width: width, isFocused: $keyboardShown)
                     .opacity(showScreen ? 1 : 0)
                     .onAppear{
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7){
@@ -56,6 +57,8 @@ struct SampleViewX: View {
                     }
                     .scaleEffect(1)
                     .offset(y: handoffset)
+                    .offset(y: keyboardShown ? (height / 2) : handoffset)
+                    .animation(.smooth, value: keyboardShown)
                     .opacity(isOpen ? 1 : 0)
                     .transition(.slide)
 
@@ -75,8 +78,6 @@ struct SampleViewX: View {
                                     .font(.customx(.regular, size: 15))
                                     .lineSpacing(5)
                                     .foregroundStyle(.white)
-                                    
-                                   
                             }
                             .frame(maxHeight: height / 1.5, alignment: .top)
                             //.ignoresSafeArea(.all, edges: .bottom)

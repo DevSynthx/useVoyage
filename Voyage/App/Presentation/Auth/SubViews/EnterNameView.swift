@@ -9,14 +9,16 @@ import SwiftUI
 
 struct EnterNameView: View {
     @Binding var username: String
+    @FocusState.Binding var isFocused: Bool
     var body: some View {
         VStack (alignment: .leading, spacing: 0){
             Spacer()
             Text("Enter your name")
-                .font(.customx(.bold, size: 20))
+                .font(.customx(.bold, size: 25))
                 .foregroundStyle(.white)
-        Gap(h: 20)
+        Gap(h: 25)
             TextField("", text: $username)
+                .focused($isFocused)
                 .keyboardType(.asciiCapable)
                 .textContentType(.name)
                 .underlineTextField()
@@ -30,11 +32,11 @@ struct EnterNameView: View {
 
             Spacer()
         }
-        .padding(.horizontal, 10)
+        .padding(.horizontal, 25)
     }
 }
 
 #Preview {
-    EnterNameView(username: .constant("David"))
+    EnterNameView(username: .constant("David"), isFocused: FocusState<Bool>().projectedValue)
         .background(.black)
 }
