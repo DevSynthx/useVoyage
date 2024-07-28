@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+//---------------------> Color extension
 extension Color {
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
@@ -79,6 +80,15 @@ extension ShapeStyle where Self == Color {
     }
     static var onBoardingBG: Color {
         return Color(hex: "F4F4F4")
+    }
+    static var tightColor: Color {
+        return Color(hex: "FF2323")
+    }
+    static var midColor: Color {
+        return Color(hex: "F69342")
+    }
+    static var luxuryColor: Color {
+        return Color(hex: "4DA15B")
     }
 }
 

@@ -110,7 +110,7 @@ struct MiniScreen: View {
                                     withAnimation {
                                         self.formState = .cards
                                     }
-                                  //  router.push(to: .GetStartedView)
+                                    isFocused = false
                                 },
                                 title: "Get Started"
                                 )

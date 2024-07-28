@@ -145,7 +145,7 @@ struct CustomSlider<Component: View>: View {
                        ForEach(0..<totalSteps) { index in
                            if index % 10 == 0 {
                                Rectangle()
-                                   .fill(Color.black)
+                                   .fill(getColor(for: index / 10))
                                    .frame(width: 2, height: 50)
                            } else if index < totalSteps - 1 {
                                Rectangle()
@@ -157,6 +157,19 @@ struct CustomSlider<Component: View>: View {
                }
                .frame(maxWidth: .infinity)
                .frame(height: frame.height)
+    }
+    
+    func getColor(for step: Int) -> Color {
+        switch step % 3 {
+            case 0:
+                return .tightColor
+            case 1:
+                return .midColor
+            case 2:
+                return .luxuryColor
+            default:
+                return Color.black
+        }
     }
 
     private func onDragChange(_ drag: DragGesture.Value, _ frame: CGRect) {
