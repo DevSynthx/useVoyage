@@ -34,13 +34,13 @@ struct HomeScreen: View {
                     Gap(w: 20)
                     VStack(alignment: .leading){
                         Text("SAVED LOCATIONS")
-                            .font(.custom(.bold, size: 16))
+                            .font(.customx(.bold, size: 16))
                             .lineSpacing(3)
                             .foregroundStyle(.black)
                         Gap(h: 10)
                         Text("Check our your previous trips\nand relieve great memories.")
                             .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
-                            .font(.custom(.light, size: 12))
+                            .font(.customx(.light, size: 12))
                             .lineSpacing(3)
                             .foregroundStyle(.black)
                     }
@@ -67,19 +67,19 @@ struct HomeScreen: View {
                          
                             Gap(h: 20)
                             ForEach(0..<3) { v in
-                                if v != 0 {
-                                           Divider()
-                                       }
+//                                if v != 0 {
+//                                       // Divider()
+//                                       }
                                     HStack{
                                         Image("imageIcon")
-                                            .font(.custom(.light, size: 13))
+                                            .font(.customx(.light, size: 13))
                                       Gap(w: 20)
                                         Text("Las Vegas Nevada, USA")
-                                            .font(.custom(.light, size: 14))
+                                            .font(.customx(.light, size: 14))
                                             .foregroundStyle(.white)
                                         Spacer()
                                         Image(systemName: "arrow.right")
-                                            .font(.custom(.light, size: 13))
+                                            .font(.customx(.light, size: 13))
                                             .foregroundStyle(.white)
                                     }
                                     .padding(.vertical, 5)
@@ -92,18 +92,18 @@ struct HomeScreen: View {
                            Spacer()
                             VStack(alignment:.leading){
                                 Text("Ready for your next vacation?")
-                                    .font(.custom(.bold, size: 18))
+                                    .font(.customx(.bold, size: 18))
                                     .foregroundStyle(.white)
                                     .padding(.bottom, 5)
                                 Text("Need new locations for your next trip? We got you")
-                                    .font(.custom(.light, size: 12))
+                                    .font(.customx(.light, size: 12))
                                     .foregroundStyle(.white)
                                     
                                 Gap(h: 25)
                                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                                     HStack{
                                       Text("Get recommendations")
-                                            .font(.custom(.bold, size: 14))
+                                            .font(.customx(.bold, size: 14))
                                             .foregroundStyle(.black)
                                         Spacer()
                                         Image("star")

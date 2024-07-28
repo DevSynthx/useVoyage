@@ -18,12 +18,12 @@ struct PersonalityView: View {
             VStack(alignment: .leading){
                 Gap(h: 25)
                 Text("What’s your\npersonality?")
-                    .font(.custom(.bold, size: 30))
+                    .font(.customx(.bold, size: 30))
                     .foregroundStyle(.black)
                     .padding(.leading, 20)
                 Gap(h: 20)
                 Text("Tell us more about yourself. Select a\nminimum of 3 characters.")
-                    .font(.custom(.light, size: 15))
+                    .font(.customx(.light, size: 15))
                     .lineSpacing(5)
                     .foregroundStyle(.gray)
                     .padding(.leading, 20)
@@ -34,7 +34,7 @@ struct PersonalityView: View {
                         ForEach(vm.personalities.enumerated().map{$0}.filter{$0.element.selected == true}, id: \.element.name) { v in
                                     HStack{
                                         Text(v.element.name)
-                                            .font(.custom(.light, size: 13))
+                                            .font(.customx(.light, size: 13))
                                             .foregroundStyle(.white)
                                             .padding(.trailing, 8)
                                         Image(systemName: "xmark")
@@ -83,8 +83,9 @@ struct PersonalityView: View {
                                         
                                         VStack{
                                             Text(v.element.name)
+                                                .font(.customx(.regular, size: 18))
                                                 .foregroundStyle(.black)
-                                                .font(.custom(.regular, size: 18))
+                                                
                                                 .padding(.leading, 15)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
                                                 .padding(.top, 20)
@@ -157,7 +158,7 @@ struct PersonalityView: View {
                                             
                                             VStack{
                                                 Text(v.element.name)
-                                                    .font(.custom(.regular, size: 18))
+                                                    .font(.customx(.regular, size: 18))
                                                     .foregroundStyle(.black)
                                                     .padding(.leading, 15)
                                                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -282,7 +283,7 @@ struct PersonalityView: View {
                                             VStack{
                                                 Gap(h: 30)
                                                 Text(v.element.name)
-                                                    .font(.custom(.regular, size: 18))
+                                                    .font(.customx(.regular, size: 18))
                                                     .foregroundStyle(.black)
                                                     .padding(.leading, 15)
                                                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -334,7 +335,7 @@ struct PersonalityView: View {
                 
                 HStack{
                     Text("\(vm.personalities.filter{$0.selected == true}.count) Personalities selected")
-                        .font(.custom(.medium, size: 18))
+                        .font(.customx(.medium, size: 18))
                         .foregroundStyle(.black)
                     Spacer()
                     NextButton(color: vm.personalities.filter{$0.selected == true}.count >= 3 ? .black : .gray.opacity(0.3),

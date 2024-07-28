@@ -60,7 +60,7 @@ struct AuthView: View {
                     Spacer()
             
                     Text("Voyage")
-                        .font(.custom(.bold, size: 50))
+                        .font(.customx(.bold, size: 50))
                         .foregroundStyle(.black)
                         .scaleEffect(appNameScale)
                         .opacity(appNameOpacity)

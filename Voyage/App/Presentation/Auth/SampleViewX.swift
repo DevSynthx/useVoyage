@@ -48,13 +48,11 @@ struct SampleViewX: View {
         
                     ZStack(alignment: .center){
                         Image("hand")
-                        
                         Text(vm.username.truncate(10))
                             .font(.system(size: 20, weight: .bold))
                             .foregroundStyle(.passportText)
                             .rotationEffect(Angle(degrees: -20))
                             .offset(y: -140)
-                        
                     }
                     .scaleEffect(1)
                     .offset(y: handoffset)
@@ -70,11 +68,11 @@ struct SampleViewX: View {
                             VStack(alignment: .leading){
                                 Gap(h: 70)
                                 Text("Enjoy the full\nexperience")
-                                    .font(.custom(.bold, size: 40))
+                                    .font(.customx(.bold, size: 40))
                                     .foregroundStyle(.white)
                                 Gap(h: 30)
                                 Text("Turn on your app location to\nhelp us give you a more tailored\nexperience.")
-                                    .font(.custom(.regular, size: 15))
+                                    .font(.customx(.regular, size: 15))
                                     .lineSpacing(5)
                                     .foregroundStyle(.white)
                                     

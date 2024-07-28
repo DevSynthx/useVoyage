@@ -12,7 +12,7 @@ struct WelcomeView: View {
         VStack(alignment: .leading, spacing: 10){
             HStack (alignment: .top){
                 Text("Welcome\nto Voyage")
-                    .font(.custom(.bold, size: 30))
+                    .font(.customx(.bold, size: 30))
                     .foregroundStyle(.white)
                     .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                     .alignmentGuide(.top, computeValue: { dimension in
@@ -26,7 +26,7 @@ struct WelcomeView: View {
             }
           
             Text("Experience the world like never before,\nwith tailored recommendations made for\nthe best you")
-                .font(.custom(.regular, size: 12))
+                .font(.customx(.regular, size: 12))
                 .lineSpacing(6)
                 .foregroundStyle(.white)
 
@@ -34,7 +34,6 @@ struct WelcomeView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .padding(.leading, 15)
         .padding(.trailing, 10)
-        .padding(.top, 10)
     }
 }
 

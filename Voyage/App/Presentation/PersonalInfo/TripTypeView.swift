@@ -35,14 +35,14 @@ struct TripTypeView: View {
                       
                         Gap(h:size.height / 30 )
                         Text("What trip is\nup next?")
-                            .font(.custom(.bold, size: 30))
+                            .font(.customx(.bold, size: 30))
                             .foregroundStyle(.black)
                             .padding(.leading, 20)
                             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                         
                         Gap(h: 15)
                         Text("Select what type of trip you want to go for")
-                            .font(.custom(.light, size: 14))
+                            .font(.customx(.light, size: 14))
                             .foregroundStyle(.gray)
                             .padding(.leading, 20)
                     
@@ -50,7 +50,6 @@ struct TripTypeView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack{
                             ForEach(vm.tripType.enumerated().map{$0}, id: \.element.name) { v in
-
                                 Image(v.element.image)
                                     .resizable()
                                     .scaledToFit()
@@ -69,21 +68,18 @@ struct TripTypeView: View {
                                     .scrollTransition(.interactive, axis: .horizontal){
                                         view, phase in
                                         
-                                        view.scaleEffect(phase.isIdentity ? 1 : 0.85)
-                                        
+                                        view
+                                            .scaleEffect(phase.isIdentity ? 1 : 0.85)
+                                           // .offset(x: phase.value * 100)
                                     }
                                     .padding(.horizontal, 20)
                                     .onTapGesture {
                                         withAnimation {
-                                            guard currentIndex == v.offset else {
-                                                return
-                                            }
+                                    guard currentIndex == v.offset else { return }
                                             vm.selectTrip(city: v.element)
-                                           
                                         }
                                        
-                                    }
-
+                                  }
                             }
                         }
                         .padding(.horizontal, 50)
@@ -97,10 +93,10 @@ struct TripTypeView: View {
                     .safeAreaPadding(.horizontal, 20)
                     .scrollClipDisabled()
                     .scrollTargetBehavior(.viewAligned)
-                    .scrollPosition(id: $tripType)
+                   // .scrollPosition(id: $tripType)
                     Gap(h: 20)
                     Text(vm.tripType[currentIndex].name)
-                        .font(.custom(.semiBold, size: 16))
+                        .font(.customx(.semiBold, size: 16))
                         .foregroundStyle(.black)
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
 
@@ -276,7 +272,7 @@ struct TripTypeView: View {
                 
                 HStack{
                     Text("\(vm.tripType[currentIndex].name)  selected")
-                        .font(.custom(.semiBold, size: 18))
+                        .font(.customx(.semiBold, size: 18))
                         .foregroundStyle(.black)
                     Spacer()
                     NextButton {

@@ -18,7 +18,7 @@ struct CardA {
             Image("personalityIcon")
             Gap(h: 10)
             Text("get started")
-                .font(.custom(.medium, size: 12))
+                .font(.customx(.regular, size: 12))
                 .foregroundStyle(.black)
         }
         .frame(width: 100, height: 115)
@@ -55,14 +55,8 @@ struct GetStartedView: View {
     @State private var contentHeight: CGSize = .zero
     let text = "We have\nmapped out\nthe perfect\ngetaway for you"
     let textB = "Choose a\ncategory to\nget started"
-    @State private var cards: [CardA] = [
-//        CardA(id: 0, color: .white, progress: 20),
-//        CardA(id: 1, color: .gray, progress: 40),
-//        CardA(id: 2, color: .gray, progress: 60),
-//        CardA(id: 3, color: .gray, progress: 80),
-//        CardA(id: 4, color: .gray, progress: 100)
-       ]
-       
+
+
     var body: some View {
      
         GeometryReader(content: { geo in
@@ -73,8 +67,6 @@ struct GetStartedView: View {
                     VStack {
                         Gap(h: 10)
                         Image("plane_icon")
-                            //.resizable()
-                            //.aspectRatio(contentMode: .fill)
                             .containerRelativeFrame(.horizontal, { size, _ in
                                 size / 20
                             })
@@ -88,7 +80,7 @@ struct GetStartedView: View {
                                         Image("personalityIcon")
                                         Gap(h: 10)
                                         Text(card.name)
-                                            .font(.custom(.medium, size: 12))
+                                            .font(.customx(.medium, size: 12))
                                             .foregroundStyle(.black)
                                     }
                                     .frame(width: 100, height: 115)
@@ -103,33 +95,32 @@ struct GetStartedView: View {
                                      // CardA(color: card.color, progress: card.progress)
                                        .offset(x: offsetForx(index: index))
                                        .scaleEffect(scaleForx(index: index), anchor: .center)
-                                       .zIndex(Double(cards.count - index)) // Ensure correct layering
+                                       .zIndex(Double(vm.cards.count - index)) // Ensure correct layering
                                         .overlay(
                                             GeometryReader { geo in
                                                 Color.clear.preference(key: HeightPreferenceKey.self, value: geo.size)
                                             }
                                         )
+                                        .background(GeometryReader { itemGeo in
+                                            Color.clear
+                                                .preference(key: ViewOffsetKey.self, value: [itemGeo.frame(in: .global).midX])
+                                        })
                                         .contentShape(Rectangle())
+                                        .onTapGesture(perform: {
+                                            if vm.selectedTrip.ticketCount == 0 && vm.cards[currentIndex].name == "Personality" {
+                                                router?.push(to: .PersonalityView)
+                                            } else if (vm.selectedTrip.ticketCount != 0) {
+                                                //router?.resetAndPush(to: .HomeScreen)
+                                            }
+                                        })
                                         .gesture(
                                             DragGesture()
                                                 .onEnded { value in
-                                                    if value.translation.width < -50 {
-                                                        
-                                                        withAnimation {
-                                                            vm.moveToBack(index)
-                                                            if let topCard = vm.cards.first {
-                                                                progress = CGFloat(topCard.progress)
-                                                            }
-                                                        }
+                                                    if value.translation.width < -50 || value.translation.width > 50 {
+                                                       moveCards(index: index)
+                                                       
                                                     }
-                                                    else if value.translation.width > 50 {
-                                                        withAnimation {
-                                                            vm.moveToBack(index)
-                                                            if let topCard = vm.cards.first {
-                                                                progress = CGFloat(topCard.progress)
-                                                            }
-                                                        }
-                                                    }
+
                                                 }
                                         )
 
@@ -146,17 +137,11 @@ struct GetStartedView: View {
                                         .stroke(.white, lineWidth: 2)
                                 }
                                 .onTapGesture {
-                                    router?.push(to: .PersonalityView)
-                                    if vm.selectedTrip.ticketCount != 0 {
-                                        router?.resetAndPush(to: .HomeScreen)
-                                    } else {
-                                        router?.push(to: .PersonalityView)
-                                    }
-
+                                   moveCards(index: currentIndex)
                                 }
                             Gap(w: 15)
                             Text(vm.selectedTrip.ticketCount != 0 ? textB : textB)
-                                .font(.custom(.bold, size: 16))
+                                .font(.customx(.bold, size: 16))
                                 .lineSpacing(3)
                                 .foregroundStyle(.white)
                          
@@ -166,6 +151,11 @@ struct GetStartedView: View {
                         .onPreferenceChange(HeightPreferenceKey.self, perform: { value in
                             self.contentHeight = value
                         })
+                        .onPreferenceChange(ViewOffsetKey.self) { midXValues in
+                            if let nearestIndex = nearestItemIndex(for: midXValues, in: geo.size.width) {
+                                currentIndex = nearestIndex
+                            }
+                        }
                         Gap(h: vm.selectedTrip.ticketCount != 0 ? 10 : 25)
                         HStack(alignment: .bottom){
                             ZStack{
@@ -186,7 +176,7 @@ struct GetStartedView: View {
                                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                                     HStack{
                                       Text("Show me")
-                                            .font(.custom(.semiBold, size: 13))
+                                            .font(.customx(.semiBold, size: 13))
                                             .foregroundStyle(.black)
                                         Gap(w: 9)
                                         Image("star")
@@ -225,7 +215,6 @@ struct GetStartedView: View {
                          .padding(.bottom, 5)
                     Gap(h: 7)
                 }
-               // .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 .background{
                     RoundedRectangle(cornerRadius: 16)
                         .fill(.black)
@@ -255,7 +244,7 @@ struct GetStartedView: View {
                         }
                     
                     Text(vm.username.truncate(7))
-                        .font(.system(size: 20, weight: .bold))
+                        .font(.customx( .bold, size: 20))
                         .foregroundStyle(.passportText)
                         .rotationEffect(Angle(degrees: -20))
                         .offset(y: -140)
@@ -310,6 +299,22 @@ struct GetStartedView: View {
     }
     
     
+    private func moveCards(index: Int){
+        withAnimation {
+            vm.moveToBack(index, isGetStarted: true)
+            if let topCard = vm.cards.first {
+                progress = CGFloat(topCard.progress)
+            }
+        }
+       }
+    
+    private func nearestItemIndex(for midXValues: [CGFloat], in totalWidth: CGFloat) -> Int? {
+           let centerX = totalWidth / 2
+           let distances = midXValues.enumerated().map { (index, midX) in
+               (index, abs(midX - centerX))
+           }
+           return distances.min(by: { $0.1 < $1.1 })?.0
+       }
     private func scaleForx(index value: Int) -> Double {
         let index = Double(value)
         if index == 0 {
@@ -339,31 +344,6 @@ struct GetStartedView: View {
      
     }
     
-//    func indexOfx(card : CardA) -> Int {
-//        if let index = cards.firstIndex(where: { CCard in
-//            CCard.id == card.id
-//        }){
-//            return index
-//        }
-//        return 0
-//    }
-    
-//    private func moveToBack(_ index: Int) {
-//        let removedCard = cards.remove(at: index)
-//               cards.append(CardA(id: removedCard.id, color: .gray, progress: removedCard.progress))
-//               if let firstCard = cards.first {
-//                   cards[0] = CardA(id: firstCard.id, color: .white, progress: firstCard.progress)
-//               }
-//       
-//       }
-    
-//    private func moveToFront(_ index: Int) {
-//           if index > 0 {
-//               let card = cards.removeLast()
-//               cards.insert(CardA(id: card.id, color: .gray, progress: card.progress), at: 0)
-//               cards[1] = CardA(id: cards[1].id, color: .white, progress: cards[1].progress)
-//           }
-//    }
        
     
      func onChange(value: DragGesture.Value, index: Int){

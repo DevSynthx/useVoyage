@@ -19,15 +19,15 @@ struct ComplimentView: View {
                 }
             Gap(h: 50)
             Text("You have\nnice taste!")
+                .font(.customx(.bold, size: 40))
                 .multilineTextAlignment(.center)
-                .font(.custom(.bold, size: 40))
                 .foregroundStyle(.black)
                 .padding(.leading, 20)
             Gap(h: 20)
             Text("You are almost done, Let's know\nwhat you are interested in")
+                .font(.customx(.light, size: 16))
                 .lineSpacing(5)
                 .multilineTextAlignment(.center)
-                .font(.custom(.light, size: 16))
                 .foregroundStyle(.black)
                 .padding(.leading, 20)
             

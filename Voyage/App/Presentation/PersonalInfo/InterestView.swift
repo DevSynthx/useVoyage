@@ -17,12 +17,12 @@ struct InterestView: View {
         VStack(alignment: .leading){
             Gap(h: 25)
             Text("What are you\ninterested in?")
-                .font(.custom(.bold, size: 30))
+                .font(.customx(.bold, size: 30))
                 .foregroundStyle(.black)
                 .padding(.leading, 20)
             Gap(h: 15)
             Text("Tell us more about yourself. Select a\nminimum of 3 interests.")
-                .font(.custom(.light, size: 14))
+                .font(.customx(.light, size: 14))
                 .lineSpacing(5)
                 .foregroundStyle(.gray)
                 .padding(.leading, 20)
@@ -33,7 +33,7 @@ struct InterestView: View {
                     ForEach(vm.interests.enumerated().map{$0}.filter{$0.element.selected == true}, id: \.element.name) { v in
                                 HStack{
                                     Text(v.element.name)
-                                        .font(.custom(.regular, size: 14))
+                                        .font(.customx(.regular, size: 14))
                                         .foregroundStyle(.white)
                                         .padding(.trailing, 8)
                                     Image(systemName: "xmark")
@@ -74,7 +74,7 @@ struct InterestView: View {
                                                     .frame(width:  40, height: 40)
                                                 
                                                 Text(v.element.name)
-                                                    .font(.custom(.semiBold, size: 15))
+                                                    .font(.customx(.semiBold, size: 15))
                                                     .foregroundStyle(.black)
                                                     .padding(.top, 5)
 
@@ -137,7 +137,7 @@ struct InterestView: View {
                                                     .frame(width:  40, height: 40)
                                                 
                                                 Text(v.element.name)
-                                                    .font(.custom(.semiBold, size: 15))
+                                                    .font(.customx(.semiBold, size: 15))
                                                     .foregroundStyle(.black)
                                                     .padding(.top, 5)
 
@@ -199,7 +199,7 @@ struct InterestView: View {
                                                     .frame(width:  40, height: 40)
                                                 
                                                 Text(v.element.name)
-                                                    .font(.custom(.semiBold, size: 15))
+                                                    .font(.customx(.semiBold, size: 15))
                                                     .foregroundStyle(.black)
                                                     .padding(.top, 5)
 
@@ -249,7 +249,7 @@ struct InterestView: View {
 
             HStack{
                 Text("\(vm.interests.filter{$0.selected == true}.count) Interests selected")
-                    .font(.custom(.medium, size: 18))
+                    .font(.customx(.medium, size: 18))
                     .foregroundStyle(.black)
                 Spacer()
                 NextButton(color: vm.interests.filter{$0.selected == true}.count >= 3 ? .black : .gray.opacity(0.3),

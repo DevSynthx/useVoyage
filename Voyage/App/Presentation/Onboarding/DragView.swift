@@ -52,14 +52,14 @@ struct DragView: View {
                         
                         Image("drag_icon")
                         Text("DRAG UP TO EXPLORE")
-                            .font(.system(size: 15, weight: .regular))
+                            .font(.system(size: 14, weight: .regular))
                             .foregroundStyle(.black)
                         
                         Gap(h: 10)
                         RoundedRectangle(cornerRadius: 20)
                             .frame(width: 50, height: 10)
                             .foregroundStyle(.black)
-                       //Spacer()
+                        
                        Gap(h: 20)
                            
                     }
@@ -109,7 +109,7 @@ struct DragView: View {
                                     self.value = false
                                 }
                                 offset = 0
-                               // router.push(to: .GetStartedView)
+                                
                                 withAnimation {
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
                                         self.isDragged = false
@@ -128,7 +128,7 @@ struct DragView: View {
                 )
             
         }
-       // .background(.onBoardingBG)
+        
     }
     
     func calculateOffset(offset: CGFloat, height: CGFloat) -> CGFloat {

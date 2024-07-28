@@ -28,7 +28,7 @@ struct SwipeView: View {
                 .rotationEffect(.degrees(180))
             
             Text("SWIPE")
-                .font(.custom(.regular, size: 14))
+                .font(.customx(.regular, size: 14))
                 .foregroundStyle(color)
                 .kerning(5)
             Image("arrow_right")

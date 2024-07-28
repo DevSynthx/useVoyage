@@ -53,9 +53,6 @@
 		0CCA15E32B7A455D00758383 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCA15E22B7A455D00758383 /* Preview Assets.xcassets */; };
 		0CCA15E52B7A455D00758383 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA15E42B7A455D00758383 /* Persistence.swift */; };
 		0CCA15E82B7A455D00758383 /* project_z.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA15E62B7A455D00758383 /* project_z.xcdatamodeld */; };
-		0CCA15F22B7A455D00758383 /* project_zTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA15F12B7A455D00758383 /* project_zTests.swift */; };
-		0CCA15FC2B7A455D00758383 /* project_zUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA15FB2B7A455D00758383 /* project_zUITests.swift */; };
-		0CCA15FE2B7A455D00758383 /* project_zUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA15FD2B7A455D00758383 /* project_zUITestsLaunchTests.swift */; };
 		0CCA160C2B7A514300758383 /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA160B2B7A514300758383 /* HTTPService.swift */; };
 		0CCA160E2B7A515100758383 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA160D2B7A515100758383 /* ErrorHandler.swift */; };
 		0CCA16102B7A51A000758383 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA160F2B7A51A000758383 /* HttpMethod.swift */; };
@@ -68,23 +65,6 @@
 		0CDC4B572C277A400057FB69 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDC4B562C277A400057FB69 /* Main.swift */; };
 		0CE352E42BAB52C800C9827C /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE352E32BAB52C800C9827C /* WelcomeScreen.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		0CCA15EE2B7A455D00758383 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0CCA15D02B7A455B00758383 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0CCA15D72B7A455B00758383;
-			remoteInfo = "project-z";
-		};
-		0CCA15F82B7A455D00758383 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0CCA15D02B7A455B00758383 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0CCA15D72B7A455B00758383;
-			remoteInfo = "project-z";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0C15BF2A2C3C0419007C7135 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -136,11 +116,6 @@
 		0CCA15E22B7A455D00758383 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0CCA15E42B7A455D00758383 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0CCA15E72B7A455D00758383 /* project_z.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = project_z.xcdatamodel; sourceTree = "<group>"; };
-		0CCA15ED2B7A455D00758383 /* VoyageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoyageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0CCA15F12B7A455D00758383 /* project_zTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = project_zTests.swift; sourceTree = "<group>"; };
-		0CCA15F72B7A455D00758383 /* VoyageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoyageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0CCA15FB2B7A455D00758383 /* project_zUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = project_zUITests.swift; sourceTree = "<group>"; };
-		0CCA15FD2B7A455D00758383 /* project_zUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = project_zUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0CCA160B2B7A514300758383 /* HTTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPService.swift; sourceTree = "<group>"; };
 		0CCA160D2B7A515100758383 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		0CCA160F2B7A51A000758383 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
@@ -156,20 +131,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		0CCA15D52B7A455B00758383 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0CCA15EA2B7A455D00758383 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0CCA15F42B7A455D00758383 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -321,8 +282,6 @@
 			isa = PBXGroup;
 			children = (
 				0CCA15DA2B7A455B00758383 /* Voyage */,
-				0CCA15F02B7A455D00758383 /* project-zTests */,
-				0CCA15FA2B7A455D00758383 /* project-zUITests */,
 				0CCA15D92B7A455B00758383 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -331,8 +290,6 @@
 			isa = PBXGroup;
 			children = (
 				0CCA15D82B7A455B00758383 /* Voyage.app */,
-				0CCA15ED2B7A455D00758383 /* VoyageTests.xctest */,
-				0CCA15F72B7A455D00758383 /* VoyageUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -359,23 +316,6 @@
 				0CCA15E22B7A455D00758383 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		0CCA15F02B7A455D00758383 /* project-zTests */ = {
-			isa = PBXGroup;
-			children = (
-				0CCA15F12B7A455D00758383 /* project_zTests.swift */,
-			);
-			path = "project-zTests";
-			sourceTree = "<group>";
-		};
-		0CCA15FA2B7A455D00758383 /* project-zUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0CCA15FB2B7A455D00758383 /* project_zUITests.swift */,
-				0CCA15FD2B7A455D00758383 /* project_zUITestsLaunchTests.swift */,
-			);
-			path = "project-zUITests";
 			sourceTree = "<group>";
 		};
 		0CCA160A2B7A50E600758383 /* Core */ = {
@@ -480,42 +420,6 @@
 			productReference = 0CCA15D82B7A455B00758383 /* Voyage.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0CCA15EC2B7A455D00758383 /* VoyageTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0CCA16042B7A455D00758383 /* Build configuration list for PBXNativeTarget "VoyageTests" */;
-			buildPhases = (
-				0CCA15E92B7A455D00758383 /* Sources */,
-				0CCA15EA2B7A455D00758383 /* Frameworks */,
-				0CCA15EB2B7A455D00758383 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0CCA15EF2B7A455D00758383 /* PBXTargetDependency */,
-			);
-			name = VoyageTests;
-			productName = "project-zTests";
-			productReference = 0CCA15ED2B7A455D00758383 /* VoyageTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		0CCA15F62B7A455D00758383 /* VoyageUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0CCA16072B7A455D00758383 /* Build configuration list for PBXNativeTarget "VoyageUITests" */;
-			buildPhases = (
-				0CCA15F32B7A455D00758383 /* Sources */,
-				0CCA15F42B7A455D00758383 /* Frameworks */,
-				0CCA15F52B7A455D00758383 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0CCA15F92B7A455D00758383 /* PBXTargetDependency */,
-			);
-			name = VoyageUITests;
-			productName = "project-zUITests";
-			productReference = 0CCA15F72B7A455D00758383 /* VoyageUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -528,14 +432,6 @@
 				TargetAttributes = {
 					0CCA15D72B7A455B00758383 = {
 						CreatedOnToolsVersion = 15.0.1;
-					};
-					0CCA15EC2B7A455D00758383 = {
-						CreatedOnToolsVersion = 15.0.1;
-						TestTargetID = 0CCA15D72B7A455B00758383;
-					};
-					0CCA15F62B7A455D00758383 = {
-						CreatedOnToolsVersion = 15.0.1;
-						TestTargetID = 0CCA15D72B7A455B00758383;
 					};
 				};
 			};
@@ -555,8 +451,6 @@
 			projectRoot = "";
 			targets = (
 				0CCA15D72B7A455B00758383 /* Voyage */,
-				0CCA15EC2B7A455D00758383 /* VoyageTests */,
-				0CCA15F62B7A455D00758383 /* VoyageUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -573,20 +467,6 @@
 				0C7FDB882C30D68F008A26BA /* Matter-Bold.ttf in Resources */,
 				0CCA15E02B7A455D00758383 /* Assets.xcassets in Resources */,
 				0C7FDB8E2C30D6BD008A26BA /* Matter-Regular.ttf in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0CCA15EB2B7A455D00758383 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0CCA15F52B7A455D00758383 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,37 +530,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0CCA15E92B7A455D00758383 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0CCA15F22B7A455D00758383 /* project_zTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0CCA15F32B7A455D00758383 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0CCA15FC2B7A455D00758383 /* project_zUITests.swift in Sources */,
-				0CCA15FE2B7A455D00758383 /* project_zUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0CCA15EF2B7A455D00758383 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0CCA15D72B7A455B00758383 /* Voyage */;
-			targetProxy = 0CCA15EE2B7A455D00758383 /* PBXContainerItemProxy */;
-		};
-		0CCA15F92B7A455D00758383 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0CCA15D72B7A455B00758383 /* Voyage */;
-			targetProxy = 0CCA15F82B7A455D00758383 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0CCA15FF2B7A455D00758383 /* Debug */ = {
@@ -878,82 +728,6 @@
 			};
 			name = Release;
 		};
-		0CCA16052B7A455D00758383 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ABK2TMF98V;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.david.project-zTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Voyage.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Voyage";
-			};
-			name = Debug;
-		};
-		0CCA16062B7A455D00758383 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ABK2TMF98V;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.david.project-zTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Voyage.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Voyage";
-			};
-			name = Release;
-		};
-		0CCA16082B7A455D00758383 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ABK2TMF98V;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.david.project-zUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "project-z";
-			};
-			name = Debug;
-		};
-		0CCA16092B7A455D00758383 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ABK2TMF98V;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.david.project-zUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "project-z";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -971,24 +745,6 @@
 			buildConfigurations = (
 				0CCA16022B7A455D00758383 /* Debug */,
 				0CCA16032B7A455D00758383 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0CCA16042B7A455D00758383 /* Build configuration list for PBXNativeTarget "VoyageTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0CCA16052B7A455D00758383 /* Debug */,
-				0CCA16062B7A455D00758383 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0CCA16072B7A455D00758383 /* Build configuration list for PBXNativeTarget "VoyageUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0CCA16082B7A455D00758383 /* Debug */,
-				0CCA16092B7A455D00758383 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

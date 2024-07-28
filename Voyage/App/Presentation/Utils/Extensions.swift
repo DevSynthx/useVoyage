@@ -106,7 +106,7 @@ enum CustomFontStyle: String {
 }
 
 extension Font {
-    static func custom(_ style: CustomFontStyle, size: CGFloat) -> Font {
+    static func customx(_ style: CustomFontStyle, size: CGFloat) -> Font {
         return Font.custom(style.rawValue, size: size)
     }
 }

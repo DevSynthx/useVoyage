@@ -95,13 +95,13 @@ struct WelcomeScreen: View {
                                             ForEach(OnBoardingModel.onBoardingList.enumerated().map{$0}, id: \.element.id) { v in
                                                 VStack(alignment: .leading){
                                                     Text(v.element.title)
-                                                        .font(.custom(.bold, size: 25))
+                                                        .font(.customx(.bold, size: 25))
                                                         .lineSpacing(3)
                                                         .padding(.bottom, 10)
                                                         .foregroundStyle(.black)
                                                         .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                                                     Text(v.element.subtitle)
-                                                        .font(.custom(.light, size: 15))
+                                                        .font(.customx(.light, size: 15))
                                                         .lineSpacing(3)
                                                         .padding(.bottom, 5)
                                                         .foregroundStyle(.black)

@@ -21,7 +21,7 @@ struct BudgetView: View {
                 VStack(alignment: .leading){
                     Gap(h: 25)
                     Text("What is your\ndaily budget?")
-                        .font(.custom(.bold, size: 30))
+                        .font(.customx(.bold, size: 30))
                         .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                         .foregroundStyle(.black)
                         .padding(.leading, 20)
@@ -29,7 +29,7 @@ struct BudgetView: View {
                     
                     Gap(h: 15)
                     Text("Choose your daily budget range")
-                        .font(.custom(.light, size: 15))
+                        .font(.customx(.light, size: 15))
                         .foregroundStyle(.gray)
                         .padding(.leading, 20)
                     Gap(h: 35)
@@ -41,11 +41,11 @@ struct BudgetView: View {
                                         Image(v.element.image)
                                         Gap(h: 20)
                                         Text(v.element.image.capitalized)
-                                            .font(.custom(.semiBold, size: 25))
+                                            .font(.customx(.semiBold, size: 25))
                                             .foregroundStyle(.black)
                                         Gap(h: 15)
                                         Text(v.element.name)
-                                            .font(.custom(.regular, size: 15))
+                                            .font(.customx(.regular, size: 15))
                                             .foregroundStyle(.black.opacity(0.5))
                                     }
                                     .frame(height: size.height / 3.5)
@@ -92,15 +92,15 @@ struct BudgetView: View {
 
                     Gap(h: size.height / 9)
                     Text("DRAG TO SELECT YOUR RANGE")
-                        .font(.custom(.regular, size: 15))
+                        .font(.customx(.regular, size: 15))
                         .foregroundStyle(.black)
-                        .kerning(5.0)
+                        .kerning(3.0)
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
                     Gap(h: size.height / 12)
                     
                     HStack{
                         Text("\(vm.budgetTypes[scrollToIndex].image.capitalized) selected")
-                            .font(.custom(.medium, size: 18))
+                            .font(.customx(.medium, size: 18))
                             .foregroundStyle(.black)
                         Spacer()
                         NextButton {

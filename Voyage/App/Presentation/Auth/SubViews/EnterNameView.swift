@@ -13,7 +13,7 @@ struct EnterNameView: View {
         VStack (alignment: .leading, spacing: 0){
             Spacer()
             Text("Enter your name")
-                .font(.custom(.bold, size: 20))
+                .font(.customx(.bold, size: 20))
                 .foregroundStyle(.white)
         Gap(h: 20)
             TextField("", text: $username)

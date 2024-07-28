@@ -29,7 +29,7 @@ struct CityVisited: View {
                         Group{
                             Gap(h:size.height / 20 )
                             Text("What cities have\nyou visited?")
-                                .font(.custom(.bold, size: 30))
+                                .font(.customx(.bold, size: 30))
                                 .foregroundStyle(.black)
                                 .padding(.leading, 20)
                                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
@@ -77,7 +77,7 @@ struct CityVisited: View {
                                                 .foregroundColor(.black)
                                             Gap(w: 10)
                                             Text(v.element.name)
-                                                .font(.custom(.regular, size: 14))
+                                                .font(.customx(.regular, size: 14))
                                                 .foregroundStyle(.black)
                                             
                                         }
@@ -109,7 +109,7 @@ struct CityVisited: View {
                         } else{
                             Gap(h: size.height * 0.07)
                             Text("Your selected cities will appear below")
-                                .font(.custom(.regular, size: 16))
+                                .font(.customx(.regular, size: 16))
                                 .foregroundStyle(.gray)
                             Gap(h: size.height * 0.03)
                         }
@@ -133,7 +133,7 @@ struct CityVisited: View {
                                                         .clipShape( UnevenRoundedRectangle(cornerRadii: .init(topLeading: 15, topTrailing: 15)))
                                                     HStack{
                                                         Text(v.element.name)
-                                                            .font(.custom(.regular, size: 15))
+                                                            .font(.customx(.regular, size: 15))
                                                             .foregroundColor(.black)
                                                         Spacer()
                                                         Image(systemName: "xmark.circle")
@@ -173,7 +173,7 @@ struct CityVisited: View {
                         Spacer()
                         HStack{
                             Text("\(vm.selectedCities.count) Cities selected")
-                                .font(.custom(.medium, size: 18))
+                                .font(.customx(.medium, size: 18))
                                 .foregroundStyle(.black)
                             Spacer()
                             NextButton {

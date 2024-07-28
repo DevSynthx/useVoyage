@@ -27,7 +27,7 @@ struct SubTextView: View {
                     .opacity(opacity)
                     .offset(x: backArrowOffset)
                 Text("SWIPE")
-                    .font(.custom(.regular, size: 12))
+                    .font(.customx(.regular, size: 12))
                     .foregroundStyle(.black)
                     .kerning(5)
                     .scaleEffect(scaleText)
@@ -41,7 +41,7 @@ struct SubTextView: View {
             }
            Gap(h: 70)
             Text("Exploring meets\naccurate planning")
-                .font(.custom(.regular, size: 30))
+                .font(.customx(.regular, size: 30))
                 .foregroundStyle(.black)
                 .multilineTextAlignment(.center)
                 .opacity(textOpacity)

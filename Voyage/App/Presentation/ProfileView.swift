@@ -15,7 +15,7 @@ struct ProfileView: View {
             Gap(h: 30)
             HStack(alignment: .top){
                 Text("Go back")
-                    .font(.custom(.bold, size: 16))
+                    .font(.customx(.bold, size: 16))
                     .foregroundStyle(.black)
                 Image("return")
             }
@@ -30,16 +30,16 @@ struct ProfileView: View {
             }
             Gap(h: 60)
             Text("Profile")
-                .font(.custom(.bold, size: 28))
+                .font(.customx(.bold, size: 28))
                 .padding(.bottom, 5)
                 .foregroundStyle(.black)
             Text("Manage your profile information")
-                .font(.custom(.light, size: 14))
+                .font(.customx(.light, size: 14))
                 .padding(.bottom, 5)
                 .foregroundStyle(.black.opacity(0.5))
             Gap(h: 50)
             Text("PROFILE")
-                .font(.custom(.regular, size: 16))
+                .font(.customx(.regular, size: 16))
                 .padding(.bottom, 5)
                 .foregroundStyle(.black.opacity(0.5))
             VStack(alignment: .leading){
@@ -50,12 +50,12 @@ struct ProfileView: View {
                     HStack{
                         VStack(alignment: .leading){
                             Text(Profile.profilex[v].username)
-                                .font(.custom(.bold, size: 16))
+                                .font(.customx(.bold, size: 16))
                                 .padding(.bottom, 5)
                                 .foregroundStyle(.black)
                             if v == 0 {
                                 Text("\("richmond123@email.com")")
-                                    .font(.custom(.light, size: 14))
+                                    .font(.customx(.light, size: 14))
                                     .padding(.bottom, 5)
                                     .foregroundStyle(.black)
                             }
@@ -64,7 +64,7 @@ struct ProfileView: View {
                         Spacer()
                         if v == 0 {
                             Text("Update")
-                                .font(.custom(.medium, size: 15))
+                                .font(.customx(.medium, size: 15))
                                 .padding(.bottom, 5)
                                 .foregroundStyle(.blue)
                         } else {
@@ -79,13 +79,13 @@ struct ProfileView: View {
                 }
             }
             Text("NOTIFICATIONS")
-                .font(.custom(.regular, size: 16))
+                .font(.customx(.regular, size: 16))
                 .padding(.bottom, 5)
                 .foregroundStyle(.black.opacity(0.5))
             Gap(h: 30)
             HStack{
                 Text("Get updates & tips")
-                    .font(.custom(.bold, size: 16))
+                    .font(.customx(.bold, size: 16))
                     .padding(.bottom, 5)
                     .foregroundStyle(.black)
                 Spacer()
@@ -122,7 +122,7 @@ struct ProfileView: View {
             Divider()
             Gap(h: 40)
             Text("Remove account")
-                .font(.custom(.bold, size: 16))
+                .font(.customx(.bold, size: 16))
                 .padding(.bottom, 5)
                 .foregroundStyle(.red)
         }

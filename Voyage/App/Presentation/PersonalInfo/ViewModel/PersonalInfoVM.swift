@@ -101,15 +101,26 @@ class PersonalInfoVM: ObservableObject {
         }
     }
     
-     func moveToBack(_ index: Int) {
+    func moveToBack(_ index: Int, isGetStarted: Bool) {
         let removedCard = cards.remove(at: index)
-         let res =  SelectionCard( id: removedCard.id, image: removedCard.image, name: removedCard.name, color: .gray, progress: removedCard.progress)
+        let res =  SelectionCard( id: removedCard.id, image: removedCard.image, name: removedCard.name, color: .gray, progress: removedCard.progress)
                cards.append(res)
-               if let firstCard = cards.first {
-                   cards[0] = SelectionCard( id: firstCard.id, image: firstCard.image, name: firstCard.name, color: .white, progress: firstCard.progress)
-                   
-               }
-       
+        if let firstCard = cards.first {
+            let cardColor: Color
+            if firstCard.name == "Personality" {
+                cardColor = .white
+            } else {
+                cardColor = isGetStarted ? .gray : .white
+            }
+            
+            cards[0] = SelectionCard(
+                id: firstCard.id,
+                image: firstCard.image,
+                name: firstCard.name,
+                color: cardColor,
+                progress: firstCard.progress
+            )
+        }
        }
     
     
@@ -219,7 +230,7 @@ struct SelectionCard: Hashable{
     
    
     static var selections: [SelectionCard] = [
-        SelectionCard( id: 0, image: "tight", name: "Personlity", color: .white, progress: 20),
+        SelectionCard( id: 0, image: "tight", name: "Personality", color: .white, progress: 20),
         SelectionCard(id: 1, image: "tight", name: "Interest", color: Color.gray, progress: 40),
         SelectionCard(id: 2, image: "tight", name: "Cities Visited", color: Color.gray, progress: 60),
         SelectionCard(id: 3, image: "tight", name: "Trip Type", color: Color.gray, progress: 80),

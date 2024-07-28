@@ -97,14 +97,14 @@ struct ChooseSeasonView: View {
                             
                                 Gap(h: 100)
                                 Text("Picture your\nideal vacation")
-                                    .font(.system(size: 35, weight: .semibold))
+                                    .font(.customx(.semiBold,  size: 35))
                                     .foregroundStyle(.black)
                                     .padding(.horizontal, 25)
                                     .frame(width: size.width, alignment: .leading)
                                  
                                 Gap(h: 20)
                                 Text("Now let's pick the perfect season for it!")
-                                    .font(.system(size: 15, weight: .regular))
+                                    .font(.customx(.regular,  size: 15))
                                     .foregroundStyle(.black)
                                     .padding(.horizontal, 25)
                                     .frame(width: size.width, alignment: .leading)
@@ -116,7 +116,7 @@ struct ChooseSeasonView: View {
                                             .rotationEffect(.degrees(180))
                                             .offset(y:  offsetx)
                                         Text("DRAG DOWN TO CHOOSE")
-                                            .font(.system(size: 15, weight: .regular))
+                                            .font(.customx(.regular,  size: 14))
                                             .foregroundStyle(.black)
                                     }
                                     .onAppear{
@@ -129,7 +129,7 @@ struct ChooseSeasonView: View {
                                             .offset(y:  offsetx)
 //                                            .animation(.spring(duration: 1).delay(0.3).repeatForever(autoreverses: true), value: isAnimating)
                                         Text("DRAG UP TO START")
-                                            .font(.system(size: 15, weight: .regular))
+                                            .font(.customx(.regular,  size: 14))
                                             .foregroundStyle(.black)
                                     }
                                     .onAppear{
@@ -225,7 +225,7 @@ struct ChooseSeasonView: View {
                 SwipeView(color: .white)
                 Gap(h: 35)
                 Text(seasons[centeredIndex].capitalized)
-                    .font(.custom(.bold, size: 35))
+                    .font(.customx(.bold, size: 35))
                     .foregroundStyle(.white)
                     .padding(.horizontal, 20)
                     .animation(.interactiveSpring, value: seasons[centeredIndex])
@@ -234,7 +234,7 @@ struct ChooseSeasonView: View {
                 HStack(alignment: .center, spacing: 30) {
                     ForEach(months.indices, id:\.self) { i in
                         Text(months[i])
-                            .font(.custom(.regular, size: 15))
+                            .font(.customx(.regular, size: 15))
                             .foregroundStyle(.white)
                             .frame(width: 135)
                             .foregroundStyle((centeredIndex - 3) == (-i) ? .white : .greyX.opacity(0.4))

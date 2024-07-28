@@ -31,7 +31,7 @@ struct SearchView: View {
                    
                 Button(action: action) {
                     Text("Cancel")
-                        .font(.custom(.regular, size: 15))
+                        .font(.customx(.regular, size: 15))
                 }
             
             }
@@ -41,7 +41,7 @@ struct SearchView: View {
             ScrollView(showsIndicators: false) {
                 ForEach(vm.filtercities, id: \.name) { v in
                     Text(v.name)
-                        .font(.custom(.regular, size: 17))
+                        .font(.customx(.regular, size: 17))
                         .foregroundStyle(.black)
                         .frame(maxWidth: .infinity, maxHeight: 60)
                         .padding()

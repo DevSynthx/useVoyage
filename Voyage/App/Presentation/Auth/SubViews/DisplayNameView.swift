@@ -10,30 +10,30 @@ import SwiftUI
 struct DisplayNameView: View {
     @Binding var name: String
     var body: some View {
-        VStack(alignment: .leading, spacing: 10){
+        VStack(alignment: .leading){
             Gap(h: 10)
             HStack {
                 Text("Hi \(name)")
-                    .font(.custom(.bold, size: 30))
+                    .font(.customx(.bold, size: 30))
                     .foregroundStyle(.white)
                     .lineLimit(1)
                     .truncationMode(.tail)
                 .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                 Text("👋")
-                    .font(.custom(.bold, size: 30))
+                    .font(.customx(.bold, size: 30))
             }
                 
             Text("You can change your name\nif you like or proceed.")
-                .font(.custom(.regular, size: 12))
+                .font(.customx(.regular, size: 12))
                 .foregroundStyle(.white)
                 .lineSpacing(5)
                 .fixedSize(horizontal: false, vertical: true)
            
          
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .padding(.horizontal, 20)
-        .padding(.top, 10)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+       
     }
 }
 

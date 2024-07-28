@@ -35,7 +35,7 @@ struct MiniWindow: View {
                 VStack(alignment: .leading){
                     Image(logo)
                     Text(title)
-                        .font(.custom(.medium, size: 14))
+                        .font(.customx(.medium, size: 14))
                         .foregroundStyle(.white)
                         .frame(height: 130, alignment: .top)
                 }
